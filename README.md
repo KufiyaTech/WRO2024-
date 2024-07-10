@@ -1,8 +1,8 @@
 # Hi, we are KufiyaTech team , representing our beloved country , Palestine!
-![palestine-flag-illustration-hand-drawn-of-palestine-flag-flag-of-palestine-vector-removebg-preview](https://github.com/KufiyaTech/WRO2024-/assets/172860664/762866fa-9850-4595-868a-0e80bc71700c)
+![palestine-flag-illustration-hand-drawn-of-palestine-flag-flag-of-palestine-vector-removebg-preview](https://github.com/KufiyaTech/WRO2024-/assets/172860664/762866fa-9850-4595-868a-0e80bc71700c)![Capture-removebg-preview](https://github.com/KufiyaTech/WRO2024-/assets/172860664/062a5ed9-cc8a-4399-9fc4-3b65bad85b79)
 
 
-![Capture-removebg-preview](https://github.com/KufiyaTech/WRO2024-/assets/172860664/062a5ed9-cc8a-4399-9fc4-3b65bad85b79)
+
 
 
 
