@@ -1,5 +1,6 @@
 # Hi, we are KufiyaTech team , representing our beloved country , Palestine!
-(https://github.com/KufiyaTech/WRO2024/assets/172860664/f204697d-a67c-4bb1-8258-b94a9ba9a639)
+(https://github.com/KufiyaTech/WRO2024/assets/172860664/f204697d-a67c-4bb1-8258-b94a9ba9a639)![image]
+
 
 ![Capture-removebg-preview](https://github.com/KufiyaTech/WRO2024-/assets/172860664/062a5ed9-cc8a-4399-9fc4-3b65bad85b79)
 
