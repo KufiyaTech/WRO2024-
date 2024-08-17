@@ -150,40 +150,54 @@ After deciding to use a CNC machine, we encountered several challenges in select
 
 ![image](https://github.com/KufiyaTech/WRO2024/assets/172860664/27b721c8-c8ca-469b-8199-d90283b693bb)
 ## How does our robot think?
-How does our robot think?
+
 Using the Arduino Mega 2560 microcontroller, our car is controlled and given commands. The programming was done in C++. Why C++? Because the Arduino Integrated Development Environment (IDE) is built to support C++ (with some simplifications and extensions). The libraries and core functions of the Arduino platform are written in C++. We used a set of sensors, each for a specific function so that the car could complete the required task.
+
 ## Open challenge:
+
 Round objectives:
+
 •	Moving between the internal and external wall.
 •	Turning the  car when detecting the lines . 
 •	Detecting blue and orange lines on the mat.
 •	Counting the laps.
 •	The car stops after 3 laps. 
+
 Round constraints: 
+
 •	Time.
 •	Color sensor accuracy.
 •	The car Turning in the correct angle.
 •	The direction of the car's movement is random.
 •	he position from which the car starts moving is random.
 •	The distance between the inner and outer wall is random.
+
 How did Ghoson ( our car ) complete this round?
+
 Open challenge round main loop code logic: For this round, we used 3 ultrasonic sensors to keep the car between the internal and external walls, and the MPU6050 to keep the car moving straight without bumping in the walls, we used the TCS3200 color sensor for detecting the blue and orange lines , if the line that is detected is orange , the direction of the car’s movement is counterclockwise , if the line is blue , the direction is clockwise , when the car detects a line whether its blue or orange , and if the front ultrasonic sensor detects that the front sensor is nearly 100cm it will turn , we adjusted the turning angle using the MPU6050,  when the color sensor counts 12 orange and blue lines then the car has finished 3 laps , the car should stop moving.
+
 ## Obstacle avoidance:
+
 Round objectives:
+
 •	Detecting red and green pillars.
 •	Detecting orange and blue lines.
 •	Turn right if detecting red pillar.
 •	Turn left if detecting green pillar.
 •	Turn when detecting blue or orange line.
 •	Move straight between the internal and external walls.
+
 Round constraints:
+
 •	The positions of the pillars are random.
 •	The number of the pillars is random.
 How did Ghoson ( our car ) complete this rouned?
 Obstacle avoidance challenge main loop code logic: Using the pixy2 camera the car detected the green and the red pillars , we programmed the pixy to devise its frame from the half and detect whether the pillar is on the left or the right side from the car, when the camera detects that the size of the pillar is bigger than 10000 the car should turn to the left or to the right, the turning angle is adjusted using the MPU6050 , the direction of the car’s movement is declared from detecting the lines on the map, when the color sensor detects 12 lines , the car stops moving.
 
 ## Lap counting mechanism
+
 Problem statement:
+
 The goal is to implement a lap counting mechanism for an autonomous vehicle (or RC car) that will accurately count the number of laps the vehicle completes on a designated track. The key requirement is that after completing exactly three laps, the vehicle must automatically stop.
 
 1.	COLOR SENSOR-BASED DETECTION:
@@ -191,11 +205,15 @@ The first method involves utilizing a color sensor to detect specific markers pl
 Principle: The color sensor is calibrated to recognize a specific color that is distinct from the track's surface. When the sensor detects this color, it triggers a signal to increment the lap count. 
 
 Why Do we Not Recommend This Method?
+
 Disadvantages:
+
 Accuracy Issues: Despite our extensive efforts, the color sensor consistently struggled to provide accurate readings, particularly when detecting the color orange. The sensor's performance was significantly affected by ambient lighting conditions, even after attempts to mitigate this with a custom shield.
 Programming Challenges: We encountered difficulties in programming the sensor to reliably identify the target color. These challenges were exacerbated by the high speed of the vehicle, which further impaired the sensor’s ability to accurately detect and register the color in real-time.
 Unreliable Performance: Overall, the color sensor's inability to deliver consistent and precise measurements, especially under the dynamic conditions of our application, rendered it an unsuitable choice for our project. This unreliability was a critical factor in our decision to explore alternative lap counting methods.
+
 2- Loop-Based Counting with Ultrasonic Sensor and IMU
+
 The second method involves a software-based loop counter that increments the lap count each time a specific condition within the code is met. In our approach, the robot detects the completion of a lap using an ultrasonic sensor. When the sensor detects that the distance to a specific point or object is less than 50 cm, the robot recognizes this as an indicator to begin a new lap. The robot’s steering is controlled by an IMU (Inertial Measurement Unit), which ensures precise navigation as the robot turns.
 
 Principle: The loop-based method in our project is implemented by continuously monitoring the distance using the ultrasonic sensor. When the sensor detects that the distance has decreased below 50 cm, the robot initiates a turning maneuver, guided by the IMU. This detection and turning process is managed within a loop structure in the code, specifically within a while loop that executes as long as the distance remains below 60 cm. Each time this condition is met, the program increments the lap count, allowing for accurate tracking of the robot’s laps.
