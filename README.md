@@ -43,19 +43,19 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    2.6. [IMU-Based Steering](#imu-based-steering)
    
-7. [Open Challenge Algorithm](#open-challenge-algorithm)
+3. [Open Challenge Algorithm](#open-challenge-algorithm)
 
    3.1. [PD Controller](#pd-controller)
    
    3.2. [Turn Execution](#turn-execution)
    
-10. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
+4. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
 
    4.1. [Pillar Detection](#pillar-detection)
     
    4.2. [Obstacle Avoidance Strategy](#obstacle-avoidance-strategy)
    
-13. [Designing Process](#designing-process)
+5. [Designing Process](#designing-process)
 
    5.1. [Steering System](#steering-system)
     
@@ -67,13 +67,13 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    5.5. [Ackermann Steering Mechanism](#ackermann-steering-mechanism)
    
-16. [Power and Sense Management](#power-and-sense-management)
+6. [Power and Sense Management](#power-and-sense-management)
 
    6.1. [Power Source](#power-source)
     
    6.2. [Sensors We Used and Their Functions](#sensors-we-used-and-their-functions)
    
-19. [Appendices](#appendices)
+7. [Appendices](#appendices)
 
    7.1. [Datasheets and Specifications](#datasheets-and-specifications)
     
@@ -83,7 +83,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    7.4. [References](#references)
    
-22. [Hurdles and Challenges](#hurdles-and-challenges)
+8. [Hurdles and Challenges](#hurdles-and-challenges)
 
    8.1. [Designing Process Challenges](#designing-process-challenges)
     
@@ -91,7 +91,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    8.3. [General Challenges](#general-challenges)
    
-25. [Conclusion and Reflections](#conclusion-and-reflections)
+9. [Conclusion and Reflections](#conclusion-and-reflections)
  
    9.1. [Lessons Learned](#lessons-learned)
     
