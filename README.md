@@ -105,18 +105,33 @@ This project is developed for the WRO Future Engineers 2024 competition and focu
 The competition requires a sophisticated approach to both hardware and software. We’ve integrated robust algorithms that allow the car to autonomously make decisions based on real-time data from its sensors. This not only showcases the car's ability to navigate and avoid obstacles but also emphasizes its capacity to follow designated paths with high accuracy. The project encompasses several engineering disciplines, including electronics, mechanics, and software development, making it a comprehensive example of modern engineering applied to robotics.
 
 
-## Team Members:
-Sara Jawaada,designer, software developer -email:sarajawaada906@gmail.com
+### 1.2 Team Management
 
-Amro Duhaidi ,software developer -email:amro.duaidi@gmail.com
+Our project is the result of a collaborative effort by a skilled and dedicated team, each member bringing unique expertise to the table:
 
-Tala Daraghmeh ,software developer, Github manager -email:taladaraghmeh836@gmail.com
-## coach name:
-Eng.Mohammad Muamar
+- **Sara Jawaada**: As the lead designer, Sara was instrumental in overseeing the entire design process, ensuring that the physical and conceptual elements of the project were seamlessly integrated. Additionally, she played a key role in software development, contributing to both the architecture and implementation of core functionalities.
 
-moh.mummar@gmail.com
+- -email:sarajawaada906@gmail.com
 
-A Palestinian engineer and graduate of Palestine Polytechnic University in Hebron, We take pride in being a student of esteemed professors who hold Palestinian degrees and offer expertise of global standards. Our heartfelt gratitude goes to our teacher and mentor, Mohammad Muammar, for his unwavering efforts and support throughout our journey in this competition.
+
+- **Amro Duhaidi**: Amro led the technical implementation of the software, with a particular focus on sensor integration and system wiring. His expertise in coding and hardware interfacing was crucial in developing the responsive and reliable behavior of the robot, ensuring that all sensors were effectively utilized in the project's logic.
+
+- -email:amro.duaidi@gmail.com
+
+
+- **Tala Daraghmeh**: Tala managed the version control and documentation of the project, ensuring that all development efforts were well-documented and accessible via GitHub. Her contributions also extended to software development, where she collaborated closely with the team to refine the codebase and maintain project integrity.
+
+- -email:taladaraghmeh836@gmail.com
+- 
+### Acknowledgment
+
+We would like to extend our deepest gratitude to our mentor and coach, **Eng. Mohammad Muamar**. A distinguished engineer and graduate of Palestine Polytechnic University in Hebron, Eng. Muamar has been instrumental in guiding our team through every step of this competition. His dedication, expertise, and unwavering support have been invaluable to our progress and success.
+
+As students of esteemed professors who are proud holders of Palestinian degrees with expertise of global standards, we are honored to have Eng. Muamar as our mentor. His commitment to excellence and his belief in our potential have profoundly shaped our approach and achievements in this project.
+
+**Contact Information**:
+- **Email**: [moh.mummar@gmail.com](mailto:moh.mummar@gmail.com)
+
 # KufiyaTech team's social accounts
 
 https://linktr.ee/kufiyatech
