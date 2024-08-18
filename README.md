@@ -31,9 +31,9 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
 2. [How Does Our Robot Think](#how-does-our-robot-think)
  
-   2.1. [Open Challenge Logic Overview](#open-challenge-logic-overview)
+   2.1. [Open Challenge Overview](#open-challenge-overview)
    
-   2.2. [Obstacle Challenge Logic Overview](#obstacle-challenge-logic-overview)
+   2.2. [Obstacle Challenge Overview](#obstacle-challeng-overview)
    
    2.3. [Moving at Safe Zone](#moving-at-safe-zone)
    
@@ -188,7 +188,7 @@ We leveraged several libraries to implement the functionalities required for our
 
 These libraries, combined with the robustness of C++, provide the necessary tools to implement the complex control logic required by our autonomous vehicle.
 
-### 2.1 Open Challenge Logic Overview
+### 2.1 Open Challenge Overview
 
 **Round objectives:**
 
@@ -203,6 +203,7 @@ These libraries, combined with the robustness of C++, provide the necessary tool
 •	The car stops after 3 laps. 
 
 **Round constraints:**
+
 •	Time.
 
 •	The car Turning in the correct angle.
@@ -213,4 +214,30 @@ These libraries, combined with the robustness of C++, provide the necessary tool
 
 •	The distance between the internal and external wall is random.
 
-**How did Ghoson ( our car ) complete this round?**
+### 2.2 Obstacle Challenge Overview
+
+**Round objectives:**
+
+•	Detecting red and green pillars.
+
+•	Detecting orange and blue lines.
+
+•	Turn right if detecting red pillar.
+
+•	Turn left if detecting green pillar.
+
+•	Turn when detecting blue or orange line.
+
+•	Move straight between the internal and external walls.
+
+**Round constraints:**
+
+•	The positions of the pillars are random.
+
+•	The number of the pillars is random.
+
+
+
+
+
+
