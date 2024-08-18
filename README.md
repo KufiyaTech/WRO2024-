@@ -29,7 +29,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    1.2. [Team Management](#team-management)
    
-4. [How Does Our Robot Think](#how-does-our-robot-think)
+2. [How Does Our Robot Think](#how-does-our-robot-think)
  
    2.1. [Open Challenge Logic Overview](#open-challenge-logic-overview)
    
@@ -64,6 +64,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    5.3. [Chassis](#chassis)
    
    5.4. [Mechanism](#mechanism)
+   
    5.5. [Ackermann Steering Mechanism](#ackermann-steering-mechanism)
    
 16. [Power and Sense Management](#power-and-sense-management)
