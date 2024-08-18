@@ -151,10 +151,40 @@ Stay connected with our team and follow our journey through our official social 
 
 - **KufiyaTech Social Accounts**: [https://linktr.ee/kufiyatech](https://linktr.ee/kufiyatech)
 
-### How Does Our Robot Think
+### 2.How Does Our Robot Think
 
 To ensure our vehicle can successfully complete the tasks required in both rounds of the competition, we have utilized a variety of sensors, each with a specific function, as detailed in the Power and Sense Management section of this README.
 
 Our robot is powered by an Arduino Mega microcontroller and programmed in C++. The core logic of the vehicle relies on a PD (Proportional-Derivative) controller to navigate within the designated safe zone. The vehicle is equipped with three ultrasonic sensors and an IMU (Inertial Measurement Unit) sensor, which together manage the steering system effectively.
 
 Additionally, a front-facing ultrasonic sensor is employed to detect U-turns. This combination of sensors and control algorithms forms the backbone of our robot's decision-making process, allowing it to navigate the course autonomously and efficiently.
+
+**Programming Language**
+## 2. How Does Our Robot Think
+
+To ensure our vehicle can successfully complete the tasks required in both rounds of the competition, we have utilized a variety of sensors, each with a specific function, as detailed in the [Power and Sense Management](#power-and-sense-management) section of this README.
+
+Our robot is powered by an Arduino Mega microcontroller and is programmed in **C++**. We chose C++ as our programming language due to its high performance and efficiency, which are crucial for real-time processing and control in embedded systems like ours. Additionally, C++ provides fine-grained control over system resources, which is essential for optimizing the performance of our robot’s algorithms.
+
+The core logic of the vehicle relies on a PD (Proportional-Derivative) controller to navigate within the designated safe zone. The vehicle is equipped with three ultrasonic sensors and an IMU (Inertial Measurement Unit) sensor, which together manage the steering system effectively. Additionally, a front-facing ultrasonic sensor is employed to detect U-turns. This combination of sensors and control algorithms forms the backbone of our robot's decision-making process, allowing it to navigate the course autonomously and efficiently.
+
+**Programming Language and Libraries**
+
+ **Programming Language**: **C++**
+
+- **Why C++?**: C++ was selected for its high-performance capabilities, which are critical for the real-time control and processing required in our robotic system. Its object-oriented features allow for clean, modular code, making it easier to manage the complex interactions between the different sensors and control mechanisms. Furthermore, C++ is well-supported on the Arduino platform, making it an ideal choice for our project.
+
+**Libraries Used**
+
+We leveraged several libraries to implement the functionalities required for our robot:
+
+- **`Wire.h`**: Facilitates I2C communication between the Arduino and various sensors, such as the IMU, allowing us to efficiently gather and process sensor data.
+- 
+- **`Servo.h`**: Used for controlling the servo motors, particularly in steering and managing precise movements.
+- 
+- **`Pixy2.h`**: Handles communication with the Pixy2 camera sensor, which is crucial for visual tracking and object recognition tasks.
+- 
+- **`MPU6050.h`**: Provides functions to interface with the MPU6050 IMU sensor, enabling accurate detection of orientation, acceleration, and gyroscopic data to manage the robot's movement and stability.
+
+These libraries, combined with the robustness of C++, provide the necessary tools to implement the complex control logic required by our autonomous vehicle.
+
