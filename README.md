@@ -229,7 +229,6 @@ These libraries, combined with the robustness of C++, provide the necessary tool
 •	The number of the pillars is random.
 
 ### 2.3 Moving at safe zone
-
 ### 2.4 Detecting Turns and Direction
 
 **Problem Statement:**
@@ -259,7 +258,12 @@ An alternative approach utilized three ultrasonic sensors to determine the direc
 
 This method relied on spatial awareness and distance measurement, allowing the car to make decisions based on its surroundings without relying on visual markers.
 
-![Turn Detection Logic](https://github.com/user-attachments/assets/0fac0299-f811-430a-a7f3-c70c11bd5935)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0fac0299-f811-430a-a7f3-c70c11bd5935" alt="Turn Detection Logic" width="400"/>
+</p>
+<p align="center">
+  <em>Figure 1: Illustration of the turn detection logic using ultrasonic sensors.</em>
+</p>
 
 As illustrated above, when the car reaches the lines where it needs to turn, the direction of the turn is determined by the distance sensors. If the sensors detect that the right distance is greater than the left distance, the car should turn clockwise. If the left distance is greater than the right distance, the car will move counterclockwise. When the front sensor detects that the distance is approximately 50 cm, it indicates that the car should turn.
 
@@ -268,3 +272,4 @@ As illustrated above, when the car reaches the lines where it needs to turn, the
 After careful consideration, the "Kufiya" team decided to implement the second method using ultrasonic sensors. This decision was driven by numerous challenges encountered with the first method involving the color sensor. Despite spending two months attempting to fine-tune the color sensor, we faced significant issues with its accuracy, particularly in varying lighting conditions and with precise color recognition.
 
 The sensor's inconsistent performance led to unreliable direction detection, which was critical for the success of our project. These difficulties prompted us to shift our focus to the ultrasonic sensor-based approach, which provided a more reliable and adaptable solution for determining the car's movement direction and executing precise turns.
+
