@@ -233,40 +233,38 @@ These libraries, combined with the robustness of C++, provide the necessary tool
 ### 2.4 Detecting Turns and Direction
 
 **Problem Statement:**
-In the competition, the direction of the car's movement is not predetermined; it can be either clockwise or counterclockwise. This unpredictability introduces an additional layer of complexity, particularly when the car needs to execute precise U-turns at specific points on the track. The challenge is to accurately detect the required direction and execute the turn with precision.
+In the WRO Future Engineers competition, the direction of the car's movement is not predetermined; it can be either clockwise or counterclockwise. This unpredictability introduces an additional layer of complexity, particularly when the car needs to execute precise U-turns at specific points on the track. The challenge is to accurately detect the required direction and execute the turn with precision.
 
 **First Solution: Using the TCS3200 Color Sensor**
-One approach to solving this problem involves the use of the TCS3200 color sensor to detect the color-coded lines on the map that indicate the direction of the car's movement. Specifically:
 
-Color Detection: The TCS3200 sensor is programmed to recognize specific colors on the track. An orange line signals that the car should move in a clockwise direction, while a blue line indicates a counterclockwise movement.
+One approach to solving this problem involved the use of the TCS3200 color sensor to detect the color-coded lines on the track that indicate the direction of the car's movement.
 
-Controlled Turning: Upon detecting a color, the car is instructed to turn at a specific angle. The turning angle is precisely controlled using an Inertial Measurement Unit (IMU), which ensures that the turn is executed accurately and consistently, regardless of external factors like speed or track conditions.
+- **Color Detection:** The TCS3200 sensor was programmed to recognize specific colors on the track. An orange line signals that the car should move in a clockwise direction, while a blue line indicates a counterclockwise movement.
 
-Code Implementation: The process is automated through predefined functions such as detectOrangeLine and detectBlueLine, which trigger the appropriate turning actions based on the color detected.
+- **Controlled Turning:** Upon detecting a color, the car was instructed to turn at a specific angle. The turning angle was precisely controlled using an Inertial Measurement Unit (IMU), ensuring that the turn was executed accurately and consistently, regardless of external factors like speed or track conditions.
 
-This method provides a clear and direct way to determine the car's direction based on visual cues from the track, leveraging the IMU for precision in turning.
+- **Code Implementation:** The process was automated through predefined functions such as `detectOrangeLine` and `detectBlueLine`, which triggered the appropriate turning actions based on the color detected.
 
+This method provided a clear and direct way to determine the car's direction based on visual cues from the track, leveraging the IMU for precision in turning.
 
- 
 **Second Solution: Using Three Ultrasonic Sensors**
-An alternative approach utilizes three ultrasonic sensors to determine the direction of the car's movement based on distance measurements:
 
-Direction Determination: The ultrasonic sensors are positioned to monitor distances on the left, right, and front of the car. When the car reaches a point where it needs to turn, the direction is determined by comparing the distances detected by the sensors:
+An alternative approach utilized three ultrasonic sensors to determine the direction of the car's movement based on distance measurements:
 
-•	If the distance measured by the right sensor is greater than that of the left sensor, the car turns clockwise.
-Conversely, if the left distance is greater, the car turns counterclockwise.
-Front Sensor Trigger: Additionally, the front ultrasonic sensor plays a crucial role by detecting when the car is approximately 50 cm away from an obstacle or turning point. This detection serves as a cue for the car to initiate the turn.
-This method relies on spatial awareness and distance measurement, allowing the car to make decisions based on its surroundings without relying on visual markers.
+- **Direction Determination:** The ultrasonic sensors were positioned to monitor distances on the left, right, and front of the car. When the car reached a point where it needed to turn, the direction was determined by comparing the distances detected by the sensors:
+  - If the distance measured by the right sensor was greater than that of the left sensor, the car would turn clockwise.
+  - Conversely, if the left distance was greater, the car would turn counterclockwise.
 
- ![image](https://github.com/user-attachments/assets/0fac0299-f811-430a-a7f3-c70c11bd5935)
+- **Front Sensor Trigger:** Additionally, the front ultrasonic sensor played a crucial role by detecting when the car was approximately 50 cm away from an obstacle or turning point. This detection served as a cue for the car to initiate the turn.
 
+This method relied on spatial awareness and distance measurement, allowing the car to make decisions based on its surroundings without relying on visual markers.
 
-As shown in the image, when the car reaches the lines where it needs to turn, the direction of the turn is determined by the distance sensors. If the sensors detect that the right distance is greater than the left distance, the car should turn clockwise. If the left distance is greater than the right distance, the car will move counterclockwise. When the front sensor detects that the distance is approximately 50  cm, it indicates that the car should turn.
+![Turn Detection Logic](https://github.com/user-attachments/assets/0fac0299-f811-430a-a7f3-c70c11bd5935)
 
-The "Kufiya" team had two options to solve the problem of determining the car's movement direction: using the color sensor to accurately identify the direction or utilizing three ultrasonic sensors. After careful consideration, we chose to implement the second method using ultrasonic sensors.
+As illustrated above, when the car reaches the lines where it needs to turn, the direction of the turn is determined by the distance sensors. If the sensors detect that the right distance is greater than the left distance, the car should turn clockwise. If the left distance is greater than the right distance, the car will move counterclockwise. When the front sensor detects that the distance is approximately 50 cm, it indicates that the car should turn.
 
-Our decision was driven by the numerous challenges we encountered with the first method involving the color sensor. Despite spending two months attempting to fine-tune the color sensor, we faced significant issues with its accuracy, particularly in varying lighting conditions and with precise color recognition. The sensor's inconsistent performance led to unreliable direction detection, which was critical for the success of our project. These difficulties prompted us to shift our focus to the ultrasonic sensor-based approach, which provided a more reliable and adaptable solution for determining the car's movement direction and executing precise turns. 
+**Final Decision: Implementing the Ultrasonic Sensor-Based Approach**
 
+After careful consideration, the "Kufiya" team decided to implement the second method using ultrasonic sensors. This decision was driven by numerous challenges encountered with the first method involving the color sensor. Despite spending two months attempting to fine-tune the color sensor, we faced significant issues with its accuracy, particularly in varying lighting conditions and with precise color recognition.
 
-
-
+The sensor's inconsistent performance led to unreliable direction detection, which was critical for the success of our project. These difficulties prompted us to shift our focus to the ultrasonic sensor-based approach, which provided a more reliable and adaptable solution for determining the car's movement direction and executing precise turns.
