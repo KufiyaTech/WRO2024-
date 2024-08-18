@@ -172,18 +172,18 @@ The core logic of the vehicle relies on a PD (Proportional-Derivative) controlle
 
  **Programming Language**: **C++**
 
-- **Why C++?**: C++ was selected for its high-performance capabilities, which are critical for the real-time control and processing required in our robotic system. Its object-oriented features allow for clean, modular code, making it easier to manage the complex interactions between the different sensors and control mechanisms. Furthermore, C++ is well-supported on the Arduino platform, making it an ideal choice for our project.
+- **Why C++?**:
 
-**Libraries Used**
-
+- We chose C++ because it is well-supported by the Arduino IDE and provides robust library support, making it an ideal choice for our project.
+  
 We leveraged several libraries to implement the functionalities required for our robot:
 
 - **`Wire.h`**: Facilitates I2C communication between the Arduino and various sensors, such as the IMU, allowing us to efficiently gather and process sensor data.
-- 
+
 - **`Servo.h`**: Used for controlling the servo motors, particularly in steering and managing precise movements.
-- 
+
 - **`Pixy2.h`**: Handles communication with the Pixy2 camera sensor, which is crucial for visual tracking and object recognition tasks.
-- 
+
 - **`MPU6050.h`**: Provides functions to interface with the MPU6050 IMU sensor, enabling accurate detection of orientation, acceleration, and gyroscopic data to manage the robot's movement and stability.
 
 These libraries, combined with the robustness of C++, provide the necessary tools to implement the complex control logic required by our autonomous vehicle.
