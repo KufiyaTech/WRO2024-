@@ -5,13 +5,6 @@
   <img src="https://github.com/KufiyaTech/WRO2024-/assets/172860664/062a5ed9-cc8a-4399-9fc4-3b65bad85b79" alt="Purpose Logo" width="200"/>
 </p>
 
-
-
-
-
-
-====
-
 This repository contains engineering materials of a self-driven vehicle's model participating in the WRO Future Engineers competition in the season 2024.
 
 ## Content
