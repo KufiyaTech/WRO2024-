@@ -111,18 +111,21 @@ Our project is the result of a collaborative effort by a skilled and dedicated t
 
 - **Sara Jawaada**: As the lead designer, Sara was instrumental in overseeing the entire design process, ensuring that the physical and conceptual elements of the project were seamlessly integrated. Additionally, she played a key role in software development, contributing to both the architecture and implementation of core functionalities.
 
-- -email:sarajawaada906@gmail.com
+**Contact Information**:
+  **Email**: [sarajawaada906@gmail.com](sarajawaada906@gmail.com)
 
 
 - **Amro Duhaidi**: Amro led the technical implementation of the software, with a particular focus on sensor integration and system wiring. His expertise in coding and hardware interfacing was crucial in developing the responsive and reliable behavior of the robot, ensuring that all sensors were effectively utilized in the project's logic.
 
-- -email:amro.duaidi@gmail.com
+**Contact Information**:
+  **Email**: [amro.duaidi@gmail.com](amro.duaidi@gmail.com)
 
 
 - **Tala Daraghmeh**: Tala managed the version control and documentation of the project, ensuring that all development efforts were well-documented and accessible via GitHub. Her contributions also extended to software development, where she collaborated closely with the team to refine the codebase and maintain project integrity.
-
-- -email:taladaraghmeh836@gmail.com
 - 
+**Contact Information**:
+- **Email**: [taladaraghmeh836@gmail.com](taladaraghmeh836@gmail.com)
+
 ### Acknowledgment
 
 We would like to extend our deepest gratitude to our mentor and coach, **Eng. Mohammad Muamar**. A distinguished engineer and graduate of Palestine Polytechnic University in Hebron, Eng. Muamar has been instrumental in guiding our team through every step of this competition. His dedication, expertise, and unwavering support have been invaluable to our progress and success.
