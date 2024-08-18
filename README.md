@@ -188,3 +188,29 @@ We leveraged several libraries to implement the functionalities required for our
 
 These libraries, combined with the robustness of C++, provide the necessary tools to implement the complex control logic required by our autonomous vehicle.
 
+### 2.1 Open Challenge Logic Overview
+
+**Round objectives:**
+
+•	Moving between the internal and external wall.
+
+•	Turning the  car when detecting the lines . 
+
+•	Detecting blue and orange lines on the mat.
+
+•	Counting the laps.
+
+•	The car stops after 3 laps. 
+
+**Round constraints:**
+•	Time.
+
+•	The car Turning in the correct angle.
+
+•	The direction of the car's movement is random.
+
+•	he position from which the car starts moving is random.
+
+•	The distance between the internal and external wall is random.
+
+**How did Ghoson ( our car ) complete this round?**
