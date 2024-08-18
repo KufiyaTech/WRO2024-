@@ -269,3 +269,40 @@ After careful consideration, the "Kufiya" team decided to implement the second m
 
 The sensor's inconsistent performance led to unreliable direction detection, which was critical for the success of our project. These difficulties prompted us to shift our focus to the ultrasonic sensor-based approach, which provided a more reliable and adaptable solution for determining the car's movement direction and executing precise turns.
 
+### 2.5 Lap Counting Mechanism
+
+**Problem Statement:**
+The goal is to implement a lap counting mechanism for an autonomous vehicle (or RC car) that accurately counts the number of laps the vehicle completes on a designated track. A key requirement is that after completing exactly three laps, the vehicle must automatically stop.
+
+#### 1. Color Sensor-Based Detection
+
+**Overview:**
+The first method involves utilizing a color sensor (TCS3200) to detect specific markers placed on the track. This technique leverages the sensor's ability to identify distinct colors, allowing it to register a lap each time the sensor passes over a designated colored marker.
+
+**Principle:**
+- The color sensor is calibrated to recognize a specific color distinct from the track's surface.
+- When the sensor detects this color, it triggers a signal to increment the lap count.
+
+**Code Example:**
+*(Include a relevant code snippet here to demonstrate how the color sensor was implemented)*
+
+**Why Do We Not Recommend This Method?**
+
+- **Accuracy Issues:** Despite extensive efforts, the color sensor consistently struggled to provide accurate readings, particularly with the color orange. Ambient lighting conditions significantly affected the sensor's performance, even with a custom shield.
+- **Programming Challenges:** Programming the sensor to reliably identify the target color was difficult, especially given the high speed of the vehicle, which impaired the sensor’s ability to detect and register the color in real-time.
+- **Unreliable Performance:** The sensor's inconsistent and imprecise measurements, especially under dynamic conditions, made it an unsuitable choice for our project. This unreliability led us to explore alternative lap counting methods.
+
+#### 2.5 Loop-Based Counting with Ultrasonic Sensor and IMU
+
+**Overview:**
+The second method utilizes a software-based loop counter that increments the lap count each time a specific condition within the code is met. In our approach, the robot detects the completion of a lap using an ultrasonic sensor. When the sensor detects that the distance to a specific point or object is less than 50 cm, the robot recognizes this as an indicator to begin a new lap. The robot’s steering is controlled by an IMU (Inertial Measurement Unit), which ensures precise navigation during turns.
+
+**Principle:**
+- The loop-based method is implemented by continuously monitoring the distance using the ultrasonic sensor.
+- When the sensor detects that the distance has decreased below 50 cm, the robot initiates a turning maneuver, guided by the IMU.
+- This detection and turning process is managed within a loop structure in the code, specifically within a `while` loop that executes as long as the distance remains below 60 cm.
+- Each time this condition is met, the program increments the lap count, allowing for accurate tracking of the robot’s laps.
+
+**Advantages of This Method:**
+- **Reliability:** This method provides more reliable lap counting, unaffected by external factors like ambient light.
+- **Precision:** The IMU ensures precise control of the vehicle’s steering, contributing to accurate lap counting.
