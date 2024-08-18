@@ -21,8 +21,17 @@ This repository contains engineering materials of a self-driven vehicle's model 
 * `models` is for the files for models used by 3D printers, laser cutting machines and CNC machines to produce the vehicle elements. If there is nothing to add to this location, the directory can be removed.
 * `other` is for other files which can be used to understand how to prepare the vehicle for the competition. It may include documentation how to connect to a SBC/SBM and upload files there, datasets, hardware specifications, communication protocols descriptions etc. If there is nothing to add to this location, the directory can be removed.
 
-## Abstract
-Over the course of more than 4 months, our Palestinian efforts united to bring out the best in us. We combined 3D design using FreeCAD, programming with C++, and the use of microcontrollers like Arduino Mega 2560, along with a set of sensors to achieve the desired goal. This goal was to complete two rounds of the challenge: the first round, Open Challenge, which involves finishing three laps with the car, and the second round, Obstacle Avoidance, which involves completing three laps while avoiding obstacles.
+## READ.ME content
+
+* project overview
+* Team members
+* 
+
+
+## Project Overview
+This project is developed for the WRO Future Engineers 2024 competition and focuses on designing and programming an autonomous robotic car. The car is capable of navigating a white map marked with distinct blue and orange lines, utilizing a combination of advanced sensors such as the TCS3200 for color detection and an IMU for precise turning. The primary goal is to optimize the car's performance during the competition, specifically excelling in the obstacle challenge and open challenge rounds.
+
+The competition requires a sophisticated approach to both hardware and software. We’ve integrated robust algorithms that allow the car to autonomously make decisions based on real-time data from its sensors. This not only showcases the car's ability to navigate and avoid obstacles but also emphasizes its capacity to follow designated paths with high accuracy. The project encompasses several engineering disciplines, including electronics, mechanics, and software development, making it a comprehensive example of modern engineering applied to robotics.
 
 
 ## Team Members:
