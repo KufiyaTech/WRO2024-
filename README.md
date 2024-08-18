@@ -306,3 +306,68 @@ The second method utilizes a software-based loop counter that increments the lap
 **Advantages of This Method:**
 - **Reliability:** This method provides more reliable lap counting, unaffected by external factors like ambient light.
 - **Precision:** The IMU ensures precise control of the vehicle’s steering, contributing to accurate lap counting.
+  
+## 3. Open challenge algorithm
+
+### 5. Designing Process
+
+Building an RC car for the WRO Future Engineers competition from scratch has been a significant challenge, especially since it was our first time designing a robot. Although using a kit would have been an easier option, we were committed to building our own robot, which left us with no other options. As we began gathering the necessary components, our focus was on identifying the exact mechanisms required for our RC car. Our goal was to solve the challenges presented in the two competition rounds as effectively and simply as possible. The design of our robot has evolved over time, and here is how our designs have developed throughout this journey:
+
+#### 5.1 Steering System
+
+- **First Design:**
+  - Our initial steering system was functional, but we faced challenges in supporting and securing all the components on top of it.
+  - <p align="center"><img src="![image](https://github.com/user-attachments/assets/92a92575-33c6-4ba3-8e9c-fd754ee5175d)
+" alt="First Steering System Design" width="300"/></p>
+  - *Figure 1: First Steering System Design*
+
+- **Second Design:**
+  - This design proved to be a better choice initially, but it was based on ready-to-print files sourced from the internet. This presented a dilemma: adhere to the predefined dimensions that we couldn't alter, or undertake the challenge of designing it entirely from scratch.
+  - **Link 1:** [3D Printed RC Car with Brushless Motor](https://cults3d.com/en/3d-model/gadget/3d-printed-rc-car-with-brushless-motor-lee3d999)
+
+- **Third Design:**
+  - Unlike our previous designs, this iteration did not require 3D printing because we utilized the EV3 LEGO kit for the mechanism. This approach saved us time and effort, providing the flexibility to modify and control it easily. The LEGO kit offered a reliable steering solution that we could test quickly, contrasting with the longer process required by our previous designs.
+
+#### 5.2 Differential Gear System
+
+- **First Design:**
+  - Our initial choice was similar to the second steering system option in terms of using ready-to-print files. However, we encountered familiar challenges, compounded by an additional difficulty: the inability to locate suitable shafts or bearings within our allotted timeframe.
+  - <p align="center"><img src="path_to_your_image" alt="First Differential Gear System Design" width="300"/></p>
+  - *Figure 2: First Differential Gear System Design*
+  - **Link 2:** [3D Printed RC Car with Brushless Motor](https://cults3d.com/en/3d-model/gadget/3d-printed-rc-car-with-brushless-motor-lee3d999)
+
+- **Second Design:**
+  - In this design, we chose to utilize the EV3 LEGO system to construct our steering mechanism, marking a departure from our previous approaches. This choice offered the same advantages as our third steering system design, particularly in terms of ease of management and reliability.
+
+#### 5.3 Chassis Design Process
+
+- **First Design:**
+  - Our initial design phase was the most time-consuming. Being our first attempt, we struggled with defining the shape of our robot and determining how it would accommodate all intended components, including five ultrasonic sensors. This constrained our design options significantly. Our primary objective was to create a chassis capable of housing all components, prioritizing functionality over minimizing size. We positioned the camera at the rear without adhering to standard engineering principles. Initially, we planned to use a 3D printer for manufacturing.
+  - <p align="center"><img src="path_to_your_image" alt="First Chassis Design" width="300"/></p>
+  - *Figure 3: First Chassis Design*
+
+- **Second Design:**
+  - This was the first design we brought to life by printing it using a 3D printer. This design incorporated our chosen mechanism, but upon completion, we discovered it was too compact to meet our established standards.
+  - <p align="center"><img src="path_to_your_image" alt="Second Chassis Design" width="300"/></p>
+  - *Figure 4: Second Chassis Design*
+
+- **Third Design:**
+  - Before proceeding with the computer-aided design, we sketched our third design on paper. We then crafted a prototype using compressed cork to evaluate its dimensions. Our aim was to slightly increase its size while accommodating our chosen mechanisms. However, due to limitations with our printer, we were compelled to design two separate bases (chassis) and join them together. During testing, we discovered a potential vulnerability: the structure could potentially break apart under specific weight conditions.
+  - <p align="center"><img src="path_to_your_image" alt="Third Chassis Design" width="300"/></p>
+  - *Figure 5: Third Chassis Design*
+
+- **Fourth Design:**
+  - We decided to shift from using a 3D printer to a CNC machine for bringing our designs to reality. This allowed us to create a single, connected chassis capable of supporting more weight. Our design continued to evolve due to changes in our mechanism and component choices. A significant change was opting for smaller LEGO wheels to improve steering, which took some time to perfect. Another challenge we faced was managing space constraints relative to the size of our mechanisms. However, with the guidance and support of our coach, we were able to find better solutions and overcome these obstacles. After deciding to use a CNC machine, we encountered several challenges in selecting the ideal material to meet our needs. Initially, we chose acrylic, but it proved too brittle and broke easily. We then selected wood, which met our goals and requirements perfectly.
+  - <p align="center"><img src="path_to_your_image" alt="Fourth Chassis Design" width="300"/></p>
+  - *Figure 6: Fourth Chassis Design*
+
+#### 5.4 Mechanism
+
+- **Rear-Wheel Drive (RWD):**
+  - Our vehicle’s drivetrain works with the engine to deliver power to the wheels. We utilized a rear-wheel drive system, where the engine's power is directed to the rear wheels. This system provided balanced weight distribution and higher control over the vehicle. The rear-wheel drive system consisted of several main components: the drive shaft, the rear axle, and the differential gears, which in turn transmitted the power to the axles and then to the wheels. Our car's mechanism was constructed using the LEGO EV3 kit.
+
+#### 5.5 Ackermann Steering Mechanism
+
+- We used the Ackermann steering geometry, a configuration designed to ensure that the wheels of a vehicle trace out circles with different radii during a turn, preventing tire slippage. This geometry helps align the front wheels towards the turning center, providing improved handling and stability, especially at low speeds. It contrasts with other mechanisms like the Davis steering gear, offering simpler construction and fewer components susceptible to wear. Ackermann steering is commonly used in standard vehicles for its advantages in maneuverability and reduced tire wear.
+  - <p align="center"><img src="path_to_your_image" alt="Ackermann Steering Mechanism" width="300"/></p>
+  - *Figure 7: Ackermann Steering Mechanism*
