@@ -23,9 +23,9 @@ This repository contains engineering materials of a self-driven vehicle's model 
 
 ## READ.ME content
 
-* project overview
-* Team members
-* 
+ - project overview
+ - Team members
+
 
 
 ## Project Overview
