@@ -636,6 +636,56 @@ When selecting a power supply or battery for your robot, consider the following 
 
 The 12V LiPo battery was selected for our robot because it offers the best balance of power, efficiency, and weight. It provides the necessary voltage to power all components, from high-demand motors to sensitive electronics, ensuring the robot operates reliably and efficiently. By understanding the energy requirements and choosing a battery that meets these needs, we ensure that our robot remains powerful, agile, and safe.
 
+**Power Distribution from the 12V LiPo Battery to Each Component**
+
+**Overview:**
+
+In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V LiPo battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
+
+** 1. Power Source: 12V LiPo Battery**
+
+The 12V LiPo battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
+
+**2. Voltage Regulation and Distribution**
+
+Given the diverse voltage requirements of the components in our robot, we use voltage regulators and the motor driver to distribute the 12V power efficiently:
+
+- **A. Direct 12V Supply to High-Voltage Components**
+
+  - **L298N Motor Driver:**
+    - The L298N Motor Driver directly utilizes the 12V supply to drive the motors. The motor driver is capable of handling the 12V input and converts it to the necessary output to control the DC motors.
+    - **Reason:** The motors require higher voltage for effective operation, and the L298N motor driver is designed to manage this directly from the 12V source.
+
+- **B. Step-Down Voltage for Low-Voltage Components**
+
+  - **5V Regulated Supply for Microcontroller and Sensors:**
+    - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560, TCS3200 Color Sensor, HC-SR04 Ultrasonic Sensors, and the MPU-9250 IMU.
+    - **Components Powered:**
+      - **Arduino Mega 2560:** The Arduino Mega is the main microcontroller that controls all operations of the robot. It operates at 5V, hence the regulated 5V supply is essential.
+      - **TCS3200 Color Sensor:** This sensor detects colors and requires a stable 5V input for accurate operation.
+      - **HC-SR04 Ultrasonic Sensors:** These sensors measure distance using ultrasonic waves and also operate at 5V.
+      - **MPU-9250:** This sensor module, which includes an accelerometer, gyroscope, and magnetometer, operates at 3.3V, so an additional step-down regulator might be used if needed.
+    - **Reason:** These components require lower voltage for operation, and supplying them with 12V could damage them. The regulator ensures a stable 5V output.
+
+  - **3.3V Regulated Supply for Specialized Sensors:**
+    - In some cases, we may require a 3.3V supply, especially for sensors like the MPU-9250. This is achieved through an additional step-down regulator from the 5V output to 3.3V.
+    - **Reason:** Some sensors and modules operate at 3.3V to conserve power and match logic levels with other low-voltage components.
+
+ **3. Power Flow Diagram**
+
+To visualize the power distribution, here’s a simplified flowchart showing how the 12V LiPo battery's power is divided:
+
+```plaintext
+[12V LiPo Battery]
+       |
+       |---> [L298N Motor Driver] ---> Motors (12V)
+       |
+       |---> [12V to 5V Voltage Regulator] 
+                   |---> [Arduino Mega 2560] (5V)
+                   |---> [TCS3200 Color Sensor] (5V)
+                   |---> [HC-SR04 Ultrasonic Sensors] (5V)
+                   |---> [MPU-9250] (3.3V via additional step-down)
+                   |---> [Pixy2 Camera] (5V)
 
 
 
