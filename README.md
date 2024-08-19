@@ -332,8 +332,12 @@ Understanding the axes is essential for interpreting the data provided by the IM
 - **Y-Axis**: Represents the pitch, or the tilting motion of the vehicle from front to back.
 - **Z-Axis**: Represents the yaw, or the rotational movement of the vehicle around the vertical axis. This axis is crucial for steering, as it defines the direction the vehicle is facing.
 
-![Axis Diagram](![image](https://github.com/user-attachments/assets/9a754548-b259-41bb-bc29-a1b27a1d6bb7)
-)
+<p align="center">
+  <img src="![image](https://github.com/user-attachments/assets/ff7a2522-9551-48bb-a9e0-e23ede44c8c0)
+" alt="Axis Diagram" width="500"/>
+</p>
+<p align="center"><em>Figure 1: The X, Y, and Z axes relative to the vehicle.</em></p>
+
 *Figure 1: The X, Y, and Z axes relative to the vehicle.*
 
 **Calculating the Yaw Angle:**
@@ -378,7 +382,11 @@ Where:
 - \(K_p\), \(K_i\), and \(K_d\) are the PID coefficients, which determine how aggressively the controller responds to the error.
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 
-![PID Control Block Diagram](https://github.com/user-attachments/assets/a3b33c40-0745-46f0-8fc4-7972a4d19d81)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/a3b33c40-0745-46f0-8fc4-7972a4d19d81" alt="PID Control Block Diagram" width="500"/>
+</p>
+<p align="center"><em>Figure 2: PID Control System for Steering.</em></p>
+
 *Figure 2: PID Control System for Steering.*
 
 ### Code Implementation:
