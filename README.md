@@ -684,8 +684,9 @@ To visualize the power distribution, here’s a simplified flowchart showing how
                    |---> [HC-SR04 Ultrasonic Sensors] (5V)
                    |---> [MPU-9250] (3.3V via additional step-down)
                    |---> [Pixy2 Camera] (5V)
+```
 
-**For a more detailed LiPo safety manual there is one on Tenergy Power**
+** For a more detailed LiPo safety manual there is one on Tenergy Power**
 
 
 
