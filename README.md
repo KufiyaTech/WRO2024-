@@ -489,21 +489,52 @@ p
 
   *Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.*
 - **Integral Term:**  
-  \[
-  I_{\text{out}} = K_i \times \int_0^t e(\tau) d\tau
-  \]
+** I 
+out
+​
+ =K 
+i
+​
+ ×∫ 
+0
+t
+​
+ e(τ)dτ**
   - Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
 
 - **Derivative Term:**  
-  \[
-  D_{\text{out}} = K_d \times \frac{d e(t)}{dt}
-  \]
+ **D 
+out
+​
+ =K 
+d
+​
+ × 
+dt
+de(t)
+​
+**
   - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
 
 - **Combined PID Control:**  
-  \[
-  u(t) = K_p \times e(t) + K_i \times \int_0^t e(\tau) d\tau + K_d \times \frac{d e(t)}{dt}
-  \]
+**u(t)=K 
+p
+​
+ ×e(t)+K 
+i
+​
+ ×∫ 
+0
+t
+​
+ e(τ)dτ+K 
+d
+​
+ × 
+dt
+de(t)
+​
+**
   - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
 
 **Implementation in Our Project:**
