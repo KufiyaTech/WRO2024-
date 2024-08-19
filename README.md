@@ -755,7 +755,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
 
 
-###7.2 Electrical Parts and Their Functions
+### 7.2 Electrical Parts and Their Functions
 
 | **Component**                  | **Quantity** | **Function/Purpose**                                                                                  |
 |--------------------------------|--------------|--------------------------------------------------------------------------------------------------------|
