@@ -414,6 +414,10 @@ void calculateGyroDrift() {
     gyro_z_offset /= 2000;
 }
   
+
+
+
+
 ## 3. Open challenge algorithm
 
 
