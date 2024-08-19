@@ -481,8 +481,8 @@ The PID controller operates by combining three distinct control actions:
 - **Proportional Term:**
 - **Proportional Term:**
 
-  ![Proportional Term](![image](https://github.com/user-attachments/assets/7d3ac24b-20ce-45dd-8a64-6cfe0891622e)
-)
+  ![Proportional Term](![87](https://github.com/user-attachments/assets/97be41ed-239a-46b4-8af2-d096eb85f262))
+
 
   *Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.*
 - **Integral Term:**  
