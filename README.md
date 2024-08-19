@@ -359,6 +359,7 @@ Where:
 The following code snippet demonstrates how IMU-based steering and PID control are implemented:
 
 \`\`\`cpp
+
 #include <Wire.h>
 #include <MPU6050.h>
 #include <Servo.h>
