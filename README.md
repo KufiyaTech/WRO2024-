@@ -336,9 +336,8 @@ Understanding the axes is essential for interpreting the data provided by the IM
   <img src="![image](https://github.com/user-attachments/assets/684e9d0c-19b0-477e-9597-200fd9e6461c)
 " width="500"/>
 </p>
-<p align="center"><em>Figure 2: PID Control System for Steering.</em></p>
+<p align="center"><em>*Figure 1: The X, Y, and Z axes relative to the vehicle.
 
-*Figure 1: The X, Y, and Z axes relative to the vehicle.*
 
 **Calculating the Yaw Angle:**
 
