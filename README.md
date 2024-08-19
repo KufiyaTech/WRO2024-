@@ -41,7 +41,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
 3. [Open Challenge Algorithm](#open-challenge-algorithm)
 
-   3.1. [PD Controller](#pd-controller)
+   3.1. [PID Controller](#pd-controller)
    
    3.2. [Turn Execution](#turn-execution)
    
@@ -462,6 +462,87 @@ void calculateGyroDrift() {
    
 4. **PID Control:**
    - The error between the desired and actual yaw angle is calculated. The control signal, which adjusts the steering angle, is then determined by the PID formula. This control signal is sent to the servo motor to adjust the vehicle's direction.
+
+## 3.Open Challenge Algorithm
+### 3.1 PID Controller
+
+**Overview:**
+
+The **PID (Proportional-Integral-Derivative) controller** is a widely used control loop feedback mechanism in industrial and automation systems. It is designed to continuously adjust a process to maintain the desired output, known as the setpoint, by minimizing the error between the setpoint and the actual process variable.
+
+The PID controller operates by combining three distinct control actions:
+
+1. **Proportional (P):** Reacts to the current error by producing an output that is proportional to the error. It provides immediate corrective action but can lead to overshoot if used alone.
+2. **Integral (I):** Addresses accumulated past errors by summing them over time, helping to eliminate steady-state errors.
+3. **Derivative (D):** Predicts future errors by considering the rate of change of the error, helping to reduce overshoot and oscillations.
+
+**Key Equations:**
+
+- **Proportional Term:**  
+ <div align="center">
+    <img src="![image](https://github.com/user-attachments/assets/dc9357ed-a84b-4aa5-a6af-e7e90b60efd4)
+" alt="Proportional Term" />
+    <p><i>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</i></p>
+  </div>
+
+- **Integral Term:**  
+  \[
+  I_{\text{out}} = K_i \times \int_0^t e(\tau) d\tau
+  \]
+  - Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
+
+- **Derivative Term:**  
+  \[
+  D_{\text{out}} = K_d \times \frac{d e(t)}{dt}
+  \]
+  - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
+
+- **Combined PID Control:**  
+  \[
+  u(t) = K_p \times e(t) + K_i \times \int_0^t e(\tau) d\tau + K_d \times \frac{d e(t)}{dt}
+  \]
+  - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
+
+**Implementation in Our Project:**
+
+In our autonomous vehicle project, the PID controller is utilized to maintain the vehicle's yaw angle, ensuring that it follows the desired path accurately.
+
+**How It Works:**
+
+1. **Initialization:**
+   - The vehicle's IMU (Inertial Measurement Unit) is initialized to provide real-time gyroscope data. This data is crucial for determining the yaw angle, which represents the vehicle's direction.
+
+2. **Error Calculation:**
+   - The yaw angle error is calculated by comparing the current yaw angle with the target yaw angle. This error is then used to compute the necessary adjustments.
+     ```cpp
+     error = yaw_angle - targetYawAngle;
+     ```
+
+3. **PID Calculations:**
+   - **Proportional:** The error is multiplied by the proportional gain \( K_p \) to determine the immediate correction.
+   - **Integral:** The sum of past errors is calculated and multiplied by the integral gain \( K_i \), contributing to the correction by addressing accumulated deviations.
+   - **Derivative:** The rate of change of the error is determined and multiplied by the derivative gain \( K_d \), providing a predictive adjustment to smooth out the response.
+     ```cpp
+     integral += error * (currentTime - previousTime);
+     derivative = (error - previousError) / (currentTime - previousTime);
+     ```
+
+4. **Control Signal Generation:**
+   - The control signal, which adjusts the servo motor's angle, is computed as the sum of the proportional, integral, and derivative components:
+     ```cpp
+     controlSignal = Kp * error + Ki * integral + Kd * derivative;
+     float t = controlSignal + 90;
+     t = constrain(t, 40, 140);
+     myServo.write(int(t));
+     ```
+
+5. **Practical Application:**
+   - As the vehicle moves, the PID controller continuously adjusts the steering to keep the vehicle on course. If the vehicle deviates, the controller calculates the necessary steering corrections to bring it back on track smoothly.
+
+**Conclusion:**
+
+The PID controller is a critical component in our system, ensuring the vehicle maintains a stable and accurate trajectory. By balancing the immediate response (P), accumulated error correction (I), and predictive adjustment (D), the PID controller allows for precise control of the vehicle's movements, even in dynamic and challenging environments.
+
 
 
 
