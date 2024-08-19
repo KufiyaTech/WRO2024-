@@ -573,9 +573,7 @@ In our autonomous vehicle project, the PID controller is utilized to maintain th
 5. **Practical Application:**
    - As the vehicle moves, the PID controller continuously adjusts the steering to keep the vehicle on course. If the vehicle deviates, the controller calculates the necessary steering corrections to bring it back on track smoothly.
 
-**Conclusion:**
-
-The PID controller is a critical component in our system, ensuring the vehicle maintains a stable and accurate trajectory. By balancing the immediate response (P), accumulated error correction (I), and predictive adjustment (D), the PID controller allows for precise control of the vehicle's movements, even in dynamic and challenging environments.
+### 3.2 Turn Execution
 
 
 
