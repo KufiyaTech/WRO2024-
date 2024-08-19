@@ -686,7 +686,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
                    |---> [Pixy2 Camera] (5V)
 ```
 
-** For a more detailed LiPo safety manual there is one on Tenergy Power**
+**For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
 
 
 
