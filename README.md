@@ -768,8 +768,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 | **DC Motors**                  | 1           | Powers the wheels to drive the car forward, backward, and turn.                                         |
 
 
-##7. Appendices
-###7.1 Datasheets and Specifications
+## 7.Appendices
 ### 7.1. Datasheets and Specifications
 
 Below are the datasheets for each of the key components used in the project:
