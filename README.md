@@ -307,59 +307,85 @@ The second method utilizes a software-based loop counter that increments the lap
 - **Reliability:** This method provides more reliable lap counting, unaffected by external factors like ambient light.
 - **Precision:** The IMU ensures precise control of the vehicle’s steering, contributing to accurate lap counting
 
+
+
+---
+
 ### 2.6 IMU-Based Steering
 
 **Overview:**
-In our autonomous vehicle, precise steering is crucial for navigating the course. We implemented an Inertial Measurement Unit (IMU)-based steering mechanism that allows the robot to make accurate turns and maintain its orientation. The IMU provides real-time data on the vehicle’s angular velocity, which we use to calculate the yaw angle (turning angle) and ensure stable and precise steering.
+
+In our autonomous vehicle, precise steering control is essential for navigating the course accurately. We implemented an IMU-based steering mechanism to achieve this. The IMU (Inertial Measurement Unit) provides real-time data about the vehicle’s angular velocity, which is critical for calculating the yaw angle (the vehicle’s turning angle) and ensuring stable and accurate steering.
 
 **Understanding the IMU:**
-An Inertial Measurement Unit (IMU) is a device that combines sensors to measure motion and orientation. Typically, an IMU consists of a gyroscope (to measure angular velocity) and an accelerometer (to measure linear acceleration). Some IMUs may also include a magnetometer to measure orientation relative to the Earth's magnetic field.
 
-- **X-Axis**: Represents the roll (left-right tilt) of the vehicle.
-- **Y-Axis**: Represents the pitch (forward-backward tilt) of the vehicle.
-- **Z-Axis**: Represents the yaw (rotation around the vertical axis), which is crucial for steering.
+An IMU (Inertial Measurement Unit) is a sensor device that combines multiple sensing components, usually a 3-axis accelerometer and a 3-axis gyroscope. These sensors work together to track the vehicle's motion and orientation in three-dimensional space.
 
-**Yaw Angle Calculation:**
-The yaw angle (\(\theta_z\)) is a measure of how much the vehicle has rotated around the Z-axis. The gyroscope in the IMU measures the angular velocity (\(gyro_z\)) around this axis, which indicates the rate of change of the yaw angle over time.
+- **Accelerometer**: Measures the acceleration along the X, Y, and Z axes. It helps in determining the tilt of the vehicle.
+- **Gyroscope**: Measures the angular velocity (the rate of rotation) around the X, Y, and Z axes. It is crucial for determining the vehicle's rotational motion, especially the yaw angle.
 
-To calculate the yaw angle, we integrate the angular velocity over time. This means we sum up the changes in angular velocity to get the total angle the vehicle has turned:
+**The X, Y, and Z Axes:**
+
+Understanding the axes is essential for interpreting the data provided by the IMU:
+
+- **X-Axis**: Represents the roll, or the tilting motion of the vehicle from side to side.
+- **Y-Axis**: Represents the pitch, or the tilting motion of the vehicle from front to back.
+- **Z-Axis**: Represents the yaw, or the rotational movement of the vehicle around the vertical axis. This axis is crucial for steering, as it defines the direction the vehicle is facing.
+
+![Axis Diagram](![image](https://github.com/user-attachments/assets/9a754548-b259-41bb-bc29-a1b27a1d6bb7)
+)
+*Figure 1: The X, Y, and Z axes relative to the vehicle.*
+
+**Calculating the Yaw Angle:**
+
+The yaw angle (\(\theta_z\)) is a measure of the vehicle's rotation around the Z-axis. The gyroscope within the IMU provides angular velocity data along this axis, which tells us how quickly the vehicle is rotating.
+
+To determine the vehicle's orientation or heading, we calculate the yaw angle by integrating the angular velocity over time. The yaw angle changes based on the rate of rotation, and by continuously updating this value, we can keep track of the vehicle's direction.
+
+The equation used to calculate the yaw angle is:
 
 \[
-\theta_z = \theta_{z, \text{previous}} + \left( \frac{\text{gyro}_z - \text{gyro\_z\_offset}}{131.0} \right) \times \Delta t
+\theta_z = \theta_{z,\text{previous}} + \left( \frac{\text{gyro}_z - \text{gyro\_z\_offset}}{131.0} \right) \times \Delta t
 \]
+
 
 Where:
 - \(\theta_z\) is the current yaw angle.
-- \(\theta_{z, \text{previous}}\) is the previous yaw angle.
-- \(\text{gyro}_z\) is the raw angular velocity reading from the gyroscope around the Z-axis.
-- \(\text{gyro\_z\_offset}\) is the gyroscope offset value (calculated during calibration to correct for any small biases).
-- \(\Delta t\) is the elapsed time between the current and previous readings.
+- \(\theta_{z, \text{previous}}\) is the yaw angle from the previous time step.
+- \(\text{gyro}_z\) is the angular velocity around the Z-axis (provided by the gyroscope).
+- \(\text{gyro\_z\_offset}\) is the gyroscope offset, calculated during calibration to correct any drift.
+- \(\Delta t\) is the time elapsed between the current and previous readings.
+
+**Importance of Gyro Offset:**
+
+The gyroscope offset (\(\text{gyro\_z\_offset}\)) is critical because gyroscopes can have slight errors or biases over time, known as drift. By calculating and subtracting this offset, we ensure that the yaw angle calculation is accurate and doesn't gradually deviate from the true value.
 
 **PID Control for Steering:**
-PID (Proportional-Integral-Derivative) control is a method used to adjust the steering angle based on the difference between the target yaw angle and the current yaw angle, which we call the "error."
 
-- **Proportional (P)**: This term produces an output value that is proportional to the current error. The larger the error, the larger the proportional output. However, relying solely on the proportional term can lead to overshooting the target because it doesn't account for past errors or predict future errors.
+To maintain or correct the vehicle’s path, we implemented a PID (Proportional-Integral-Derivative) controller. The PID controller adjusts the steering angle based on the difference between the target yaw angle and the current yaw angle. This ensures smooth and stable steering.
 
-- **Integral (I)**: The integral term sums up the past errors over time. It helps eliminate residual steady-state errors that the proportional term alone might not address. Essentially, it accumulates the error over time and tries to reduce it by adjusting the output.
+- **Proportional (P)**: Corrects the yaw angle based on the current error (difference between the desired and actual yaw angle).
+- **Integral (I)**: Accumulates past errors to eliminate steady-state offset, ensuring the vehicle reaches and maintains the target angle.
+- **Derivative (D)**: Predicts future error based on the rate of change, helping to reduce overshoot and oscillations.
 
-- **Derivative (D)**: The derivative term predicts future error based on the rate of change of the error. It helps to dampen the system, reducing overshoot and improving stability by slowing down the response as the error decreases.
-
-The PID controller adjusts the steering using the following equation:
+The control signal, which is sent to the servo motor, is calculated as:
 
 \[
 \text{controlSignal} = K_p \times \text{error} + K_i \times \int \text{error} \, dt + K_d \times \frac{d(\text{error})}{dt}
 \]
 
 Where:
-- \(K_p\): Proportional gain, affects the magnitude of the correction.
-- \(K_i\): Integral gain, affects the elimination of steady-state error.
-- \(K_d\): Derivative gain, affects the rate of response and damping.
+- \(K_p\), \(K_i\), and \(K_d\) are the PID coefficients, which determine how aggressively the controller responds to the error.
+- \(\text{error}\) is the difference between the target and actual yaw angles.
 
-**Code Implementation:**
-The following code snippet demonstrates how IMU-based steering and PID control are implemented:
+![PID Control Block Diagram](https://github.com/user-attachments/assets/a3b33c40-0745-46f0-8fc4-7972a4d19d81)
+*Figure 2: PID Control System for Steering.*
 
-\`\`\`cpp
+### Code Implementation:
 
+The code implementation ties together the IMU readings, yaw angle calculation, and PID control to manage the vehicle's steering:
+
+```cpp
 #include <Wire.h>
 #include <MPU6050.h>
 #include <Servo.h>
@@ -414,75 +440,25 @@ void calculateGyroDrift() {
     }
     gyro_z_offset /= 2000;
 }
-  
-\`\`\`
+```
+
+### Explanation of the Code:
+
+1. **Setup:**
+   - The IMU and servo motor are initialized. The gyroscope is calibrated to calculate the `gyro_z_offset`.
+   
+2. **Main Loop:**
+   - The function `MoveFWwithGyro()` is called continuously. It reads the gyroscope data, calculates the yaw angle, and then computes the control signal using the PID controller.
+   
+3. **Yaw Angle Calculation:**
+   - The yaw angle is updated based on the angular velocity around the Z-axis, factoring in the time elapsed since the last update.
+   
+4. **PID Control:**
+   - The error between the desired and actual yaw angle is calculated. The control signal, which adjusts the steering angle, is then determined by the PID formula. This control signal is sent to the servo motor to adjust the vehicle's direction.
 
 
-## 3. Open challenge algorithm
 
 
 
-### 5. Designing Process
 
-Building an RC car for the WRO Future Engineers competition from scratch has been a significant challenge, especially since it was our first time designing a robot. Although using a kit would have been an easier option, we were committed to building our own robot, which left us with no other options. As we began gathering the necessary components, our focus was on identifying the exact mechanisms required for our RC car. Our goal was to solve the challenges presented in the two competition rounds as effectively and simply as possible. The design of our robot has evolved over time, and here is how our designs have developed throughout this journey:
 
-#### 5.1 Steering System
-
-- **First Design:**
-  - Our initial steering system was functional, but we faced challenges in supporting and securing all the components on top of it.
-  - <p align="center"><img src="![image](https://github.com/user-attachments/assets/92a92575-33c6-4ba3-8e9c-fd754ee5175d)
-" alt="First Steering System Design" width="300"/></p>
-  - *Figure 1: First Steering System Design*
-
-- **Second Design:**
-  - This design proved to be a better choice initially, but it was based on ready-to-print files sourced from the internet. This presented a dilemma: adhere to the predefined dimensions that we couldn't alter, or undertake the challenge of designing it entirely from scratch.
-  - **Link 1:** [3D Printed RC Car with Brushless Motor](https://cults3d.com/en/3d-model/gadget/3d-printed-rc-car-with-brushless-motor-lee3d999)
-
-- **Third Design:**
-  - Unlike our previous designs, this iteration did not require 3D printing because we utilized the EV3 LEGO kit for the mechanism. This approach saved us time and effort, providing the flexibility to modify and control it easily. The LEGO kit offered a reliable steering solution that we could test quickly, contrasting with the longer process required by our previous designs.
-
-#### 5.2 Differential Gear System
-
-- **First Design:**
-  - Our initial choice was similar to the second steering system option in terms of using ready-to-print files. However, we encountered familiar challenges, compounded by an additional difficulty: the inability to locate suitable shafts or bearings within our allotted timeframe.
- <p align="center"><img src="https://github.com/user-attachments/assets/509f5901-6868-4189-b3f8-11b729488c41" alt="First Differential Gear System Design" width="300"/></p>
-
-  - *Figure 2: First Differential Gear System Design*
-  - **Link 2:** [3D Printed RC Car with Brushless Motor](https://cults3d.com/en/3d-model/gadget/3d-printed-rc-car-with-brushless-motor-lee3d999)
-
-- **Second Design:**
-  - In this design, we chose to utilize the EV3 LEGO system to construct our steering mechanism, marking a departure from our previous approaches. This choice offered the same advantages as our third steering system design, particularly in terms of ease of management and reliability.
-
-#### 5.3 Chassis Design Process
-
-- **First Design:**
-  - Our initial design phase was the most time-consuming. Being our first attempt, we struggled with defining the shape of our robot and determining how it would accommodate all intended components, including five ultrasonic sensors. This constrained our design options significantly. Our primary objective was to create a chassis capable of housing all components, prioritizing functionality over minimizing size. We positioned the camera at the rear without adhering to standard engineering principles. Initially, we planned to use a 3D printer for manufacturing.
-  -<p align="center"><img src="https://github.com/user-attachments/assets/14e2980f-575a-4065-81ab-b663c6a3b126" alt="First Chassis Design" width="300"/></p>
-
-  - *Figure 3: First Chassis Design*
-
-- **Second Design:**
-  - This was the first design we brought to life by printing it using a 3D printer. This design incorporated our chosen mechanism, but upon completion, we discovered it was too compact to meet our established standards.
-  - <p align="center"><img src="path_to_your_image" alt="Second Chassis Design" width="300"/></p>
-  - *Figure 4: Second Chassis Design*
-
-- **Third Design:**
-  - Before proceeding with the computer-aided design, we sketched our third design on paper. We then crafted a prototype using compressed cork to evaluate its dimensions. Our aim was to slightly increase its size while accommodating our chosen mechanisms. However, due to limitations with our printer, we were compelled to design two separate bases (chassis) and join them together. During testing, we discovered a potential vulnerability: the structure could potentially break apart under specific weight conditions.
-  - <p align="center"><img src="path_to_your_image" alt="Third Chassis Design" width="300"/></p>
-  - *Figure 5: Third Chassis Design*
-
-- **Fourth Design:**
-  - We decided to shift from using a 3D printer to a CNC machine for bringing our designs to reality. This allowed us to create a single, connected chassis capable of supporting more weight. Our design continued to evolve due to changes in our mechanism and component choices. A significant change was opting for smaller LEGO wheels to improve steering, which took some time to perfect. Another challenge we faced was managing space constraints relative to the size of our mechanisms. However, with the guidance and support of our coach, we were able to find better solutions and overcome these obstacles. After deciding to use a CNC machine, we encountered several challenges in selecting the ideal material to meet our needs. Initially, we chose acrylic, but it proved too brittle and broke easily. We then selected wood, which met our goals and requirements perfectly.
-  - <p align="center"><img src="path_to_your_image" alt="Fourth Chassis Design" width="300"/></p>
-  - *Figure 6: Fourth Chassis Design*
-
-#### 5.4 Mechanism
-
-- **Rear-Wheel Drive (RWD):**
-  - Our vehicle’s drivetrain works with the engine to deliver power to the wheels. We utilized a rear-wheel drive system, where the engine's power is directed to the rear wheels. This system provided balanced weight distribution and higher control over the vehicle. The rear-wheel drive system consisted of several main components: the drive shaft, the rear axle, and the differential gears, which in turn transmitted the power to the axles and then to the wheels. Our car's mechanism was constructed using the LEGO EV3 kit.
-
-#### 5.5 Ackermann Steering Mechanism
-
-- We used the Ackermann steering geometry, a configuration designed to ensure that the wheels of a vehicle trace out circles with different radii during a turn, preventing tire slippage. This geometry helps align the front wheels towards the turning center, providing improved handling and stability, especially at low speeds. It contrasts with other mechanisms like the Davis steering gear, offering simpler construction and fewer components susceptible to wear. Ackermann steering is commonly used in standard vehicles for its advantages in maneuverability and reduced tire wear.
-  - <p align="center"><img src="path_to_your_image" alt="Ackermann Steering Mechanism" width="300"/></p>
-  - *Figure 7: Ackermann Steering Mechanism*
