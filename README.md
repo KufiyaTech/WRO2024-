@@ -358,7 +358,7 @@ Where:
 **Code Implementation:**
 The following code snippet demonstrates how IMU-based steering and PID control are implemented:
 
-```cpp
+\`\`\`cpp
 #include <Wire.h>
 #include <MPU6050.h>
 #include <Servo.h>
@@ -414,8 +414,7 @@ void calculateGyroDrift() {
     gyro_z_offset /= 2000;
 }
   
-
-cpp '''
+\`\`\`
 
 
 ## 3. Open challenge algorithm
