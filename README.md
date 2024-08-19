@@ -382,11 +382,11 @@ Where:
 - \(K_p\), \(K_i\), and \(K_d\) are the PID coefficients, which determine how aggressively the controller responds to the error.
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/a3b33c40-0745-46f0-8fc4-7972a4d19d81" alt="PID Control Block Diagram" width="500"/>
-</p>
-<p align="center"><em>Figure 2: PID Control System for Steering.</em></p>
-
+<div align="center">
+  <img src="![image](https://github.com/user-attachments/assets/97ffabac-8c27-49e7-89ff-37d346af5a69)
+" alt="Axis Diagram" width="500"/>
+  <p><em>Figure 1: The X, Y, and Z axes relative to the vehicle.</em></p>
+</div>
 *Figure 2: PID Control System for Steering.*
 
 ### Code Implementation:
