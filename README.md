@@ -478,12 +478,14 @@ The PID controller operates by combining three distinct control actions:
 
 **Key Equations:**
 
-- **Proportional Term:**  
- <div align="center">
-    <img src="![image](https://github.com/user-attachments/assets/dc9357ed-a84b-4aa5-a6af-e7e90b60efd4)
-" alt="Proportional Term" />
-    <p><i>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</i></p>
-  </div>
+- **Proportional Term:**
+- 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/0fac0299-f811-430a-a7f3-c70c11bd5935" alt="Turn Detection Logic" width="400"/>
+</p>
+<p align="center">
+  <em>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em>
+</p>
 
 - **Integral Term:**  
   \[
