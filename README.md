@@ -382,11 +382,11 @@ Where:
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/97ffabac-8c27-49e7-89ff-37d346af5a69)
-" alt="Axis Diagram" width="500"/>
-  <p><em>Figure 1: The X, Y, and Z axes relative to the vehicle.</em></p>
+  <img src="![image](https://github.com/user-attachments/assets/ab6e9145-d586-4b83-a137-92aeae46185a)
+" width="500"/>
+  <p><em>Figure 2: PID Control System for Steering.</em></p>
 </div>
-*Figure 2: PID Control System for Steering.*
+
 
 ### Code Implementation:
 
