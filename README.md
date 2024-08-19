@@ -24,8 +24,10 @@ This repository contains engineering materials of a self-driven vehicle's model 
    1.1. [Competition Context](#competition-context)
    
    1.2. [Team Management](#team-management)
+
+   1.3. [What makes our car special](#what-makes-our-car-special)
    
-2. [How Does Our Robot Think](#how-does-our-robot-think)
+3. [How Does Our Robot Think](#how-does-our-robot-think)
  
    2.1. [Open Challenge Overview](#open-challenge-overview)
    
@@ -39,19 +41,19 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    2.6. [IMU-Based Steering](#imu-based-steering)
    
-3. [Open Challenge Algorithm](#open-challenge-algorithm)
+4. [Open Challenge Algorithm](#open-challenge-algorithm)
 
    3.1. [PID Controller](#pd-controller)
    
    3.2. [Turn Execution](#turn-execution)
    
-4. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
+5. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
 
    4.1. [Pillar Detection](#pillar-detection)
     
    4.2. [Obstacle Avoidance Strategy](#obstacle-avoidance-strategy)
    
-5. [Designing Process](#designing-process)
+6. [Designing Process](#designing-process)
 
    5.1. [Steering System](#steering-system)
     
@@ -63,13 +65,13 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    5.5. [Ackermann Steering Mechanism](#ackermann-steering-mechanism)
    
-6. [Power and Sense Management](#power-and-sense-management)
+7. [Power and Sense Management](#power-and-sense-management)
 
    6.1. [Power Source](#power-source)
     
    6.2. [Sensors We Used and Their Functions](#sensors-we-used-and-their-functions)
    
-7. [Appendices](#appendices)
+8. [Appendices](#appendices)
 
    7.1. [Datasheets and Specifications](#datasheets-and-specifications)
     
@@ -79,7 +81,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    7.4. [References](#references)
    
-8. [Hurdles and Challenges](#hurdles-and-challenges)
+9. [Hurdles and Challenges](#hurdles-and-challenges)
 
    8.1. [Designing Process Challenges](#designing-process-challenges)
     
@@ -87,7 +89,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    8.3. [General Challenges](#general-challenges)
    
-9. [Conclusion and Reflections](#conclusion-and-reflections)
+10. [Conclusion and Reflections](#conclusion-and-reflections)
  
    9.1. [Lessons Learned](#lessons-learned)
     
