@@ -755,5 +755,20 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
 
 
+### Electrical Parts and Their Functions
+
+| **Component**                  | **Quantity** | **Function/Purpose**                                                                                  |
+|--------------------------------|--------------|--------------------------------------------------------------------------------------------------------|
+| **Arduino Mega 2560**          | 1            | Main microcontroller board that controls all operations of the robot.                                   |
+| **L298N Motor Driver**         | 1            | Controls the direction and speed of the DC motors using PWM signals.                                    |
+| **MG995 Servo Motor**          | 1            | Provides precise angular position control for steering mechanisms.                                      |
+| **HC-SR04 Ultrasonic Sensors** | 3            | Measures distance to obstacles; placed at the front, left, and right sides of the robot for obstacle detection. |
+| **12V LiPo Rechargeable Battery** | 1         | Provides the primary power source for all components.                                                   |
+| **Pixy2 Camera**               | 1            | Detects and tracks pillars (red and green) and helps in navigation by identifying road signs.           |
+| **MPU-9250 IMU**               | 1            | Measures orientation and stabilizes the car’s steering for smooth and efficient turns.                  |
+| **HW083 Voltage Regulator**    | 1            | Steps down the 12V input to 5V and 3.3V to power various sensors and the microcontroller.               |
+| **Jumper Cables**              | -            | Used to connect various components together on the breadboard.                                          |
+| **Wheels**                     | 4            | Allows the car to move; driven by the DC motors.                                                        |
+| **DC Motors**                  | 1           | Powers the wheels to drive the car forward, backward, and turn.                                         |
 
 
