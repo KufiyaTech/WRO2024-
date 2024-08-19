@@ -27,7 +27,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
 
    1.3. [What makes our car special](#what-makes-our-car-special)
    
-3. [How Does Our Robot Think](#how-does-our-robot-think)
+2. [How Does Our Robot Think](#how-does-our-robot-think)
  
    2.1. [Open Challenge Overview](#open-challenge-overview)
    
@@ -41,19 +41,19 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    2.6. [IMU-Based Steering](#imu-based-steering)
    
-4. [Open Challenge Algorithm](#open-challenge-algorithm)
+3. [Open Challenge Algorithm](#open-challenge-algorithm)
 
    3.1. [PID Controller](#pd-controller)
    
    3.2. [Turn Execution](#turn-execution)
    
-5. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
+4. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
 
    4.1. [Pillar Detection](#pillar-detection)
     
    4.2. [Obstacle Avoidance Strategy](#obstacle-avoidance-strategy)
    
-6. [Designing Process](#designing-process)
+5. [Designing Process](#designing-process)
 
    5.1. [Steering System](#steering-system)
     
@@ -65,23 +65,19 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    5.5. [Ackermann Steering Mechanism](#ackermann-steering-mechanism)
    
-7. [Power and Sense Management](#power-and-sense-management)
+6. [Power and Sense Management](#power-and-sense-management)
 
    6.1. [Power Source](#power-source)
     
    6.2. [Sensors We Used and Their Functions](#sensors-we-used-and-their-functions)
    
-8. [Appendices](#appendices)
+7. [Appendices](#appendices)
 
    7.1. [Datasheets and Specifications](#datasheets-and-specifications)
-    
-   7.2. [Code Listings](#code-listings)
+      
+   7.2. [References](#references)
    
-   7.3. [Additional Diagrams](#additional-diagrams)
-   
-   7.4. [References](#references)
-   
-9. [Hurdles and Challenges](#hurdles-and-challenges)
+8. [Hurdles and Challenges](#hurdles-and-challenges)
 
    8.1. [Designing Process Challenges](#designing-process-challenges)
     
@@ -89,7 +85,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    8.3. [General Challenges](#general-challenges)
    
-10. [Conclusion and Reflections](#conclusion-and-reflections)
+9. [Conclusion and Reflections](#conclusion-and-reflections)
  
    9.1. [Lessons Learned](#lessons-learned)
     
@@ -643,8 +639,8 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
   - <p align="center"><img src="path_to_your_image" alt="Ackermann Steering Mechanism" width="300"/></p>
   - Figure 7: Ackermann Steering Mechanism
 
-## 7.Power and Sense management 
-### 7.1 power source
+## 6.Power and Sense management 
+### 6.1 power source
 ### Power Source: Why We Chose a 12V LiPo Battery
 
 **Overview:**
@@ -755,7 +751,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
 
 
-### 7.2 Electrical Parts and Their Functions
+### 6.2 Electrical Parts and Their Functions
 
 | **Component**                  | **Quantity** | **Function/Purpose**                                                                                  |
 |--------------------------------|--------------|--------------------------------------------------------------------------------------------------------|
@@ -772,3 +768,17 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 | **DC Motors**                  | 1           | Powers the wheels to drive the car forward, backward, and turn.                                         |
 
 
+##7. Appendices
+###7.1 Datasheets and Specifications
+### 7.1. Datasheets and Specifications
+
+Below are the datasheets for each of the key components used in the project:
+
+| **Component**                 | **Datasheet Link**                                                                 |
+|-------------------------------|------------------------------------------------------------------------------------|
+| **Arduino Mega 2560**         | [View Datasheet](https://docs.arduino.cc/resources/datasheets/A000067-datasheet.pdf) |
+| **L298N Motor Driver**        | [View Datasheet](https://www.handsontec.com/dataspecs/L298N%20Motor%20Driver.pdf)    |
+| **MG995 Servo Motor**         | [View Datasheet](https://www.alldatasheet.com/html-pdf/1132435/ETC2/MG995/109/1/MG995.html) |
+| **HC-SR04 Ultrasonic Sensor** | [View Datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)   |
+| **pixy2 camera**      | [View Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf) |
+| **MPU-9250 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf) |
