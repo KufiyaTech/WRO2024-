@@ -638,11 +638,11 @@ The 12V LiPo battery was selected for our robot because it offers the best balan
 
 **Power Distribution from the 12V LiPo Battery to Each Component**
 
-**Overview:**
+
 
 In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V LiPo battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
 
-** 1. Power Source: 12V LiPo Battery**
+**1. Power Source: 12V LiPo Battery**
 
 The 12V LiPo battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
 
@@ -662,7 +662,6 @@ Given the diverse voltage requirements of the components in our robot, we use vo
     - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560, TCS3200 Color Sensor, HC-SR04 Ultrasonic Sensors, and the MPU-9250 IMU.
     - **Components Powered:**
       - **Arduino Mega 2560:** The Arduino Mega is the main microcontroller that controls all operations of the robot. It operates at 5V, hence the regulated 5V supply is essential.
-      - **TCS3200 Color Sensor:** This sensor detects colors and requires a stable 5V input for accurate operation.
       - **HC-SR04 Ultrasonic Sensors:** These sensors measure distance using ultrasonic waves and also operate at 5V.
       - **MPU-9250:** This sensor module, which includes an accelerometer, gyroscope, and magnetometer, operates at 3.3V, so an additional step-down regulator might be used if needed.
     - **Reason:** These components require lower voltage for operation, and supplying them with 12V could damage them. The regulator ensures a stable 5V output.
@@ -682,7 +681,6 @@ To visualize the power distribution, here’s a simplified flowchart showing how
        |
        |---> [12V to 5V Voltage Regulator] 
                    |---> [Arduino Mega 2560] (5V)
-                   |---> [TCS3200 Color Sensor] (5V)
                    |---> [HC-SR04 Ultrasonic Sensors] (5V)
                    |---> [MPU-9250] (3.3V via additional step-down)
                    |---> [Pixy2 Camera] (5V)
