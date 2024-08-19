@@ -305,9 +305,118 @@ The second method utilizes a software-based loop counter that increments the lap
 
 **Advantages of This Method:**
 - **Reliability:** This method provides more reliable lap counting, unaffected by external factors like ambient light.
-- **Precision:** The IMU ensures precise control of the vehicle’s steering, contributing to accurate lap counting.
+- **Precision:** The IMU ensures precise control of the vehicle’s steering, contributing to accurate lap counting
+
+### 2.6 IMU-Based Steering
+
+**Overview:**
+In our autonomous vehicle, precise steering is crucial for navigating the course. We implemented an Inertial Measurement Unit (IMU)-based steering mechanism that allows the robot to make accurate turns and maintain its orientation. The IMU provides real-time data on the vehicle’s angular velocity, which we use to calculate the yaw angle (turning angle) and ensure stable and precise steering.
+
+**Understanding the IMU:**
+An Inertial Measurement Unit (IMU) is a device that combines sensors to measure motion and orientation. Typically, an IMU consists of a gyroscope (to measure angular velocity) and an accelerometer (to measure linear acceleration). Some IMUs may also include a magnetometer to measure orientation relative to the Earth's magnetic field.
+
+- **X-Axis**: Represents the roll (left-right tilt) of the vehicle.
+- **Y-Axis**: Represents the pitch (forward-backward tilt) of the vehicle.
+- **Z-Axis**: Represents the yaw (rotation around the vertical axis), which is crucial for steering.
+
+**Yaw Angle Calculation:**
+The yaw angle (\(\theta_z\)) is a measure of how much the vehicle has rotated around the Z-axis. The gyroscope in the IMU measures the angular velocity (\(gyro_z\)) around this axis, which indicates the rate of change of the yaw angle over time.
+
+To calculate the yaw angle, we integrate the angular velocity over time. This means we sum up the changes in angular velocity to get the total angle the vehicle has turned:
+
+\[
+\theta_z = \theta_{z, \text{previous}} + \left( \frac{\text{gyro}_z - \text{gyro\_z\_offset}}{131.0} \right) \times \Delta t
+\]
+
+Where:
+- \(\theta_z\) is the current yaw angle.
+- \(\theta_{z, \text{previous}}\) is the previous yaw angle.
+- \(\text{gyro}_z\) is the raw angular velocity reading from the gyroscope around the Z-axis.
+- \(\text{gyro\_z\_offset}\) is the gyroscope offset value (calculated during calibration to correct for any small biases).
+- \(\Delta t\) is the elapsed time between the current and previous readings.
+
+**PID Control for Steering:**
+PID (Proportional-Integral-Derivative) control is a method used to adjust the steering angle based on the difference between the target yaw angle and the current yaw angle, which we call the "error."
+
+- **Proportional (P)**: This term produces an output value that is proportional to the current error. The larger the error, the larger the proportional output. However, relying solely on the proportional term can lead to overshooting the target because it doesn't account for past errors or predict future errors.
+
+- **Integral (I)**: The integral term sums up the past errors over time. It helps eliminate residual steady-state errors that the proportional term alone might not address. Essentially, it accumulates the error over time and tries to reduce it by adjusting the output.
+
+- **Derivative (D)**: The derivative term predicts future error based on the rate of change of the error. It helps to dampen the system, reducing overshoot and improving stability by slowing down the response as the error decreases.
+
+The PID controller adjusts the steering using the following equation:
+
+\[
+\text{controlSignal} = K_p \times \text{error} + K_i \times \int \text{error} \, dt + K_d \times \frac{d(\text{error})}{dt}
+\]
+
+Where:
+- \(K_p\): Proportional gain, affects the magnitude of the correction.
+- \(K_i\): Integral gain, affects the elimination of steady-state error.
+- \(K_d\): Derivative gain, affects the rate of response and damping.
+
+**Code Implementation:**
+The following code snippet demonstrates how IMU-based steering and PID control are implemented:
+
+```cpp
+#include <Wire.h>
+#include <MPU6050.h>
+#include <Servo.h>
+
+MPU6050 mpu;
+Servo myServo;
+int16_t gz;
+float yaw_angle = 0, gyro_z_offset = 0;
+float Kp = 2, Ki = 0, Kd = 0.5;
+float error, integral = 0, derivative, controlSignal;
+unsigned long previousTime, currentTime;
+
+void setup() {
+    Serial.begin(9600);
+    Wire.begin();
+    mpu.initialize();
+    myServo.attach(SERVO_PIN);
+    Serial.println("Calibrating gyro...");
+    calculateGyroDrift();
+    Serial.println("Done Calibrating");
+    previousTime = millis();
+}
+
+void loop() {
+    MoveFWwithGyro();
+}
+
+void MoveFWwithGyro() {
+    currentTime = millis();
+    float elapsed_time = (currentTime - previousTime) / 1000.0;
+    previousTime = currentTime;
+
+    gz = mpu.getRotationZ() - gyro_z_offset;
+    float gyro_z = gz / 131.0;
+    yaw_angle += gyro_z * elapsed_time;
+
+    error = targetYawAngle - yaw_angle;
+    integral += error * elapsed_time;
+    derivative = (error - previousError) / elapsed_time;
+    controlSignal = Kp * error + Ki * integral + Kd * derivative;
+    controlSignal = constrain(controlSignal, 40, 140);
+    myServo.write(int(controlSignal));
+
+    previousError = error;
+    Serial.print("Yaw Angle: "); Serial.println(yaw_angle);
+}
+
+void calculateGyroDrift() {
+    for (int i = 0; i < 2000; i++) {
+        gyro_z_offset += mpu.getRotationZ();
+        delay(2);
+    }
+    gyro_z_offset /= 2000;
+}
   
 ## 3. Open challenge algorithm
+
+
 
 ### 5. Designing Process
 
