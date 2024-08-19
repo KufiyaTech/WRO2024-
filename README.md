@@ -415,7 +415,7 @@ void calculateGyroDrift() {
 }
   
 
-'''
+cpp '''
 
 
 ## 3. Open challenge algorithm
