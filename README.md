@@ -71,19 +71,20 @@ This repository contains engineering materials of a self-driven vehicle's model 
     
    6.2. [Sensors We Used and Their Functions](#sensors-we-used-and-their-functions)
    
-7. [Appendices](#appendices)
+7. [Hurdles and Challenges](#hurdles-and-challenges)
 
-   7.1. [Datasheets and Specifications](#datasheets-and-specifications)
-      
-   7.2. [References](#references)
-   
-8. [Hurdles and Challenges](#hurdles-and-challenges)
-
-   8.1. [Designing Process Challenges](#designing-process-challenges)
+   7.1. [Designing Process Challenges](#designing-process-challenges)
     
-   8.2. [Sensor and Coding Challenges](#sensor-and-coding-challenges)
+   7.2. [Sensor and Coding Challenges](#sensor-and-coding-challenges)
    
-   8.3. [General Challenges](#general-challenges)
+   7.3. [General Challenges](#general-challenges)
+   
+   
+8. [Appendices](#appendices)
+
+   8.1. [Datasheets and Specifications](#datasheets-and-specifications)
+      
+   8.2. [References](#references)
    
 9. [Conclusion and Reflections](#conclusion-and-reflections)
  
@@ -737,9 +738,27 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 | **Wheels**                     | 4            | Allows the car to move; driven by the DC motors.                                                        |
 | **DC Motors**                  | 1           | Powers the wheels to drive the car forward, backward, and turn.                                         |
 
+## 7.Hurdles and Challenges
+### 7.1. Designing Process Challenges
 
-## 7.Appendices
-### 7.1. Datasheets and Specifications
+**1. Component Selection and Layout:**
+   - We faced challenges in selecting compatible components and placing them efficiently within the robot's compact design. Ensuring all parts fit without overcrowding was a significant issue.
+
+**2. Cable Management:**
+   - Managing and securing the wiring was difficult. Cables frequently broke or disconnected when the robot hit obstacles, leading to unreliable connections and functionality.
+
+**3. Prototyping and Iteration:**
+   - The design underwent multiple revisions due to various issues, such as improper component placement and structural weaknesses. Each prototype revealed new challenges, requiring adjustments and improvements.
+
+**4. Dimension and Fit Issues:**
+   - We encountered problems with the robot's dimensions, leading to misalignment and cramped spaces for components. This necessitated redesigning the layout to ensure everything fit properly.
+
+**5. Material Selection:**
+   - Choosing the right material for the robot's structure was difficult. Initial materials were too fragile, causing breakages. After testing several options, we settled on wood for its strength and durability.
+
+
+## 8.Appendices
+### 8.1. Datasheets and Specifications
 
 Below are the datasheets for each of the key components used in the project:
 
@@ -752,7 +771,7 @@ Below are the datasheets for each of the key components used in the project:
 | **pixy2 camera**      | [View Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf) |
 | **MPU-9250 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf) |
 
-### 7.2. References
+### 8.2. References
 Below are the references used throughout the project documentation:
 1. [PID Control](https://medium.com/autonomous-robotics/pid-control-85596db59f35) - A detailed guide on PID control in robotics.
 
