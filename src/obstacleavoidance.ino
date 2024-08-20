@@ -46,54 +46,34 @@ unsigned long previousTime;
 unsigned long currentTime;
 
 void setup() {
-    // ..................................Initialization........................................//
+  pixy.init();
+  
+  // ..................................Initialization........................................//
   Serial.begin(9600);
   Wire.begin();
   mpu.initialize();
-  pixy.init();
   
-  // Turn on the Pixy2 camera lights
-  pixy.setLamp(1, 0); // Turn on white LEDs
-
   // ..................................Motor Driver setup......................................//
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
   pinMode(ENA, OUTPUT);
   
   //................................. Ultrasonic sensor setup..................................//
+  pinMode(trigPinl, OUTPUT);
+  pinMode(echoPinl, INPUT);
+  pinMode(trigPinr, OUTPUT);
+  pinMode(echoPinr, INPUT);
+  pinMode(trigPinf, OUTPUT);
+  pinMode(echoPinf, INPUT);
   
-
   //.............................Check if MPU6050 is connected properly.......................//
   Serial.println(mpu.testConnection() ? "MPU6050 connected" : "MPU6050 connection failed");
-
+  
   //.............................Calibrate the gyro to calculate drift........................//
   Serial.println("Calibrating gyro...");
   calculateGyroDrift();
   Serial.println("Done Calibrating");
-
-  // Declare the variables to store pillar detection information
-  String pillarColor;
-  String pillarSide;
-  int pillarSize;
-
-  // Test Pixy2 camera detection
-  pixy.ccc.getBlocks();
-  if (pixy.ccc.numBlocks) {
-    pillarColor = detectPillarColor();
-    pillarSide = detectPillarSide();
-    pillarSize = detectPillarSize();
-
-    // Print the detected information
-    Serial.print("Pillar Color: ");
-    Serial.println(pillarColor);
-    Serial.print("Pillar Side: ");
-    Serial.println(pillarSide);
-    Serial.print("Pillar Size: ");
-    Serial.println(pillarSize);
-  } else {
-    Serial.println("No blocks detected.");
-  }
-
+  
   //.......................................Servo setup.......................................//
   myServo.attach(SERVO_PIN);
   myServo.write(currentAngle);
@@ -101,79 +81,212 @@ void setup() {
   digitalWrite(IN1, HIGH);  // Set direction
   digitalWrite(IN2, LOW);   // Set direction
   analogWrite(ENA, 0);      // Set initial speed (0-255)
- 
 
   //...................................... Main code .......................................//
   previous_time = millis(); // Record the start time
-  analogWrite(ENA, 155);
 
-
-  // Implement logic based on detected pillar characteristics
-  while (true) {
+  analogWrite(ENA, 255);
+  while (usForward() > 40) { 
+    MoveFWwithGyro(); 
+  }
+  
+  analogWrite(ENA, 0);  
+  delay(100);
+  
+  //....... Determine the Direction of Rotation .......//
+  if (usLeft() < usRight()) {  //CW
+    i = 1; 
+  } else if (usLeft() > usRight()) { //CCW
+    i = 2;
+  } else {
+    while (1) {
+      myServo.write(30);
+      delay(1000);
+      myServo.write(160);
+      delay(1000);
+    }
+  }
+  
+  analogWrite(ENA, 255);
+  while (i == 1) {
+    int pillarType = detectPillar();
+    int size = calculatePillarSize();
+    String position = getPillarPosition();
 
     MoveFWwithGyro();
-
-    pillarSide = detectPillarSide(); // Update pillarSide within the loop
-    pillarColor = detectPillarColor();
-    pillarSize = detectPillarSize();
-
-    if (pillarSize > 1000) {
-      stopmotor();
-      while (pillarColor == "red") {
-        while (pillarSide == "center") {
-          myServo.write(0);
-          pillarSide = detectPillarSide(); // Continuously update the pillar side
+    if (usForward() < 50 && usRight() > 70) { 
+      targetYawAngle -= 90;
+      while (yaw_angle > targetYawAngle + 10) {
+        MoveFWwithGyro();
+      }
+    }
+    
+    while (pillarType == 0) { // "No pillar detected"
+      MoveFWwithGyro();
+    }
+    
+    while (pillarType == 1) { // "Red pillar detected"
+      if (size < 8000) {
+        MoveFWwithGyro();
+      } else if (size > 8000) {
+        stopMotor();
+        while (position == "Left") {
+          targetYawAngle += 30;
+          break;
+        }
+        while (position == "Right") {
+          targetYawAngle -= 45;
+          break;
+        }
+        while (position == "Center") {
+          targetYawAngle += 0;
+          break;
         }
         MoveFWwithGyro();
-        pillarColor = detectPillarColor(); // Update the pillar color after moving forward
+      }
+    }
+    while (pillarType == 2 ){
+      if (size < 8000) {
+        MoveFWwithGyro();
+      } else if (size > 8000) {
+        stopMotor();
+        while (position == "Left") {
+          targeYawAngle += 30;
+          break;
+        }
+        while (position == "Right") {
+          targetYawAngle -= 45;
+          break;
+        }
+        while (position == "Center") {
+          targetYawAngle += 0;
+          break;
+        }
+        MoveFWwithGyro();
+      }
+    }
+    }
+  }
+
+  while (i == 2) {
+    MoveFWwithGyro();
+    if (usForward() < 50 && usLeft() > 70) { 
+      targetYawAngle += 90;
+      while (yaw_angle < targetYawAngle - 10) {
+        MoveFWwithGyro();
       }
     }
   }
-} 
+  while (pillarType == 0) { // "No pillar detected"
+      MoveFWwithGyro();
+    }
+    
+    while (pillarType == 1) { // "Red pillar detected"
+      if (size < 8000) {
+        MoveFWwithGyro();
+      } else if (size > 8000) {
+        stopMotor();
+        while (position == "Left") {
+          targetYawAngle += 30;
+          break;
+        }
+        while (position == "Right") {
+          targetYawAngle -= 45;
+          break;
+        }
+        while (position == "Center") {
+          targetYawAngle += 0;
+          break;
+        }
+        MoveFWwithGyro();
+      }
+    }
+    while (pillarType == 2 ){
+      if (size < 8000) {
+        MoveFWwithGyro();
+      } else if (size > 8000) {
+        stopMotor();
+        while (position == "Left") {
+          targeYawAngle += 30;
+          break;
+        }
+        while (position == "Right") {
+          targetYawAngle -= 45;
+          break;
+        }
+        while (position == "Center") {
+          targetYawAngle += 0;
+          break;
+        }
+        MoveFWwithGyro();
+      }
+    }
+    }
+}
 
 void loop() {
-  // Empty loop function to satisfy the Arduino framework
+  //MoveFWwithGyro();
 }
 
 // .....................................Functions Definitions...........................................//
 //........... Moving forward with Gyro Feedback ...........//
 void MoveFWwithGyro() {
-    long current_time = millis();
-    currentTime = millis();
-    float elapsed_time = (current_time - previous_time) / 1000.0; // Calculate elapsed time in seconds
-    previous_time = current_time;
+  long current_time = millis();
+  currentTime = millis();
+  float elapsed_time = (current_time - previous_time) / 1000.0; // Calculate elapsed time in seconds
+  previous_time = current_time;
 
-    // Get the Z-axis rotation value
-    gz = mpu.getRotationZ();
+  // Get the Z-axis rotation value
+  gz = mpu.getRotationZ();
 
-    // Apply drift correction
-    gz -= gyro_z_offset;
+  // Apply drift correction
+  gz -= gyro_z_offset;
 
-    // Convert gyroscope reading to degrees per second
-    float gyro_z = gz / 131.0;
+  // Convert gyroscope reading to degrees per second
+  float gyro_z = gz / 131.0;
 
-    // Calculate the yaw angle by integrating the angular velocity over time
-    yaw_angle += gyro_z * elapsed_time;
+  // Calculate the yaw angle by integrating the angular velocity over time
+  yaw_angle += gyro_z * elapsed_time;
+  error = yaw_angle - targetYawAngle;
 
-    error = yaw_angle - targetYawAngle;
-    integral += error * (currentTime - previousTime);
-    derivative = (error - previousError) / (currentTime - previousTime);
+  // Calculate integral and derivative
+  integral += error * (currentTime - previousTime);
+  derivative = (error - previousError) / (currentTime - previousTime);
 
-    // Calculate the control signal
-    controlSignal = Kp * error + Ki * integral + Kd * derivative;
+  // Calculate the control signal
+  controlSignal = Kp * error + Ki * integral + Kd * derivative;
 
-    float t = controlSignal + 90;
+  float t = controlSignal + 90;
 
-    t = constrain(t, 40, 140);   // Keep the angle within bounds
-    myServo.write(int(t));
+  t = constrain(t, 40, 140);   // Keep the angle within bounds
+  myServo.write(int(t));
 
-    previousError = error;
-    previousTime = currentTime;
+  previousError = error;
+  previousTime = currentTime;
+}
+
+void yaw() {
+  long current_time = millis();
+  float elapsed_time = (current_time - previous_time) / 1000.0; // Calculate elapsed time in seconds
+  previous_time = current_time;
+
+  // Get Z-axis rotation value
+  gz = mpu.getRotationZ();
+
+  // Apply drift correction
+  gz -= gyro_z_offset;
+
+  // Convert gyroscope reading to degrees per second
+  float gyro_z = gz / 131.0;
+
+  // Calculate the yaw angle by integrating the angular velocity over time
+  yaw_angle += gyro_z * elapsed_time;
 }
 
 //................. Gyro Calibration ....................//
 void calculateGyroDrift() {
   for (int i = 0; i < calibration_count; i++) {
+    // Get Z-axis rotation value
     gz = mpu.getRotationZ();
     gyro_z_offset += gz;
     delay(2); // Short delay between readings to stabilize
@@ -212,62 +325,62 @@ long usForward() {
   return getUltrasonicDistance(trigPinf, echoPinf);
 }
 
-// Pixy2 functions
-String detectPillarColor() {
+int detectPillar() {
   pixy.ccc.getBlocks();
 
   if (pixy.ccc.numBlocks) {
     for (int i = 0; i < pixy.ccc.numBlocks; i++) {
       if (pixy.ccc.blocks[i].m_signature == 1) {
-        return "red";
+        return 1; // Red pillar detected
       } else if (pixy.ccc.blocks[i].m_signature == 2) {
-        return "green";
+        return 2; // Green pillar detected
       }
     }
   }
-  return "none";
+  
+  return 0; // No pillar detected
 }
 
-String detectPillarSide() {
+int calculatePillarSize() {
   pixy.ccc.getBlocks();
 
   if (pixy.ccc.numBlocks) {
-    int leftBoundary = pixy.frameWidth / 3;          // Left region ends at 1/3 of the frame width
-    int rightBoundary = 2 * pixy.frameWidth / 3;     // Right region starts at 2/3 of the frame width
-
     for (int i = 0; i < pixy.ccc.numBlocks; i++) {
-      int blockX = pixy.ccc.blocks[i].m_x; // x-coordinate of the detected block
-
-      if (blockX < leftBoundary) {
-        return "left"; // Object is in the left region
-      } else if (blockX > rightBoundary) {
-        return "right"; // Object is in the right region
-      } else {
-        return "center"; // Object is in the center region
+      if (pixy.ccc.blocks[i].m_signature == 1 || pixy.ccc.blocks[i].m_signature == 2) {
+        return pixy.ccc.blocks[i].m_width * pixy.ccc.blocks[i].m_height; // Return the area of the pillar
       }
     }
   }
-  return "none";
+  
+  return 0; // No pillar detected
 }
 
-int detectPillarSize() {
+String getPillarPosition() {
   pixy.ccc.getBlocks();
 
   if (pixy.ccc.numBlocks) {
-    int maxArea = 0;
     for (int i = 0; i < pixy.ccc.numBlocks; i++) {
-      int area = pixy.ccc.blocks[i].m_width * pixy.ccc.blocks[i].m_height;
-      if (area > maxArea) {
-        maxArea = area;
+      if (pixy.ccc.blocks[i].m_signature == 1 || pixy.ccc.blocks[i].m_signature == 2) {
+        int x = pixy.ccc.blocks[i].m_x;
+        if (x < 100) {
+          return "Left";
+        } else if (x > 220) {
+          return "Right";
+        } else {
+          return "Center";
+        }
       }
     }
-    return maxArea;
   }
-  return 0;
+  
+  return "No Pillar"; // No pillar detected
 }
 
-void stopmotor() {
-  analogWrite(ENA, 0);
+void stopMotor() {
+  // Set both IN1 and IN2 to LOW to stop the motor
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
+  
+  // Set ENA to 0 to ensure no power is being delivered
+  analogWrite(ENA, 0);
 }
