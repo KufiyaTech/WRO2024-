@@ -758,7 +758,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **5. Material Selection:**
    - Choosing the right material for the robot's structure was difficult. Initial materials were too fragile, causing breakages. After testing several options, we settled on wood for its strength and durability.
 
-### 8.2. Sensor and Coding Challenges
+### 7.2. Sensor and Coding Challenges
 
 #### TCS3200 Color Sensor
 
