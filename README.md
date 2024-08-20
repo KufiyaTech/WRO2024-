@@ -80,19 +80,18 @@ This repository contains engineering materials of a self-driven vehicle's model 
    7.3. [Mechanical Challenges](mechanical-challenges)
 
       
+8. [Conclusion and Reflections](#conclusion-and-reflections)
+ 
+   8.1. [Lessons Learned](#lessons-learned)
+    
+   8.2. [Future Work](#future-work)
 
 9. [Appendices](#appendices)
 
-   8.1. [Datasheets and Specifications](#datasheets-and-specifications)
+   9.1. [Datasheets and Specifications](#datasheets-and-specifications)
       
-   8.2. [References](#references)
+   9.2. [References](#references)
    
-   
-10. [Conclusion and Reflections](#conclusion-and-reflections)
- 
-   9.1. [Lessons Learned](#lessons-learned)
-    
-   9.2. [Future Work](#future-work)
 
 
 
