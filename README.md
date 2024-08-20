@@ -25,7 +25,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    1.2. [Team Management](#team-management)
 
-   1.3. [What makes our car special](#what-makes-our-car-special)
+   1.3. [our car advantages an disadvantages l](our-car-advantages-and-disadvantages)
    
 2. [How Does Our Robot Think](#how-does-our-robot-think)
  
@@ -147,6 +147,18 @@ As students of esteemed professors who are proud holders of Palestinian degrees 
 Stay connected with our team and follow our journey through our official social media channels. Explore more about our work, updates, and behind-the-scenes moments by visiting our link tree:
 
 - **KufiyaTech Social Accounts**: [https://linktr.ee/kufiyatech](https://linktr.ee/kufiyatech)
+- 
+### 1.3.our car advantages and disadvantages
+
+**Custom Design:**
+- **Chassis and Mechanism:** We designed the entire car from scratch, including both the chassis and the mechanism, allowing for a tailored, optimized build.
+
+**Lightweight and Fast:**
+- **Weight Efficiency:** Our car's lightweight design enhances speed and agility, making it faster and more responsive compared to heavier models.
+
+**Improvement Areas:**
+- **Size:** The car’s larger size is a drawback, making it less maneuverable in tight spaces.
+- **Mechanism:** While functional, the mechanism needs refinement for better precision and efficiency in future iterations.
 
 
 ## 2. How Does Our Robot Think
