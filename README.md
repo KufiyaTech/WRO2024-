@@ -781,3 +781,17 @@ Below are the datasheets for each of the key components used in the project:
 | **HC-SR04 Ultrasonic Sensor** | [View Datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)   |
 | **pixy2 camera**      | [View Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf) |
 | **MPU-9250 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf) |
+
+### 7.2. References
+Below are the references used throughout the project documentation:
+1. [PID Control](https://medium.com/autonomous-robotics/pid-control-85596db59f35) - A detailed guide on PID control in robotics.
+
+2. [Proportional-Derivative (PD) Controller](https://electronicscoach.com/proportional-derivative-controller.html) - Explanation of the PD controller and its applications.
+
+3. [When and Why to Use P, PI, PD, and PID Controllers](https://medium.com/@svm161265/when-and-why-to-use-p-pi-pd-and-pid-controller-73729a708bb5) - An overview of different types of controllers and their uses.
+
+4. [LiPo Battery Safety Warnings](https://power.tenergy.com/lipo-safety-warnings/) - Important safety information about using LiPo batteries.
+
+5. [World Robot Olympiad - Future Engineers](https://world-robot-olympiad-association.github.io/future-engineers-gs/) - Guidelines and resources for participating in the World Robot Olympiad.
+
+
