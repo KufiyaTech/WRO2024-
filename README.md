@@ -477,28 +477,28 @@ The PID controller operates by combining three distinct control actions:
 **Key Equations:**
 
 - **Proportional Term:**  
- $$
-Pout​=Kp​×e(t)​
- $$
+
+$Pout​=Kp​×e(t)​$
+
   - Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.
 
 - **Integral Term:**  
- $$
-Iout​=Ki​×∫0t​e(τ)dτ​
- $$
+
+$Iout​=Ki​×∫0t​e(τ)dτ​$
+
   - Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
 
-- **Derivative Term:**  
-   $$
- Dout​=Kd​×dtde(t)​
-   $$
+- **Derivative Term:**
+
+ $Dout​=Kd​×dtde(t)​$
+  
 
   - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
 
 - **Combined PID Control:**  
-   $$
-  u(t)=Kp​×e(t)+Ki​×∫0t​e(τ)dτ+Kd​×dtde(t)​
-   $$
+  
+  $u(t)=Kp​×e(t)+Ki​×∫0t​e(τ)dτ+Kd​×dtde(t)​$
+  
   - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
 
 **Implementation in Our Project:**
