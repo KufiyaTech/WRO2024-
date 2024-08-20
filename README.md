@@ -490,7 +490,7 @@ $Iout​=Ki​×∫0t​e(τ)dτ​$
 
 - **Derivative Term:**
 
- $$ Dout​=Kd​×dtde(t)​ $$
+ $$Dout​=Kd​×dtde(t)​$$
   
 
   - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
