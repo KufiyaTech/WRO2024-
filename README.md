@@ -76,17 +76,19 @@ This repository contains engineering materials of a self-driven vehicle's model 
    7.1. [Designing Process Challenges](#designing-process-challenges)
     
    7.2. [Sensor and Coding Challenges](#sensor-and-coding-challenges)
-   
-   7.3. [General Challenges](#general-challenges)
-   
-   
-8. [Appendices](#appendices)
+
+   7.3. [Mechanical Challenges](mechanical-challenges)
+
+      
+
+9. [Appendices](#appendices)
 
    8.1. [Datasheets and Specifications](#datasheets-and-specifications)
       
    8.2. [References](#references)
    
-9. [Conclusion and Reflections](#conclusion-and-reflections)
+   
+10. [Conclusion and Reflections](#conclusion-and-reflections)
  
    9.1. [Lessons Learned](#lessons-learned)
     
@@ -791,6 +793,25 @@ To visualize the power distribution, here’s a simplified flowchart showing how
   - **Problem:** This project marked our first experience with Arduino, C++, and the sensors we utilized. We faced challenges in understanding the communication protocols, particularly I2C for the IMU and PWM for the servo motor, which led to initial integration difficulties.
   - **Approach:** We relied heavily on online resources, including official Arduino documentation, community forums, and GitHub repositories, to troubleshoot issues and enhance our understanding of sensor integration. Practical experimentation and iterative testing were crucial in overcoming these obstacles.
   - **Outcome:** Through this process, we not only resolved the immediate issues but also gained substantial experience and confidence in working with embedded systems and microcontroller programming. This learning experience has been invaluable for our future projects.
+  - 
+### 7.3. Mechanical Challenges
+
+ **1. Stability Issues with the Mechanism**
+
+- **Challenge: Lack of Stability in the Mechanism**
+  - **Problem:** The initial design of our robot's mechanism faced significant stability issues. The instability was particularly evident in the differential and servo components, where precise movements were critical but not consistently achieved.
+  
+- **Servo Motor Accuracy:**
+  - **Problem:** The servo motor we initially used was not accurate enough to maintain consistent control over the mechanism. This lack of precision led to erratic movements and contributed to the overall instability of the robot.
+  - **Solution:** To address this, we bypassed the gears and connected the servo motor directly. However, this solution was only partially effective, as it did not fully resolve the issue of precision.
+
+- **Differential Gear Issues:**
+  - **Problem:** The differential gears were another source of instability. Initially, we used LEGO gears, but these proved to be problematic. The LEGO gears were not securely fitting together, causing them to slip frequently and fail to transmit power effectively.
+  - **Solution:** To overcome this, we designed and 3D-printed custom couplers and gears. These custom parts were specifically designed to fit together securely and provide the necessary stability and power transmission required for the robot's differential.
+
+- **Outcome:**
+  - The custom 3D-printed gears and couplers significantly improved the stability and reliability of the mechanism. By designing parts that were tailored to our specific needs, we were able to eliminate the issues caused by the original LEGO gears and ensure that the robot's movements were precise and consistent.
+
 
 ## 8.Appendices
 ### 8.1. Datasheets and Specifications
