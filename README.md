@@ -476,63 +476,29 @@ The PID controller operates by combining three distinct control actions:
 
 **Key Equations:**
 
-- **Proportional Term:**
-  ** P 
-out
-​
- =K 
-p
-​
- ×e(t)**
+- **Proportional Term:**  
+ $$
+Pout​=Kp​×e(t)​
+$$
+  - Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.
 
-  *Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.*
 - **Integral Term:**  
-** I 
-out
-​
- =K 
-i
-​
- ×∫ 
-0
-t
-​
- e(τ)dτ**
+ $$
+Iout​=Ki​×∫0t​e(τ)dτ​
+$$
   - Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
 
 - **Derivative Term:**  
- **D 
-out
-​
- =K 
-d
-​
- × 
-dt
-de(t)
-​
-**
+-  $$
+ Dout​=Kd​×dtde(t)​
+   $$
+
   - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
 
 - **Combined PID Control:**  
-**u(t)=K 
-p
-​
- ×e(t)+K 
-i
-​
- ×∫ 
-0
-t
-​
- e(τ)dτ+K 
-d
-​
- × 
-dt
-de(t)
-​
-**
+  $$
+  u(t)=Kp​×e(t)+Ki​×∫0t​e(τ)dτ+Kd​×dtde(t)​
+   $$
   - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
 
 **Implementation in Our Project:**
@@ -570,6 +536,10 @@ In our autonomous vehicle project, the PID controller is utilized to maintain th
 
 5. **Practical Application:**
    - As the vehicle moves, the PID controller continuously adjusts the steering to keep the vehicle on course. If the vehicle deviates, the controller calculates the necessary steering corrections to bring it back on track smoothly.
+
+**Conclusion:**
+
+The PID controller is a critical component in our system, ensuring the vehicle maintains a stable and accurate trajectory. By balancing the immediate response (P), accumulated error correction (I), and predictive adjustment (D), the PID controller allows for precise control of the vehicle's movements, even in dynamic and challenging environments.
 
 ### 3.2 Turn Execution
 
