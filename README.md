@@ -756,6 +756,41 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **5. Material Selection:**
    - Choosing the right material for the robot's structure was difficult. Initial materials were too fragile, causing breakages. After testing several options, we settled on wood for its strength and durability.
 
+### 8.2. Sensor and Coding Challenges
+
+#### TCS3200 Color Sensor
+
+- **Challenge: Inconsistent Color Detection**
+  - **Problem:** The TCS3200 color sensor struggled with accurately detecting the orange color, particularly under varying lighting conditions. Despite extensive calibration efforts, the sensor's readings remained unreliable, impacting the robot's ability to differentiate between colors accurately, which was critical for task completion.
+  - **Approach:** We conducted several tests in controlled environments, adjusting the ambient light and altering the sensor's positioning. Additionally, multiple software filters were applied to stabilize the sensor's output.
+  - **Result:** Despite these efforts, the sensor continued to underperform in distinguishing orange from similar hues. This led us to explore alternative sensors.
+  - **Reference:** [TCS3200 Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf)
+
+#### MPU-9250 IMU
+
+- **Challenge: Gyroscope Drift and Accuracy**
+  - **Problem:** The MPU-9250, which combines a gyroscope, accelerometer, and magnetometer, exhibited significant drift over time, leading to inaccuracies in the robot's orientation and steering control. This drift made it difficult to maintain stable and precise movements, especially during prolonged operations.
+  - **Approach:** We implemented a rigorous calibration routine to minimize offset errors and employed complementary filtering to combine data from the accelerometer and gyroscope, thereby reducing the impact of drift over time. Below is a snippet of the PID control algorithm used to correct the robot's steering based on IMU data.
+  - **Code Snippet:**
+    ```cpp
+    // Complementary filter implementation
+    yaw_angle += gyro_z * elapsed_time;
+    error = yaw_angle - targetYawAngle;
+    integral += error * elapsed_time;
+    derivative = (error - previousError) / elapsed_time;
+    controlSignal = Kp * error + Ki * integral + Kd * derivative;
+    myServo.write(constrain(controlSignal + 90, 40, 140));
+    previousError = error;
+    ```
+  - **Result:** The adjustments led to a significant improvement in the robot's navigation stability, although some minor drift remained. This experience underscored the importance of sensor fusion techniques in robotics.
+  - **Reference:** [MPU-9250 Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf)
+
+#### First-Time Experience with Arduino and Sensors
+
+- **Challenge: Steep Learning Curve with New Hardware and Software**
+  - **Problem:** This project marked our first experience with Arduino, C++, and the sensors we utilized. We faced challenges in understanding the communication protocols, particularly I2C for the IMU and PWM for the servo motor, which led to initial integration difficulties.
+  - **Approach:** We relied heavily on online resources, including official Arduino documentation, community forums, and GitHub repositories, to troubleshoot issues and enhance our understanding of sensor integration. Practical experimentation and iterative testing were crucial in overcoming these obstacles.
+  - **Outcome:** Through this process, we not only resolved the immediate issues but also gained substantial experience and confidence in working with embedded systems and microcontroller programming. This learning experience has been invaluable for our future projects.
 
 ## 8.Appendices
 ### 8.1. Datasheets and Specifications
