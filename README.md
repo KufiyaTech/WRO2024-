@@ -96,10 +96,16 @@ This repository contains engineering materials of a self-driven vehicle's model 
 
 
 ## Project Overview
-This project is developed for the WRO Future Engineers 2024 competition and focuses on designing and programming an autonomous robotic car. The car is capable of navigating a white map marked with distinct blue and orange lines, utilizing a combination of advanced sensors such as the TCS3200 for color detection and an IMU for precise turning. The primary goal is to optimize the car's performance during the competition, specifically excelling in the obstacle challenge and open challenge rounds.
 
-The competition requires a sophisticated approach to both hardware and software. We’ve integrated robust algorithms that allow the car to autonomously make decisions based on real-time data from its sensors. This not only showcases the car's ability to navigate and avoid obstacles but also emphasizes its capacity to follow designated paths with high accuracy. The project encompasses several engineering disciplines, including electronics, mechanics, and software development, making it a comprehensive example of modern engineering applied to robotics.
+This project has been in development for nearly three months to participate in the WRO Future Engineers 2024 competition. The competition challenges teams to develop a self-driving car capable of autonomously completing two rounds on a designated track. You can view the competition track here.
 
+A self-driving car is a vehicle designed to operate with minimal to no human intervention. For this project, our focus has been on key areas such as sensor fusion, computer vision, and advanced control systems, which are critical to the vehicle's performance.
+
+The project is aimed at engineering students, robotics enthusiasts, and anyone interested in autonomous vehicle technologies, especially those within the 14-19 age group. It incorporates a range of technologies, including C++, Arduino, and AI cameras for computer vision tasks.
+
+The vehicle’s architecture features an Arduino-based control system, integrated with various sensors such as an IMU, ultrasonic sensors, and a camera. These components work together to achieve the desired level of autonomy.
+
+To meet the competition’s demands, our approach integrates sophisticated hardware and software solutions. We’ve developed robust algorithms that enable the car to make autonomous decisions based on real-time sensor data. This not only demonstrates the car’s ability to avoid obstacles but also highlights its precision in following designated paths. The project spans multiple engineering disciplines, including electronics, mechanics, and software development, making it a comprehensive showcase of modern engineering applied to robotics.
 
 ### 1.1 Competition Context
 
