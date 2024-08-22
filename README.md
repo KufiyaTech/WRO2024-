@@ -25,33 +25,33 @@ This repository contains engineering materials of a self-driven vehicle's model 
    
    1.2. [Team Management](#team-management)
 
-   1.3. [our car advantages an disadvantages l](our-car-advantages-and-disadvantages)
-   
-2. [How Does Our Robot Think](#how-does-our-robot-think)
- 
-   2.1. [Open Challenge Overview](#open-challenge-overview)
-   
-   2.2. [Obstacle Challenge Overview](#obstacle-challeng-overview)
-   
-   2.3. [Moving at Safe Zone](#moving-at-safe-zone)
-   
-   2.4. [Detecting Turns and Direction](#detecting-turns-and-direction)
-   
-   2.5. [Lap Counting Mechanism](#lap-counting-mechanism)
-   
-   2.6. [IMU-Based Steering](#imu-based-steering)
-   
-3. [Open Challenge Algorithm](#open-challenge-algorithm)
+   1.3. [Strengths and Limitations of Our Vehicle](strengths-and-limitations-of-our-vehicle)   
 
-   3.1. [PID Controller](#pd-controller)
+2. [Programming Language and Libraries](programming-language-and-libraries)
    
-   3.2. [Turn Execution](#turn-execution)
+   2.1. [Programming Language and Libraries](programming-language-and-libraries)
+ 
+   2.2. [Detecting Turns and Direction](#detecting-turns-and-direction)
+   
+   2.3. [Lap Counting Mechanism](#lap-counting-mechanism)
+   
+   2.4. [IMU-Based Steering](#imu-based-steering)
+   
+3. [Open Challenge](#open-challenge-algorithm)
+
+   3.1. [Open Challenge Overview](#open-challenge-overview)
+
+   3.2. [PID Controller](#pd-controller)
+   
+   3.3. [Turn Execution](#turn-execution)
    
 4. [Obstacle Avoidance Round Challenge](#obstacle-avoidance-round-challenge)
 
-   4.1. [Pillar Detection](#pillar-detection)
+   4.1. [Obstacle Challenge Overview](#obstacle-challeng-overview)
+
+   4.2. [Pillar Detection](#pillar-detection)
     
-   4.2. [Obstacle Avoidance Strategy](#obstacle-avoidance-strategy)
+   4.3. [Obstacle Avoidance Strategy](#obstacle-avoidance-strategy)
    
 5. [Designing Process](#designing-process)
 
@@ -153,28 +153,27 @@ Stay connected with our team and follow our journey through our official social 
 
 - **KufiyaTech Social Accounts**: [https://linktr.ee/kufiyatech](https://linktr.ee/kufiyatech)
 - 
-### 1.3.our car advantages and disadvantages
+### 1.3. Vehicle Strengths and Limitations
 
-**Custom Design:**
-- **Chassis and Mechanism:** We designed the entire car from scratch, including both the chassis and the mechanism, allowing for a tailored, optimized build.
+**Strengths:**
 
-**Lightweight and Fast:**
-- **Weight Efficiency:** Our car's lightweight design enhances speed and agility, making it faster and more responsive compared to heavier models.
+- **Chassis and Mechanism:** We designed the chassis ourselves and incorporated a mechanism built using the LEGO kit. This approach not only ensures that the vehicle meets the competition’s specific requirements but also provides us with valuable hands-on experience in both design and engineering.
 
-**Improvement Areas:**
-- **Size:** The car’s larger size is a drawback, making it less maneuverable in tight spaces.
-- **Mechanism:** While functional, the mechanism needs refinement for better precision and efficiency in future iterations.
+- **Lightweight and Fast**
 
 
-## 2. How Does Our Robot Think
+**Limitations:**
 
-To ensure our vehicle can successfully complete the tasks required in both rounds of the competition, we have utilized a variety of sensors, each with a specific function, as detailed in the [Power and Sense Management](#power-and-sense-management) section of this README.
+- **Size**
 
-Our robot is powered by an Arduino Mega microcontroller and is programmed in **C++**. We chose C++ as our programming language due to its high performance and efficiency, which are crucial for real-time processing and control in embedded systems like ours. Additionally, C++ provides fine-grained control over system resources, which is essential for optimizing the performance of our robot’s algorithms.
+- **Mechanism Precision**
 
-The core logic of the vehicle relies on a PD (Proportional-Derivative) controller to navigate within the designated safe zone. The vehicle is equipped with three ultrasonic sensors and an IMU (Inertial Measurement Unit) sensor, which together manage the steering system effectively. Additionally, a front-facing ultrasonic sensor is employed to detect U-turns. This combination of sensors and control algorithms forms the backbone of our robot's decision-making process, allowing it to navigate the course autonomously and efficiently.
 
-**Programming Language and Libraries**
+
+## 2. Programming Language and Libraries
+
+
+
 
  **Programming Language**: **C++**
 
@@ -194,55 +193,8 @@ We leveraged several libraries to implement the functionalities required for our
 
 These libraries, combined with the robustness of C++, provide the necessary tools to implement the complex control logic required by our autonomous vehicle.
 
-### 2.1 Open Challenge Overview
 
-**Round objectives:**
 
-•	Moving between the internal and external wall.
-
-•	Turning the  car when detecting the lines . 
-
-•	Detecting blue and orange lines on the mat.
-
-•	Counting the laps.
-
-•	The car stops after 3 laps. 
-
-**Round constraints:**
-
-•	Time.
-
-•	The car Turning in the correct angle.
-
-•	The direction of the car's movement is random.
-
-•	he position from which the car starts moving is random.
-
-•	The distance between the internal and external wall is random.
-
-### 2.2 Obstacle Challenge Overview
-
-**Round objectives:**
-
-•	Detecting red and green pillars.
-
-•	Detecting orange and blue lines.
-
-•	Turn right if detecting red pillar.
-
-•	Turn left if detecting green pillar.
-
-•	Turn when detecting blue or orange line.
-
-•	Move straight between the internal and external walls.
-
-**Round constraints:**
-
-•	The positions of the pillars are random.
-
-•	The number of the pillars is random.
-
-### 2.3 Moving at safe zone
 ### 2.4 Detecting Turns and Direction
 
 **Problem Statement:**
@@ -481,8 +433,35 @@ void calculateGyroDrift() {
 4. **PID Control:**
    - The error between the desired and actual yaw angle is calculated. The control signal, which adjusts the steering angle, is then determined by the PID formula. This control signal is sent to the servo motor to adjust the vehicle's direction.
 
-## 3.Open Challenge Algorithm
-### 3.1 PID Controller
+## 3.Open Challenge 
+
+### 3.1 Open Challenge Overview
+
+**Round objectives:**
+
+•	Moving between the internal and external wall.
+
+•	Turning the  car when detecting the lines . 
+
+•	Detecting blue and orange lines on the mat.
+
+•	Counting the laps.
+
+•	The car stops after 3 laps. 
+
+**Round constraints:**
+
+•	Time.
+
+•	The car Turning in the correct angle.
+
+•	The direction of the car's movement is random.
+
+•	he position from which the car starts moving is random.
+
+•	The distance between the internal and external wall is random.
+
+### 3.2 PID Controller
 
 **Overview:**
 
@@ -562,6 +541,32 @@ In our autonomous vehicle project, the PID controller is utilized to maintain th
 The PID controller is a critical component in our system, ensuring the vehicle maintains a stable and accurate trajectory. By balancing the immediate response (P), accumulated error correction (I), and predictive adjustment (D), the PID controller allows for precise control of the vehicle's movements, even in dynamic and challenging environments.
 
 ### 3.2 Turn Execution
+
+## 4. Obstacle Avoidance Round Challenge
+
+### 4.1 Obstacle Challenge Overview
+
+**Round objectives:**
+
+•	Detecting red and green pillars.
+
+•	Detecting orange and blue lines.
+
+•	Turn right if detecting red pillar.
+
+•	Turn left if detecting green pillar.
+
+•	Turn when detecting blue or orange line.
+
+•	Move straight between the internal and external walls.
+
+**Round constraints:**
+
+•	The positions of the pillars are random.
+
+•	The number of the pillars is random.
+
+
 
 
 ### 5. Designing Process
