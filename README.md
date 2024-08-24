@@ -437,6 +437,8 @@ void calculateGyroDrift() {
 
 ### 3.1 Open Challenge Overview
 
+The vehicle must complete three (3) laps on the track with random placements of the inside track walls.
+
 **Round objectives:**
 
 •	Moving between the internal and external wall.
@@ -546,6 +548,9 @@ The PID controller is a critical component in our system, ensuring the vehicle m
 
 ### 4.1 Obstacle Challenge Overview
 
+During Obstacle Challenge rounds, the red and green pillars will be set up on the racetrack as the traffic signs. In addition, two boundaries will be placed and form a parking lot. The distance
+between the track borders will be always 1000 mm (+/- 10 mm for the International Final).
+
 **Round objectives:**
 
 •	Detecting red and green pillars.
@@ -566,6 +571,71 @@ The PID controller is a critical component in our system, ensuring the vehicle m
 
 •	The number of the pillars is random.
 
+### 4.1 Pillar Detection 
+
+One of the areas teams must explore is computer vision, enabling your car to detect red and green pillars. You can achieve this by using the OpenCV library or leveraging AI-supported cameras such as Pixy or HuskyLens.
+
+ **Pillar Detection with Pixy2 Camera:**
+
+The Pixy2 is an advanced vision sensor specifically designed for robotics applications, offering powerful features that enhance your robot’s detection capabilities.
+
+ **Key Features:**
+- **Object Detection**: The Pixy2 can quickly learn to detect objects with a single button press, making it highly user-friendly. It is equipped with robust algorithms for line detection, intersection tracking, and recognizing road signs.
+  
+- **High Processing Speed**: With a processing speed of 60 frames per second, the Pixy2 ensures that your robot can detect and respond to objects swiftly and accurately, which is critical for real-time robotics applications.
+
+- **Integration with Arduino and Raspberry Pi**: The Pixy2 is versatile and easy to integrate into various platforms. It offers direct connections to both Arduino and Raspberry Pi via included cables and supports multiple communication interfaces such as SPI, I2C, UART, and USB.
+
+**How It Works:**
+- **Essential Data**: Pixy2 simplifies programming by only sending the essential data you need, such as X-Y coordinates, the size of the detected objects, and unique IDs for each object.
+  
+- **Software Libraries**: To further ease integration, Pixy2 provides dedicated software libraries for both Arduino and Raspberry Pi. These libraries help streamline the development process, enabling you to get your project up and running quickly.
+
+### Pixy2 Camera Object Detection
+
+The Pixy2 camera is an advanced vision sensor that allows our robot to detect and recognize objects based on color and shape. Below are examples of the Pixy2 camera in action, detecting objects and identifying them by their color.
+
+#### Examples of Pixy2 Detecting Objects:
+
+<p align="center">
+  <img src="C:\Users\hp\Downloads\green.jfif" alt="Pixy2 detecting a red object" width="400"/>
+</p>
+<p align="center"><em>Figure 1: Pixy2 detecting a red object.</em></p>
+
+<p align="center">
+  <img src="path_to_your_image" alt="Pixy2 detecting a green object" width="400"/>
+</p>
+<p align="center"><em>Figure 2: Pixy2 detecting a green object.</em></p>
+
+### Code Example: Printing Object Size and Color
+
+The following code demonstrates how to retrieve and print the size and color of detected objects using the Pixy2 camera:
+
+```cpp
+#include <Pixy2.h>
+#include <Wire.h>
+
+Pixy2 pixy;
+
+void setup() {
+  Serial.begin(9600);
+  pixy.init();
+}
+
+void loop() {
+  pixy.ccc.getBlocks();
+  
+  if (pixy.ccc.numBlocks) {
+    for (int i = 0; i < pixy.ccc.numBlocks; i++) {
+      Serial.print("Detected object: ");
+      Serial.print(pixy.ccc.blocks[i].m_signature);
+      Serial.print(", Size: ");
+      Serial.print(pixy.ccc.blocks[i].m_width);
+      Serial.print("x");
+      Serial.println(pixy.ccc.blocks[i].m_height);
+    }
+  }
+}
 
 
 
