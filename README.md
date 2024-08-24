@@ -437,8 +437,6 @@ void calculateGyroDrift() {
 
 ### 3.1 Open Challenge Overview
 
-The vehicle must complete three (3) laps on the track with random placements of the inside track walls.
-
 **Round objectives:**
 
 •	Moving between the internal and external wall.
@@ -459,7 +457,7 @@ The vehicle must complete three (3) laps on the track with random placements of 
 
 •	The direction of the car's movement is random.
 
-•	he position from which the car starts moving is random.
+•	The position from which the car starts moving is random.
 
 •	The distance between the internal and external wall is random.
 
@@ -544,12 +542,96 @@ The PID controller is a critical component in our system, ensuring the vehicle m
 
 ### 3.2 Turn Execution
 
+To ensure the car turns efficiently when reaching U-turns, we applied precise control for accurate turn execution.
+
+
+**Turn Execution Logic**
+
+The process of executing turns integrates several key components to achieve precision and reliability:
+
+1. **Ultrasonic Sensors**:
+   - Our vehicle is equipped with ultrasonic sensors on the left, right, and front sides, which continuously provide distance measurements from walls.
+   - These sensors play a crucial role in determining the need and direction of the turn by comparing the distances detected on either side of the vehicle.
+
+2. **Gyroscope (Inertial Measurement Unit - MPU6050)**:
+   - The IMU sensor provides real-time data on the vehicle's yaw angle, which is the rotational angle around the vertical axis.
+   - This data is essential for calculating the vehicle's current orientation and ensuring that turns are executed with high angular precision.
+
+3. **PID Controller**:
+   - To ensure smooth and controlled turning, a Proportional-Integral-Derivative (PID) controller is used.
+   - The PID controller calculates the difference between the current yaw angle and the target yaw angle, adjusting the steering motor accordingly.
+   - This control mechanism is critical in avoiding overshooting or undershooting the turn, maintaining the vehicle's intended path.
+
+**Code Implementation for Turn Execution**
+
+The following code snippet demonstrates the logic and functions used to manage turn execution:
+
+```cpp
+void MoveFWwithGyro() {
+    long current_time = millis();
+    currentTime = millis();
+    float elapsed_time = (current_time - previous_time) / 1000.0;
+    previous_time = current_time;
+
+    gz = mpu.getRotationZ();
+    gz -= gyro_z_offset;
+    float gyro_z = gz / 131.0;
+    yaw_angle += gyro_z * elapsed_time;
+
+    error = yaw_angle - targetYawAngle;
+    integral += error * elapsed_time;
+    derivative = (error - previousError) / elapsed_time;
+    controlSignal = Kp * error + Ki * integral + Kd * derivative;
+    float t = controlSignal + 90;
+
+    t = constrain(t, 50, 130);
+    myServo.write(int(t));
+
+    previousError = error;
+    previousTime = currentTime;
+
+    Serial.print("Yaw Angle: "); Serial.println(yaw_angle);
+}
+
+void TurnRight() {
+    targetYawAngle -= 89; // Adjust this value for sharper or softer turns
+    while (yaw_angle > targetYawAngle + 5) {
+        MoveFWwithGyro();
+    }
+}
+
+void TurnLeft() {
+    targetYawAngle += 89; // Adjust this value for sharper or softer turns
+    while (yaw_angle < targetYawAngle - 5) {
+        MoveFWwithGyro();
+    }
+}
+```
+
+**Overview of Operations**
+
+**Turn Initiation:**
+
+- The robot initiates a turn  when the track requires a change in direction, such as a U-turn.
+- The turn direction is determined by comparing the distance readings from the left and right sensors, ensuring that the vehicle turns in the optimal direction.
+
+**Turn Execution:**
+
+- The `MoveFWwithGyro()` function is the core routine that continuously monitors the vehicle's orientation and adjusts the steering angle during the turn.
+- Depending on the required turn direction, the `TurnRight()` or `TurnLeft()` function sets the target yaw angle and engages the PID-controlled steering adjustments until the vehicle reaches the desired orientation.
+- The PID controller plays a critical role in minimizing error and stabilizing the vehicle's movement during and after the turn.
+- 
+**Post-Turn Adjustment:**
+
+- Once the vehicle achieves the required yaw angle, the steering mechanism returns the vehicle to a straight path, allowing it to continue its course efficiently.
+- The combination of real-time sensor data and the PID control algorithm ensures that the vehicle resumes its path without deviation or drift.
+
+By integrating advanced sensor data and control algorithms, our vehicle is capable of executing turns with high precision, a crucial capability for successfully navigating the competition track.
+
+
 ## 4. Obstacle Avoidance Round Challenge
 
 ### 4.1 Obstacle Challenge Overview
-
-During Obstacle Challenge rounds, the red and green pillars will be set up on the racetrack as the traffic signs. In addition, two boundaries will be placed and form a parking lot. The distance
-between the track borders will be always 1000 mm (+/- 10 mm for the International Final).
 
 **Round objectives:**
 
@@ -571,71 +653,6 @@ between the track borders will be always 1000 mm (+/- 10 mm for the Internationa
 
 •	The number of the pillars is random.
 
-### 4.1 Pillar Detection 
-
-One of the areas teams must explore is computer vision, enabling your car to detect red and green pillars. You can achieve this by using the OpenCV library or leveraging AI-supported cameras such as Pixy or HuskyLens.
-
- **Pillar Detection with Pixy2 Camera:**
-
-The Pixy2 is an advanced vision sensor specifically designed for robotics applications, offering powerful features that enhance your robot’s detection capabilities.
-
- **Key Features:**
-- **Object Detection**: The Pixy2 can quickly learn to detect objects with a single button press, making it highly user-friendly. It is equipped with robust algorithms for line detection, intersection tracking, and recognizing road signs.
-  
-- **High Processing Speed**: With a processing speed of 60 frames per second, the Pixy2 ensures that your robot can detect and respond to objects swiftly and accurately, which is critical for real-time robotics applications.
-
-- **Integration with Arduino and Raspberry Pi**: The Pixy2 is versatile and easy to integrate into various platforms. It offers direct connections to both Arduino and Raspberry Pi via included cables and supports multiple communication interfaces such as SPI, I2C, UART, and USB.
-
-**How It Works:**
-- **Essential Data**: Pixy2 simplifies programming by only sending the essential data you need, such as X-Y coordinates, the size of the detected objects, and unique IDs for each object.
-  
-- **Software Libraries**: To further ease integration, Pixy2 provides dedicated software libraries for both Arduino and Raspberry Pi. These libraries help streamline the development process, enabling you to get your project up and running quickly.
-
-### Pixy2 Camera Object Detection
-
-The Pixy2 camera is an advanced vision sensor that allows our robot to detect and recognize objects based on color and shape. Below are examples of the Pixy2 camera in action, detecting objects and identifying them by their color.
-
-#### Examples of Pixy2 Detecting Objects:
-
-<p align="center">
-  <img src="C:\Users\hp\Downloads\green.jfif" alt="Pixy2 detecting a red object" width="400"/>
-</p>
-<p align="center"><em>Figure 1: Pixy2 detecting a red object.</em></p>
-
-<p align="center">
-  <img src="path_to_your_image" alt="Pixy2 detecting a green object" width="400"/>
-</p>
-<p align="center"><em>Figure 2: Pixy2 detecting a green object.</em></p>
-
-### Code Example: Printing Object Size and Color
-
-The following code demonstrates how to retrieve and print the size and color of detected objects using the Pixy2 camera:
-
-```cpp
-#include <Pixy2.h>
-#include <Wire.h>
-
-Pixy2 pixy;
-
-void setup() {
-  Serial.begin(9600);
-  pixy.init();
-}
-
-void loop() {
-  pixy.ccc.getBlocks();
-  
-  if (pixy.ccc.numBlocks) {
-    for (int i = 0; i < pixy.ccc.numBlocks; i++) {
-      Serial.print("Detected object: ");
-      Serial.print(pixy.ccc.blocks[i].m_signature);
-      Serial.print(", Size: ");
-      Serial.print(pixy.ccc.blocks[i].m_width);
-      Serial.print("x");
-      Serial.println(pixy.ccc.blocks[i].m_height);
-    }
-  }
-}
 
 
 
