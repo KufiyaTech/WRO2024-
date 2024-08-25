@@ -681,17 +681,21 @@ The vehicle is required not to move any of the traffic signs during the course. 
 
 **Pixy2 Camera Overview**
 
-The Pixy2 camera is an advanced vision sensor that builds on the capabilities of its predecessor. It is smaller, faster, and more capable, making it ideal for robotics applications like ours. Pixy2 can learn to detect objects by simply pressing a button, allowing for quick and easy setup. Additionally, it features new algorithms that enable the detection and tracking of lines, intersections, and "road signs," which are crucial for guiding robots in complex tasks.
+Pixy2 is a compact, fast, and versatile vision sensor specifically designed for robotics applications. Like its predecessor, Pixy2 can quickly learn to detect objects that you teach it, simply by pressing a button. It also features advanced algorithms for detecting and tracking lines, which is particularly useful for line-following robots. These algorithms can even detect intersections and recognize "road signs" that can instruct your robot to perform actions like turning left, turning right, or slowing down. All of this is processed at 60 frames-per-second, ensuring that your robot can operate at high speeds while still accurately detecting its environment.
 
-One of the key features of the Pixy2 is its ability to operate at 60 frames per second, ensuring that your robot can respond quickly and accurately to detected objects, such as the red and green pillars used in our challenge.
+For more details, you can visit the [Pixy2 Official Website](https://pixycam.com/pixy2/) and check out this [informative video](https://www.youtube.com/watch?v=391dXDjqzXA&t=1675s) on how to use Pixy2. Additionally, if you want to learn more about teaching Pixy2 to recognize objects, you can refer to the [Pixy2 Documentation](https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:teach_pixy_an_object_2).
 
-For more details, you can visit the official Pixy2 website: [Pixy2 Overview](https://pixycam.com/pixy2/).
+**Example of Pixy2 in Action**
 
-To learn how to teach Pixy2 to recognize objects, you can refer to the official guide here: [Teach Pixy an Object](https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:teach_pixy_an_object_2).
+We configured the Pixy2 camera using the PixyMon application to detect green and red pillars. Below are images captured from the PixyMon interface, showing the successful detection of these objects:
 
-Additionally, here's a [video tutorial](https://www.youtube.com/watch?v=391dXDjqzXA&t=1675s) that provides an in-depth explanation of Pixy2's capabilities and setup process.
-
-
+<p align="center">
+  <img src="![image](https://github.com/user-attachments/assets/72c1c704-77e4-4f9c-afb5-7bf2024f471b)
+" alt="Palestine Flag" width="200"/>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="![image](https://github.com/user-attachments/assets/699d2188-8aad-440c-8279-b914f50e5692)
+" alt="Purpose Logo" width="200"/>
+</p>
 
 ### 5. Designing Process
 
