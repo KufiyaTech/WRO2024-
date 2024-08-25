@@ -649,27 +649,49 @@ The vehicle is required not to move any of the traffic signs during the course. 
 **Important Note**: The initial driving direction (clockwise or counterclockwise) will change in different rounds of the challenge. Both the starting position of the vehicle and the number and location of traffic signs are randomly set before each round begins.
 
 
-**Round objectives:**
+**Round Objectives**
 
-•	Detecting red and green pillars.
+- **Traffic Sign Response**: 
+  - **Red Pillar**: Steer right.
+  - **Green Pillar**: Steer left.
 
-•	Detecting orange and blue lines.
+- **Third Lap Direction**:
+  - **Green Sign**: Continue in the same direction.
+  - **Red Sign**: Reverse direction.
 
-•	Turn right if detecting red pillar.
+- **Turn Execution**: 
+  - Turn at blue or orange lines.
 
-•	Turn left if detecting green pillar.
+- **Lane Keeping**: 
+  - Stay centered between the walls.
 
-•	Turn when detecting blue or orange line.
-
-•	Move straight between the internal and external walls.
+- **Final Task**: 
+  - Perform parallel parking after completing three laps.
 
 **Round constraints:**
 
-•	The positions of the pillars are random.
+- Randomized Pillar Placement
+- Randomized Pillar Count
+- Randomized Driving Direction
+- Randomized Starting Position
+- Randomized Parking Lot Location
+.
 
-•	The number of the pillars is random.
+### 4.2 Pillar detection 
 
-### 4.2 
+**Pixy2 Camera Overview**
+
+The Pixy2 camera is an advanced vision sensor that builds on the capabilities of its predecessor. It is smaller, faster, and more capable, making it ideal for robotics applications like ours. Pixy2 can learn to detect objects by simply pressing a button, allowing for quick and easy setup. Additionally, it features new algorithms that enable the detection and tracking of lines, intersections, and "road signs," which are crucial for guiding robots in complex tasks.
+
+One of the key features of the Pixy2 is its ability to operate at 60 frames per second, ensuring that your robot can respond quickly and accurately to detected objects, such as the red and green pillars used in our challenge.
+
+For more details, you can visit the official Pixy2 website: [Pixy2 Overview](https://pixycam.com/pixy2/).
+
+To learn how to teach Pixy2 to recognize objects, you can refer to the official guide here: [Teach Pixy an Object](https://docs.pixycam.com/wiki/doku.php?id=wiki:v2:teach_pixy_an_object_2).
+
+Additionally, here's a [video tutorial](https://www.youtube.com/watch?v=391dXDjqzXA&t=1675s) that provides an in-depth explanation of Pixy2's capabilities and setup process.
+
+
 
 ### 5. Designing Process
 
