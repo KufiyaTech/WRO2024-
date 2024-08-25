@@ -690,16 +690,20 @@ For more details, you can visit the [Pixy2 Official Website](https://pixycam.com
 We configured the Pixy2 camera using the PixyMon application to detect green and red pillars. Below are images captured from the PixyMon interface, showing the successful detection of these objects:
 
 <p align="center">
-  <figure>
-    <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/8174073a-ee04-48a0-a803-4f82b65d560e.jpg" alt="Palestine Flag" width="200"/>
-    <figcaption>Figure: This picture represents the Palestine Flag.</figcaption>
-  </figure>
-  &nbsp;&nbsp;&nbsp;&nbsp;
-  <figure>
-    <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/dd6ad778-45e9-477c-bb5a-bb63574152d9.jpg" alt="Purpose Logo" width="200"/>
-    <figcaption>Figure: This picture represents the Purpose Logo.</figcaption>
-  </figure>
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/8174073a-ee04-48a0-a803-4f82b65d560e.jpg" alt="Palestine Flag" width="200"/>
+        <figcaption><strong>Figure 1:</strong> This picture represents the Palestine Flag.</figcaption>
+      </td>
+      <td align="center">
+        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/dd6ad778-45e9-477c-bb5a-bb63574152d9.jpg" alt="Purpose Logo" width="200"/>
+        <figcaption><strong>Figure 2:</strong> This picture represents the Purpose Logo.</figcaption>
+      </td>
+    </tr>
+  </table>
 </p>
+
 
 
 ### 5. Designing Process
