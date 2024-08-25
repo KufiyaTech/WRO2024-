@@ -631,7 +631,23 @@ By integrating advanced sensor data and control algorithms, our vehicle is capab
 
 ## 4. Obstacle Avoidance Round Challenge
 
-### 4.1 Obstacle Challenge Overview
+**Obstacle Challenge Overview**
+**Challenge Overview**
+
+In this challenge, the autonomous vehicle must complete three laps on a track where green and red traffic signs are randomly placed. These signs instruct the vehicle on which side of the lane it should follow:
+
+- **Red Pillar**: Indicates that the vehicle must stay on the right side of the lane.
+- **Green Pillar**: Indicates that the vehicle must stay on the left side of the lane.
+
+At the end of the second lap, the final traffic sign will determine the direction for the third lap:
+
+- **Green Traffic Sign**: The vehicle continues the third lap in the same direction.
+- **Red Traffic Sign**: The vehicle must turn around and complete the third lap in the opposite direction.
+
+The vehicle is required not to move any of the traffic signs during the course. After completing all three laps, the vehicle must find the designated parking area and perform parallel parking.
+
+**Important Note**: The initial driving direction (clockwise or counterclockwise) will change in different rounds of the challenge. Both the starting position of the vehicle and the number and location of traffic signs are randomly set before each round begins.
+
 
 **Round objectives:**
 
@@ -653,8 +669,7 @@ By integrating advanced sensor data and control algorithms, our vehicle is capab
 
 •	The number of the pillars is random.
 
-
-
+### 4.2 
 
 ### 5. Designing Process
 
