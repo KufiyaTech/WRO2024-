@@ -79,12 +79,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
 
    7.3. [Mechanical Challenges](mechanical-challenges)
 
-      
-8. [Conclusion and Reflections](#conclusion-and-reflections)
- 
-   8.1. [Lessons Learned](#lessons-learned)
-    
-   8.2. [Future Work](#future-work)
+8. [Future Work](#future-work)
 
 9. [Appendices](#appendices)
 
@@ -971,8 +966,14 @@ To visualize the power distribution, here’s a simplified flowchart showing how
   - The custom 3D-printed gears and couplers significantly improved the stability and reliability of the mechanism. By designing parts that were tailored to our specific needs, we were able to eliminate the issues caused by the original LEGO gears and ensure that the robot's movements were precise and consistent.
 
 
-## 8.Appendices
-### 8.1. Datasheets and Specifications
+## 8. Future Work
+
+We have plans to redesign the vehicle to reduce its size, enhancing its maneuverability on tight and complex tracks. This will allow the vehicle to perform better in various challenges. Additionally, we aim to improve the mechanism to increase overall performance and efficiency, ensuring that the vehicle meets the demands of future competitions effectively.
+
+
+
+## 9.Appendices
+### 9.1. Datasheets and Specifications
 
 Below are the datasheets for each of the key components used in the project:
 
@@ -985,7 +986,7 @@ Below are the datasheets for each of the key components used in the project:
 | **pixy2 camera**      | [View Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf) |
 | **MPU-9250 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf) |
 
-### 8.2. References
+### 9.2. References
 Below are the references used throughout the project documentation:
 1. [PID Control](https://medium.com/autonomous-robotics/pid-control-85596db59f35) - A detailed guide on PID control in robotics.
 
