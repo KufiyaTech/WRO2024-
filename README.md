@@ -474,11 +474,8 @@ The PID controller operates by combining three distinct control actions:
 - **Proportional Term:**  
 
 <div align="center">
-  <figure>
-    <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq3.PNG" width="500" alt="Equation Example"/>
-    <figcaption><em>Figure 3: This equation represents the calculation of the yaw angle based on gyroscope data.</em></figcaption>
-  </figure>
-</div>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq3.PNG" width="500"/>
+  <p><em>
 
   - Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.
 
