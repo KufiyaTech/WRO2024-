@@ -481,20 +481,27 @@ The PID controller operates by combining three distinct control actions:
 
 - **Integral Term:**  
 
-$Iout​=Ki​×∫0t​e(τ)dτ​$
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq4.PNG" width="500"/>
+  <p><em>
 
   - Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
 
 - **Derivative Term:**
 
- $$Dout​=Kd​×dtde(t)​$$
+<div align="center">
+  <img src="![image](https://github.com/user-attachments/assets/87dc6911-cece-4e23-9019-211d5a51cb73)" width="500"/>
+  <p><em>
   
 
   - Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
 
-- **Combined PID Control:**  
+- **Combined PID Control:**
+
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq6.PNG" width="500"/>
+  <p><em>
   
-  $u(t)=Kp​×e(t)+Ki​×∫0t​e(τ)dτ+Kd​×dtde(t)​$
   
   - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
 
