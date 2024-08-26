@@ -312,9 +312,9 @@ To determine the vehicle's orientation or heading, we calculate the yaw angle by
 
 The equation used to calculate the yaw angle is:
 
-\[
+$$
 \theta_z = \theta_{z,\text{previous}} + \left( \frac{\text{gyro}_z - \text{gyro\_z\_offset}}{131.0} \right) \times \Delta t
-\]
+$$
 
 
 Where:
