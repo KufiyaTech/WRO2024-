@@ -919,7 +919,7 @@ To visualize the power distribution, here’s a simplified flowchart showing how
   - **Problem:** The TCS3200 color sensor struggled with accurately detecting the orange color, particularly under varying lighting conditions. Despite extensive calibration efforts, the sensor's readings remained unreliable, impacting the robot's ability to differentiate between colors accurately, which was critical for task completion.
   - **Approach:** We conducted several tests in controlled environments, adjusting the ambient light and altering the sensor's positioning. Additionally, multiple software filters were applied to stabilize the sensor's output.
   - **Result:** Despite these efforts, the sensor continued to underperform in distinguishing orange from similar hues. This led us to explore alternative sensors.
-  - **Reference:** [TCS3200 Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf)
+  - **Reference:** [TCS3200 Datasheet](https://www.mouser.com/catalog/specsheets/tcs3200-e11.pdf)
 
 #### MPU-9250 IMU
 
