@@ -502,8 +502,7 @@ Figure 1: The Proportional Term equation, where \( e(t) \) is the current error 
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq6.PNG" width="500"/>
   <p><em>
   
-  
-  - Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
+ Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
 
 **Implementation in Our Project:**
 
