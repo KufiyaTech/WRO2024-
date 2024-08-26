@@ -340,9 +340,11 @@ To maintain or correct the vehicle’s path, we implemented a PID (Proportional-
 
 The control signal, which is sent to the servo motor, is calculated as:
 
-\[
-\text{controlSignal} = K_p \times \text{error} + K_i \times \int \text{error} \, dt + K_d \times \frac{d(\text{error})}{dt}
-\]
+<p align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq2.PNG" alt="Equation 2" width="400"/>
+</p>
+
+<p align="center"><em>
 
 Where:
 - \(K_p\), \(K_i\), and \(K_d\) are the PID coefficients, which determine how aggressively the controller responds to the error.
