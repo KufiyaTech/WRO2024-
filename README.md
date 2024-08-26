@@ -348,12 +348,10 @@ The control signal, which is sent to the servo motor, is calculated as:
 Where:
 - \(K_p\), \(K_i\), and \(K_d\) are the PID coefficients, which determine how aggressively the controller responds to the error.
 - \(\text{error}\) is the difference between the target and actual yaw angles.
-
+- 
 <div align="center">
-  <figure>
-    <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(6).jpg" width="500" alt="PID Control System for Steering"/>
-    <figcaption><em>Figure 2: PID Control System for Steering.</em></figcaption>
-  </figure>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(6).jpg" width="500"/>
+  <p><em>Figure 2: PID Control System for Steering.</em></p>
 </div>
 
 ### Code Implementation:
