@@ -350,8 +350,7 @@ Where:
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/ab6e9145-d586-4b83-a137-92aeae46185a)
-" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(6).jpg" width="500"/>
   <p><em>Figure 2: PID Control System for Steering.</em></p>
 </div>
 
