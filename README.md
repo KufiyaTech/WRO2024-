@@ -316,7 +316,7 @@ The equation used to calculate the yaw angle is:
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq1.PNG" alt="Equation" width="400"/>
 </p>
 
-<p align="center"><em>Figure: This equation represents the calculation of the yaw angle, where \(\theta_z\) is the current yaw angle, \(\theta_{z, \text{previous}}\) is the previous yaw angle, \(\text{gyro}_z\) is the angular velocity around the Z-axis, \(\text{gyro\_z\_offset}\) is the gyroscope offset, and \(\Delta t\) is the elapsed time.</em></p>
+<p align="center"><em>
 
 
 Where:
