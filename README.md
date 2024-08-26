@@ -298,8 +298,7 @@ Understanding the axes is essential for interpreting the data provided by the IM
 - **Z-Axis**: Represents the yaw, or the rotational movement of the vehicle around the vertical axis. This axis is crucial for steering, as it defines the direction the vehicle is facing.
 
 <p align="center">
-  <img src="![image](https://github.com/user-attachments/assets/684e9d0c-19b0-477e-9597-200fd9e6461c)
-" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(5).jpg" width="500"/>
 </p>
 <p align="center"><em>*Figure 1: The X, Y, and Z axes relative to the vehicle.
 
