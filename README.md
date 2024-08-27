@@ -715,6 +715,21 @@ We configured the Pixy2 camera using the PixyMon application to detect green and
   </table>
 </div>
 
+### 4.3 Obstacle Avoidance Strategy
+
+In the Obstacle Avoidance Round, the vehicle employs the Pixy2 camera to detect pillars on the track. The logic behind the code ensures that the vehicle reacts appropriately based on the detected pillars’ size and color:
+
+- **Pillar Detection**: The Pixy2 camera continuously scans for pillars along the vehicle’s path. Once a pillar is detected, the system measures its size to determine if it is relevant for further action.
+
+- **Size Check**: If the detected pillar's size is greater than 1000, the vehicle proceeds to analyze its color. This size threshold helps filter out irrelevant objects or distant pillars that do not require an immediate response.
+
+- **Color-Based Reaction**:
+  - **Green Pillar**: If the pillar is green, the vehicle is programmed to make a left turn. This is achieved by adjusting the servo motor's angle to steer the vehicle in the correct direction.
+  - **Red Pillar**: Conversely, if the pillar is red, the vehicle makes a right turn by similarly adjusting the servo motor's angle.
+
+This process ensures that the vehicle navigates the track effectively by responding to the obstacles in its path with precise and controlled movements.
+
+
 
 ### 5. Designing Process
 
