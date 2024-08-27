@@ -86,6 +86,9 @@ This repository contains engineering materials of a self-driven vehicle's model 
    9.1. [Datasheets and Specifications](#datasheets-and-specifications)
       
    9.2. [References](#references)
+
+ 10. [Reflections and Gratitude](#reflections-and-gratitude)
+
    
 
 
@@ -1051,4 +1054,13 @@ Below are the references used throughout the project documentation:
 
 7. [Controlling DC Motor with Arduino Motor Shield Rev3](https://docs.arduino.cc/tutorials/motor-shield-rev3/msr3-controlling-dc-motor/) - An Arduino tutorial on controlling a DC motor using the Motor Shield Rev3.
 
+
+## 10. Reflections and Gratitude
+
+
+Over the past three months, we've worked closely together as a team, under the dedicated supervision of our mentor, Eng. Mohammad Muamar. His unwavering support, both technically and morally, has been invaluable throughout this journey. We are deeply grateful for his guidance and the time he invested in helping us reach our goals.
+
+This experience has been a remarkable one for each of our three team members. We ventured into new areas of technology, learning not just the technical aspects but also the importance of time management, teamwork, and the collective spirit needed to succeed.
+
+This competition has been an unforgettable journey, teaching us lessons that extend far beyond the challenges we faced. We look forward to carrying these lessons forward in our future endeavors.
 
