@@ -774,8 +774,10 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - *Fourth Design:*
   - We decided to shift from using a 3D printer to a CNC machine for bringing our designs to reality. This allowed us to create a single, connected chassis capable of supporting more weight. Our design continued to evolve due to changes in our mechanism and component choices. A significant change was opting for smaller LEGO wheels to improve steering, which took some time to perfect. Another challenge we faced was managing space constraints relative to the size of our mechanisms. However, with the guidance and support of our coach, we were able to find better solutions and overcome these obstacles. After deciding to use a CNC machine, we encountered several challenges in selecting the ideal material to meet our needs. Initially, we chose acrylic, but it proved too brittle and broke easily. We then selected wood, which met our goals and requirements perfectly.
-  - <p align="center"><img src="path_to_your_image" alt="Fourth Chassis Design" width="300"/></p>
-  - Figure 6: Fourth Chassis Design
+
+  - If you are interested in viewing the detailed designs, please check the `models` directory in the repository.
+
+ 
 
 #### 5.4 Mechanism
 
