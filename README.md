@@ -758,8 +758,11 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - *Second Design:*
   - This was the first design we brought to life by printing it using a 3D printer. This design incorporated our chosen mechanism, but upon completion, we discovered it was too compact to meet our established standards.
-  - <p align="center"><img src="path_to_your_image" alt="Second Chassis Design" width="300"/></p>
-  - Figure 4: Second Chassis Design
+ <p align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.30.45%20AM%20(1).jpeg" alt="Second Chassis Design" width="300"/>
+</p>
+
+- **Figure 4:** Second Chassis Design
 
 - *Third Design:*
   - Before proceeding with the computer-aided design, we sketched our third design on paper. We then crafted a prototype using compressed cork to evaluate its dimensions. Our aim was to slightly increase its size while accommodating our chosen mechanisms. However, due to limitations with our printer, we were compelled to design two separate bases (chassis) and join them together. During testing, we discovered a potential vulnerability: the structure could potentially break apart under specific weight conditions.
