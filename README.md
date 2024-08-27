@@ -157,6 +157,17 @@ Stay connected with our team and follow our journey through our official social 
 
 - **Mechanism Precision**
 
+**Vehicle Dimensions:**
+
+- **Without Camera:**
+  - **Length:** 26 cm
+  - **Width:** 16.7 cm
+  - **Height:** 10.5 cm
+
+- **With Camera:**
+  - **Length:** 23 cm
+  - **Width:** 16.7 cm
+  - **Height:** 18 cm
 
 
 ## 2. Programming Language and Libraries
