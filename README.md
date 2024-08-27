@@ -305,7 +305,7 @@ Understanding the axes is essential for interpreting the data provided by the IM
 - **Z-Axis**: Represents the yaw, or the rotational movement of the vehicle around the vertical axis. This axis is crucial for steering, as it defines the direction the vehicle is facing.
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(5).jpg" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/images%20(5).jpg" width="500"/>
 </p>
 <p align="center"><em>*Figure 1: The X, Y, and Z axes relative to the vehicle.
 
@@ -319,7 +319,7 @@ To determine the vehicle's orientation or heading, we calculate the yaw angle by
 The equation used to calculate the yaw angle is:
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq1.PNG" alt="Equation" width="400"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq1.PNG" alt="Equation" width="400"/>
 </p>
 
 <p align="center"><em>
@@ -347,7 +347,7 @@ To maintain or correct the vehicle’s path, we implemented a PID (Proportional-
 The control signal, which is sent to the servo motor, is calculated as:
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq2.PNG" alt="Equation 2" width="400"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq2.PNG" alt="Equation 2" width="400"/>
 </p>
 
 <p align="center"><em>
@@ -357,7 +357,7 @@ Where:
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 - 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/images%20(6).jpg" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/images%20(6).jpg" width="500"/>
   <p><em>Figure 2: PID Control System for Steering.</em></p>
 </div>
 
@@ -481,7 +481,7 @@ The PID controller operates by combining three distinct control actions:
 **Proportional Term:**  
 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq3.PNG" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq3.PNG" width="500"/>
   <p><em>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
 </div>
 
@@ -490,7 +490,7 @@ The PID controller operates by combining three distinct control actions:
 **Integral Term:**  
 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq4.PNG" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq4.PNG" width="500"/>
   <p><em>Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).</em></p>
 </div>
 
@@ -498,7 +498,7 @@ The PID controller operates by combining three distinct control actions:
  **Derivative Term:**
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/87dc6911-cece-4e23-9019-211d5a51cb73" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq5.PNG" width="500"/>
   <p><em>Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
 </div>
 
@@ -506,7 +506,7 @@ The PID controller operates by combining three distinct control actions:
  **Combined PID Control:**
 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq6.PNG" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq6.PNG" width="500"/>
   <p><em>Figure 4: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
 </div>
 
@@ -704,11 +704,11 @@ We configured the Pixy2 camera using the PixyMon application to detect green and
   <table>
     <tr>
       <td align="center" style="padding: 10px;">
-        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/8174073a-ee04-48a0-a803-4f82b65d560e.jpg" alt="Pixy2 Detecting Green Object" width="300"/><br>
+        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/8174073a-ee04-48a0-a803-4f82b65d560e.jpg" alt="Pixy2 Detecting Green Object" width="300"/><br>
         <figcaption><strong>Figure 1:</strong> Pixy2 camera detecting a green object.</figcaption>
       </td>
       <td align="center" style="padding: 10px;">
-        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/dd6ad778-45e9-477c-bb5a-bb63574152d9.jpg" alt="Pixy2 Detecting Red Object" width="300"/><br>
+        <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/dd6ad778-45e9-477c-bb5a-bb63574152d9.jpg" alt="Pixy2 Detecting Red Object" width="300"/><br>
         <figcaption><strong>Figure 2:</strong> Pixy2 camera detecting a red object.</figcaption>
       </td>
     </tr>
