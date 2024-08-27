@@ -1031,5 +1031,9 @@ Below are the references used throughout the project documentation:
 4. [LiPo Battery Safety Warnings](https://power.tenergy.com/lipo-safety-warnings/) - Important safety information about using LiPo batteries.
 
 5. [World Robot Olympiad - Future Engineers](https://world-robot-olympiad-association.github.io/future-engineers-gs/) - Guidelines and resources for participating in the World Robot Olympiad.
+  
+6. [Getting Started with the HC-SR04 Ultrasonic Sensor](https://projecthub.arduino.cc/Isaac100/getting-started-with-the-hc-sr04-ultrasonic-sensor-7cabe1) - A guide to using the HC-SR04 Ultrasonic Sensor with Arduino.
+
+7. [Controlling DC Motor with Arduino Motor Shield Rev3](https://docs.arduino.cc/tutorials/motor-shield-rev3/msr3-controlling-dc-motor/) - An Arduino tutorial on controlling a DC motor using the Motor Shield Rev3.
 
 
