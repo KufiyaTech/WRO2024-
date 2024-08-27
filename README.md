@@ -787,8 +787,9 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 #### 5.5 Ackermann Steering Mechanism
 
 - We used the Ackermann steering geometry, a configuration designed to ensure that the wheels of a vehicle trace out circles with different radii during a turn, preventing tire slippage. This geometry helps align the front wheels towards the turning center, providing improved handling and stability, especially at low speeds. It contrasts with other mechanisms like the Davis steering gear, offering simpler construction and fewer components susceptible to wear. Ackermann steering is commonly used in standard vehicles for its advantages in maneuverability and reduced tire wear.
-  - <p align="center"><img src="path_to_your_image" alt="Ackermann Steering Mechanism" width="300"/></p>
+ - <p align="center"><img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/Figure-1.jpg" alt="Ackermann Steering Mechanism" width="300"/></p>
   - Figure 7: Ackermann Steering Mechanism
+
 
 ## 6.Power and Sense management 
 ### 6.1 power source
