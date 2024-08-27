@@ -114,26 +114,20 @@ For detailed competition rules, please refer to the official WRO Future Engineer
 
 ### 1.2 Team Management
 
-Our project is the result of a collaborative effort by a skilled and dedicated team, each member bringing unique expertise to the table:
+Our project is the result of a collaborative effort by a skilled and dedicated team, each member bringing unique expertise to the table. We are students of **Purpose Robotics Academy**, located in Ramallah, Palestine, where we have gained valuable skills in robotics and technology. You can learn more about the academy through their [website](https://purpose.ps/) and [Facebook page](https://www.facebook.com/PurposeEdu/).
 
 - **Sara Jawaada**: As the lead designer, Sara was instrumental in overseeing the entire design process, ensuring that the physical and conceptual elements of the project were seamlessly integrated. Additionally, she played a key role in software development, contributing to both the architecture and implementation of core functionalities.
 
-**Contact Information**:
-  **Email**: [sarajawaada906@gmail.com](sarajawaada906@gmail.com)
-
+  **Contact Information**:  
+  **Email**: [sarajawaada906@gmail.com](mailto:sarajawaada906@gmail.com)
 
 - **Amro Duhaidi**: Amro led the technical implementation of the software, with a particular focus on sensor integration and system wiring. His expertise in coding and hardware interfacing was crucial in developing the responsive and reliable behavior of the robot, ensuring that all sensors were effectively utilized in the project's logic.
 
-**Contact Information**:
-  **Email**: [amro.duaidi@gmail.com](amro.duaidi@gmail.com)
+  **Contact Information**:  
+  **Email**: [amro.duaidi@gmail.com](mailto:amro.duaidi@gmail.com)
 
 
-- **Tala Daraghmeh**: Tala managed the version control and documentation of the project, ensuring that all development efforts were well-documented and accessible via GitHub. Her contributions also extended to software development, where she collaborated closely with the team to refine the codebase and maintain project integrity.
-
-**Contact Information**:
-  **Email**: [taladaraghmeh836@gmail.com](taladaraghmeh836@gmail.com)
-
-**Acknowledgment**
+**Project Supervisor**
 
 We would like to extend our deepest gratitude to our mentor and coach, **Eng. Mohammad Muamar**. A distinguished engineer and graduate of Palestine Polytechnic University in Hebron, Eng. Muamar has been instrumental in guiding our team through every step of this competition. His dedication, expertise, and unwavering support have been invaluable to our progress and success.
 
@@ -886,9 +880,9 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 **For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
 
 
-### 6.2 Electrical Parts and Their Functions
+### 6.2 Bill of materials (BOM)
 
-| **Component**                  | **Quantity** | **Function/Purpose**                                                                                  |
+| **Component**                  | **Quantity** | **Fu-nction/Purpose**                                                                                  |
 |--------------------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | **Arduino Mega 2560**          | 1            | Main microcontroller board that controls all operations of the robot.                                   |
 | **L298N Motor Driver**         | 1            | Controls the direction and speed of the DC motors using PWM signals.                                    |
@@ -901,6 +895,14 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 | **Jumper Cables**              | -            | Used to connect various components together on the breadboard.                                          |
 | **Wheels**                     | 4            | Allows the car to move; driven by the DC motors.                                                        |
 | **DC Motors**                  | 1           | Powers the wheels to drive the car forward, backward, and turn.                                         |
+
+**Suppliers**
+
+We sourced our electronic components from the following suppliers, all based in Palestine. These suppliers deliver across the West Bank:
+
+- [HIT Electronic Store](https://hit.ps/)
+- [RoboticX Store](https://roboticx.ps/)
+- [Labco Ramallah](https://www.facebook.com/labco.Ramallah/?locale=ar_AR)
 
 ## 7.Hurdles and Challenges
 ### 7.1. Designing Process Challenges
