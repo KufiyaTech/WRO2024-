@@ -825,7 +825,7 @@ Lithium Polymer (LiPo) batteries are a top choice in robotics due to their high 
 - **Weight:** Lightweight design, typically around 150g for a 2200mAh battery, crucial for maintaining the robot’s agility.
 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/61C4uWN661L.jpg" width="400">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/61C4uWN661L.jpg" width="400">
   <p><i>Figure 1: The 12V LiPo Battery selected for our robot, providing the necessary voltage and current for all components while maintaining a lightweight and compact design.</i></p>
 </div>
 
