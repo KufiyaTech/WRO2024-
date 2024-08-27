@@ -491,26 +491,25 @@ The PID controller operates by combining three distinct control actions:
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq4.PNG" width="500"/>
-  <p><em>
+  <p><em>Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).</em></p>
+</div>
 
- Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).
 
  **Derivative Term:**
 
 <div align="center">
-  <img src="![image](https://github.com/user-attachments/assets/87dc6911-cece-4e23-9019-211d5a51cb73)" width="500"/>
-  <p><em>
-  
+  <img src="https://github.com/user-attachments/assets/87dc6911-cece-4e23-9019-211d5a51cb73" width="500"/>
+  <p><em>Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
+</div>
 
- Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).
 
  **Combined PID Control:**
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq6.PNG" width="500"/>
-  <p><em>
-  
- Figure 4: The Combined PID Control equation that sums all three components to generate the control output.
+  <p><em>Figure 4: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
+</div>
+
 
 **Implementation in Our Project:**
 
