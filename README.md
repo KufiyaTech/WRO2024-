@@ -158,6 +158,7 @@ Stay connected with our team and follow our journey through our official social 
 - **Mechanism Precision**
 
 **Vehicle Dimensions:**
+-**Vehicle weight:** 980 gm
 
 - **Without Camera:**
   - **Length:** 26 cm
