@@ -482,9 +482,10 @@ The PID controller operates by combining three distinct control actions:
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/other/eq3.PNG" width="500"/>
-  <p><em>
+  <p><em>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
+</div>
 
-Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.
+
 
 **Integral Term:**  
 
