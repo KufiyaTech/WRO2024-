@@ -762,10 +762,15 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - **Figure 4:** Second Chassis Design
 
-- *Third Design:*
+*Third Design:*
   - Before proceeding with the computer-aided design, we sketched our third design on paper. We then crafted a prototype using compressed cork to evaluate its dimensions. Our aim was to slightly increase its size while accommodating our chosen mechanisms. However, due to limitations with our printer, we were compelled to design two separate bases (chassis) and join them together. During testing, we discovered a potential vulnerability: the structure could potentially break apart under specific weight conditions.
-  - <p align="center"><img src="path_to_your_image" alt="Third Chassis Design" width="300"/></p>
-  - Figure 5: Third Chassis Design
+
+<p align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.39.14%20AM.jpeg" alt="Third Chassis Design - Front View" width="300"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.39.15%20AM.jpeg" alt="Third Chassis Design - Side View" width="300"/>
+</p>
+
+<p align="center"><strong>Figure 5:</strong> Third Chassis Design - Front and Side Views</p>
 
 - *Fourth Design:*
   - We decided to shift from using a 3D printer to a CNC machine for bringing our designs to reality. This allowed us to create a single, connected chassis capable of supporting more weight. Our design continued to evolve due to changes in our mechanism and component choices. A significant change was opting for smaller LEGO wheels to improve steering, which took some time to perfect. Another challenge we faced was managing space constraints relative to the size of our mechanisms. However, with the guidance and support of our coach, we were able to find better solutions and overcome these obstacles. After deciding to use a CNC machine, we encountered several challenges in selecting the ideal material to meet our needs. Initially, we chose acrylic, but it proved too brittle and broke easily. We then selected wood, which met our goals and requirements perfectly.
