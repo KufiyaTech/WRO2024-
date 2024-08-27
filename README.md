@@ -740,9 +740,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - *First Design:*
   - Our initial choice was similar to the second steering system option in terms of using ready-to-print files. However, we encountered familiar challenges, compounded by an additional difficulty: the inability to locate suitable shafts or bearings within our allotted timeframe.
- <p align="center"><img src="https://github.com/user-attachments/assets/509f5901-6868-4189-b3f8-11b729488c41" alt="First Differential Gear System Design" width="300"/></p>
-
-  - Figure 2: First Differential Gear System Design
+ 
   - *Link 2:* [3D Printed RC Car with Brushless Motor](https://cults3d.com/en/3d-model/gadget/3d-printed-rc-car-with-brushless-motor-lee3d999)
 
 - *Second Design:*
