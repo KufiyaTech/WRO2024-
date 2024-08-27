@@ -711,7 +711,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - *First Design:*
   - Our initial steering system was functional, but we faced challenges in supporting and securing all the components on top of it.
-  - <p align="center"><img src="![image](https://github.com/user-attachments/assets/92a92575-33c6-4ba3-8e9c-fd754ee5175d)
+  - <p align="https://github.com/KufiyaTech/WRO2024-/blob/main/other/WhatsApp%20Image%202024-08-27%20at%203.42.23%20PM.jpeg
 " alt="First Steering System Design" width="300"/></p>
   - Figure 1: First Steering System Design
 
