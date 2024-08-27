@@ -752,7 +752,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - *First Design:*
   - Our initial design phase was the most time-consuming. Being our first attempt, we struggled with defining the shape of our robot and determining how it would accommodate all intended components, including five ultrasonic sensors. This constrained our design options significantly. Our primary objective was to create a chassis capable of housing all components, prioritizing functionality over minimizing size. We positioned the camera at the rear without adhering to standard engineering principles. Initially, we planned to use a 3D printer for manufacturing.
-  -<p align="center"><img src="https://github.com/user-attachments/assets/14e2980f-575a-4065-81ab-b663c6a3b126" alt="First Chassis Design" width="300"/></p>
+  -<p align="center"><img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.27.01%20AM.jpeg" alt="First Chassis Design" width="300"/></p>
 
   - Figure 3: First Chassis Design
 
