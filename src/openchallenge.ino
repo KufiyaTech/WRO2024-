@@ -3,7 +3,7 @@
 #include <Servo.h>
 
 // .....................................Pin Definitions...........................................//
-#define SERVO_PIN 8
+#define SERVO_PIN 9
 #define INITIAL_ANGLE 90
 #define IN1 11
 #define IN2 12
@@ -31,17 +31,16 @@ int i = 0;
 int targetYawAngle = 0;
 
 // PID parameters
-float Kp = 1.3;
+float Kp = 1;
 float Ki = 0;
-float Kd = 0.3;
+float Kd = 0;
 // PID variables
 float error;
-float previousError = 0;
-float integral = 0;
-float derivative;
 float controlSignal;
-unsigned long previousTime;
-unsigned long currentTime;
+
+int steering_angle  = 89 ;
+int c = 0;
+int turn_count = 0; // Number of turns
 
 void setup() {
     // ..................................Initialization........................................//
@@ -63,12 +62,13 @@ void setup() {
   //.............................Check if MPU6050 is connected properly.......................//
   Serial.println(mpu.testConnection() ? "MPU6050 connected" : "MPU6050 connection failed");
   //.............................Calibrate the gyro to calculate drift........................//
+    myServo.attach(SERVO_PIN);
+  myServo.write(currentAngle);
   Serial.println("Calibrating gyro...");
   calculateGyroDrift();
   Serial.println("Done Calibrating");
   //.......................................Servo setup.......................................//
-  myServo.attach(SERVO_PIN);
-  myServo.write(currentAngle);
+
 
   digitalWrite(IN1, HIGH);  // Set direction
   digitalWrite(IN2, LOW);   // Set direction
@@ -76,21 +76,23 @@ void setup() {
 
   //...................................... Main code .......................................//
   previous_time = millis(); // Record the start time
-  previous_time = millis(); 
 
-  analogWrite(ENA, 255);
-  while (usForward() > 40) { 
-    MoveFWwithGyro(); 
+
+  while (usForward() > 80 || (usRight() < 70 && usLeft() < 70 )) { 
+    MoveFWwithGyro();
+    analogWrite(ENA, 255); 
   }
-  //digitalWrite(IN1, HIGH);  // Set direction
- // digitalWrite(IN2, LOW);   // Set direction
+  while (usForward() > 60 || (usRight() < 70 && usLeft() < 70 )) { 
+    MoveFWwithGyro();
+    analogWrite(ENA, 220); 
+  }
   analogWrite(ENA, 0);  
   delay(100);
   
   //....... Determine the Direction of Rotation .......//
-  if (usLeft() < usRight()) {  //CW
+  if (usLeft() < usRight()) {  // Clockwise (CW)
     i = 1; 
-  } else if (usLeft() > usRight()) { //CCW
+  } else if (usLeft() > usRight()) { // Counterclockwise (CCW)
     i = 2;
   } else {
     while (1) {
@@ -102,35 +104,44 @@ void setup() {
   }
   analogWrite(ENA, 255);
   while (i == 1) {
+    analogWrite(ENA, 255);
     MoveFWwithGyro();
-    if (usForward() < 50 && usRight() > 70) { 
+    
+    if (usForward() < 60 && usRight() > 100) {
+      c = 0;
       targetYawAngle -= 90;
-      while (yaw_angle > targetYawAngle+10) {
+      while (c<2000) {
         MoveFWwithGyro();
+        c = c+1;
       }
       
-    }
-  /*  if (usLeft() > 25){
-          targetYawAngle = targetYawAngle + 2;
-
+      turn_count++; // Increment the turn count
+      if (turn_count >= 12) { // Check if 12 turns have been made
+        delay(100); // Delay for 1 second before stopping
+        analogWrite(ENA, 0); // Stop the robot
+        while (1); // Stop permanently
       }
-      else {
-        if (usLeft() < 25){
-          targetYawAngle = targetYawAngle - 2;
-        }
-      }*/
+    }
   }
 
   while (i == 2) {
     MoveFWwithGyro();
-    if (usForward() < 50 && usLeft() > 70) { 
-      targetYawAngle += 90;
-      while (yaw_angle < targetYawAngle-10) {
+    if (usForward() < 60 && usLeft() > 100) { 
+      targetYawAngle += 89;
+      c=0;
+      while (c < 1500) {
         MoveFWwithGyro();
+        c=c+1;
+      }
+
+      turn_count++; // Increment the turn count
+      if (turn_count >= 12) { // Check if 12 turns have been made
+        delay(100); // Delay for 1 second before stopping
+        analogWrite(ENA, 0); // Stop the robot
+        while (1); // Stop permanently
       }
     }
   }
-  while ()
 }
 
 void loop() {
@@ -141,7 +152,7 @@ void loop() {
 //........... Moving forward with Gyro Feedback ...........//
 void MoveFWwithGyro() {
     long current_time = millis();
-    currentTime = millis();
+    
     float elapsed_time = (current_time - previous_time) / 1000.0; // Calculate elapsed time in seconds
     previous_time = current_time;
 
@@ -156,30 +167,15 @@ void MoveFWwithGyro() {
 
     // Calculate the yaw angle by integrating the angular velocity over time
     yaw_angle += gyro_z * elapsed_time;
-    /*float angleError = (yaw_angle - targetYawAngle);*/
     error = yaw_angle - targetYawAngle;
-      // Calculate integral and derivative
-  integral += error * (currentTime - previousTime);
-  derivative = (error - previousError) / (currentTime - previousTime);
 
   // Calculate the control signal
-  controlSignal = Kp * error + Ki * integral + Kd * derivative;
+  controlSignal = Kp * error;
 
     float t = controlSignal + 90;
 
-    t = constrain(t, 40, 140);   // Keep the angle within bounds
+    t = constrain(t, 50, 135);   // Keep the angle within bounds
     myServo.write(int(t));
-
-    previousError = error;
-    previousTime = currentTime;
-
-    // Print the yaw angle and other values for monitoring
-   /* Serial.print("Yaw Angle: "); Serial.println(yaw_angle);
-    Serial.print("error "); Serial.println(angleError);
-    Serial.print("t: "); Serial.println(t);*/
-
-
-    
 }
 
 
