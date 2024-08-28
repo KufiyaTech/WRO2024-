@@ -321,7 +321,7 @@ To determine the vehicle's orientation or heading, we calculate the yaw angle by
 The equation used to calculate the yaw angle is:
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq1.PNG" alt="Equation" width="400"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/er7.PNG" alt="Equation" width="400"/>
 </p>
 
 <p align="center"><em>
@@ -388,7 +388,7 @@ The PID controller operates by combining three distinct control actions:
 The control signal, which is sent to the servo motor, is calculated as:
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq2.PNG" alt="Equation 2" width="400"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/comined.PNG" alt="Equation 2" width="400"/>
 </p>
 
 <p align="center"><em>
