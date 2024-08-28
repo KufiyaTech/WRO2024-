@@ -321,7 +321,7 @@ To determine the vehicle's orientation or heading, we calculate the yaw angle by
 The equation used to calculate the yaw angle is:
 
 <p align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/er7.PNG" alt="Equation" width="400"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/er8.PNG" alt="Equation" width="400"/>
 </p>
 
 <p align="center"><em>
