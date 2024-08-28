@@ -33,7 +33,7 @@ This repository contains engineering materials of a self-driven vehicle's model 
  
    2.2. [Detecting Turns and Direction](#detecting-turns-and-direction)
    
-   2.3. [Lap Counting Mechanism](#lap-counting-mechanism)
+   2.3. [Lap Counting Method](#lap-counting-method)
    
    2.4. [IMU-Based Steering](#imu-based-steering)
    
@@ -244,7 +244,7 @@ After careful consideration, the "Kufiya" team decided to implement the second m
 
 The sensor's inconsistent performance led to unreliable direction detection, which was critical for the success of our project. These difficulties prompted us to shift our focus to the ultrasonic sensor-based approach, which provided a more reliable and adaptable solution for determining the car's movement direction and executing precise turns.
 
-### 2.5 Lap Counting Mechanism
+### 2.5 Lap Counting Method
 
 **Problem Statement:**
 The goal is to implement a lap counting mechanism for an autonomous vehicle (or RC car) that accurately counts the number of laps the vehicle completes on a designated track. A key requirement is that after completing exactly three laps, the vehicle must automatically stop.
@@ -258,8 +258,7 @@ The first method involves utilizing a color sensor (TCS3200) to detect specific 
 - The color sensor is calibrated to recognize a specific color distinct from the track's surface.
 - When the sensor detects this color, it triggers a signal to increment the lap count.
 
-**Code Example:**
-*(Include a relevant code snippet here to demonstrate how the color sensor was implemented)*
+
 
 **Why Do We Not Recommend This Method?**
 
@@ -329,11 +328,11 @@ The equation used to calculate the yaw angle is:
 
 
 Where:
-- \(\theta_z\) is the current yaw angle.
-- \(\theta_{z, \text{previous}}\) is the yaw angle from the previous time step.
-- \(\text{gyro}_z\) is the angular velocity around the Z-axis (provided by the gyroscope).
-- \(\text{gyro\_z\_offset}\) is the gyroscope offset, calculated during calibration to correct any drift.
-- \(\Delta t\) is the time elapsed between the current and previous readings.
+- (theta_z) is the current yaw angle.
+- (theta_{z, \text{previous}}\) is the yaw angle from the previous time step.
+- ({gyro}_z\) is the angular velocity around the Z-axis (provided by the gyroscope).
+- ({gyro\_z\_offset}\) is the gyroscope offset, calculated during calibration to correct any drift.
+- (Delta t) is the time elapsed between the current and previous readings.
 
 **Importance of Gyro Offset:**
 
@@ -343,9 +342,48 @@ The gyroscope offset (\(\text{gyro\_z\_offset}\)) is critical because gyroscopes
 
 To maintain or correct the vehicle’s path, we implemented a PID (Proportional-Integral-Derivative) controller. The PID controller adjusts the steering angle based on the difference between the target yaw angle and the current yaw angle. This ensures smooth and stable steering.
 
-- **Proportional (P)**: Corrects the yaw angle based on the current error (difference between the desired and actual yaw angle).
-- **Integral (I)**: Accumulates past errors to eliminate steady-state offset, ensuring the vehicle reaches and maintains the target angle.
-- **Derivative (D)**: Predicts future error based on the rate of change, helping to reduce overshoot and oscillations.
+
+## 3.Open Challenge 
+
+### 3.1 Open Challenge Overview
+
+The vehicle must complete three (3) laps on the track with random placements of the inside track walls
+
+**Round objectives:**
+
+•	Moving between the internal and external wall.
+
+•	Turning the  car when detecting the lines . 
+
+•	Detecting blue and orange lines on the mat.
+
+•	Counting the laps.
+
+•	The car stops after 3 laps. 
+
+**Round constraints:**
+
+•	Time.
+
+•	The car Turning in the correct angle.
+
+•	The direction of the car's movement is random.
+
+•	The position from which the car starts moving is random.
+
+•	The distance between the internal and external wall is random.
+
+### 3.2 PID Controller
+
+**Overview:**
+
+The **PID (Proportional-Integral-Derivative) controller** is a widely used control loop feedback mechanism in industrial and automation systems. It is designed to continuously adjust a process to maintain the desired output, known as the setpoint, by minimizing the error between the setpoint and the actual process variable.
+
+The PID controller operates by combining three distinct control actions:
+
+1. **Proportional (P):** Reacts to the current error by producing an output that is proportional to the error. It provides immediate corrective action but can lead to overshoot if used alone.
+2. **Integral (I):** Addresses accumulated past errors by summing them over time, helping to eliminate steady-state errors.
+3. **Derivative (D):** Predicts future errors by considering the rate of change of the error, helping to reduce overshoot and oscillations.
 
 The control signal, which is sent to the servo motor, is calculated as:
 
@@ -360,13 +398,94 @@ Where:
 - \(\text{error}\) is the difference between the target and actual yaw angles.
 - 
 <div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/images%20(6).jpg" width="500"/>
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/0_6qwQPLegKNIOW_Et.png" width="500"/>
   <p><em>Figure 3: PID Control System for Steering.</em></p>
 </div>
 
 ### Code Implementation:
 
 The code implementation ties together the IMU readings, yaw angle calculation, and PID control to manage the vehicle's steering:
+
+
+**Key Equations:**
+
+**Proportional Term:**  
+
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq1.PNG" width="500"/>
+  <p><em>Figure 4: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
+</div>
+
+
+
+**Integral Term:**  
+
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq2.PNG" width="500"/>
+  <p><em>Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).</em></p>
+</div>
+
+Here, `integral` is the accumulated error over time.
+
+
+ **Derivative Term:**
+
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq3.PNG" width="500"/>
+  <p><em>Figure 5: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
+</div>
+
+
+ **Combined PID Control:**
+
+<div align="center">
+  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/comined.PNG" width="500"/>
+  <p><em>Figure 6: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
+</div>
+
+In our code:
+
+- `error` is the difference between the target yaw angle (`targetYawAngle`) and the current yaw angle (`yaw_angle`).
+- `integral` accumulates the `error` over time.
+- `derivative` is the rate of change of the `error`.
+- `controlSignal` is the final output applied to the servo motor, calculated using the combined PID equation.
+
+- 
+**Implementation in Our Project:**
+
+In our autonomous vehicle project, the PID controller is utilized to maintain the vehicle's yaw angle, ensuring that it follows the desired path accurately.
+
+**How It Works:**
+
+1. **Initialization:**
+   - The vehicle's IMU (Inertial Measurement Unit) is initialized to provide real-time gyroscope data. This data is crucial for determining the yaw angle, which represents the vehicle's direction.
+
+2. **Error Calculation:**
+   - The yaw angle error is calculated by comparing the current yaw angle with the target yaw angle. This error is then used to compute the necessary adjustments.
+     ```cpp
+     error = yaw_angle - targetYawAngle;
+     ```
+
+3. **PID Calculations:**
+   - **Proportional:** The error is multiplied by the proportional gain \( K_p \) to determine the immediate correction.
+   - **Integral:** The sum of past errors is calculated and multiplied by the integral gain \( K_i \), contributing to the correction by addressing accumulated deviations.
+   - **Derivative:** The rate of change of the error is determined and multiplied by the derivative gain \( K_d \), providing a predictive adjustment to smooth out the response.
+     ```cpp
+     integral += error * (currentTime - previousTime);
+     derivative = (error - previousError) / (currentTime - previousTime);
+     ```
+
+4. **Control Signal Generation:**
+   - The control signal, which adjusts the servo motor's angle, is computed as the sum of the proportional, integral, and derivative components:
+     ```cpp
+     controlSignal = Kp * error + Ki * integral + Kd * derivative;
+     float t = controlSignal + 90;
+     t = constrain(t, 40, 140);
+     myServo.write(int(t));
+     ```
+
+5. **Practical Application:**
+   - As the vehicle moves, the PID controller continuously adjusts the steering to keep the vehicle on course. If the vehicle deviates, the controller calculates the necessary steering corrections to bring it back on track smoothly.
 
 ```cpp
 #include <Wire.h>
@@ -377,7 +496,7 @@ MPU6050 mpu;
 Servo myServo;
 int16_t gz;
 float yaw_angle = 0, gyro_z_offset = 0;
-float Kp = 2, Ki = 0, Kd = 0.5;
+float Kp = 2, Ki = 0.001, Kd = 0.5;
 float error, integral = 0, derivative, controlSignal;
 unsigned long previousTime, currentTime;
 
@@ -425,7 +544,7 @@ void calculateGyroDrift() {
 }
 ```
 
-### Explanation of the Code:
+**Explanation of the Code:**
 
 1. **Setup:**
    - The IMU and servo motor are initialized. The gyroscope is calibrated to calculate the `gyro_z_offset`.
@@ -439,116 +558,6 @@ void calculateGyroDrift() {
 4. **PID Control:**
    - The error between the desired and actual yaw angle is calculated. The control signal, which adjusts the steering angle, is then determined by the PID formula. This control signal is sent to the servo motor to adjust the vehicle's direction.
 
-## 3.Open Challenge 
-
-### 3.1 Open Challenge Overview
-
-**Round objectives:**
-
-•	Moving between the internal and external wall.
-
-•	Turning the  car when detecting the lines . 
-
-•	Detecting blue and orange lines on the mat.
-
-•	Counting the laps.
-
-•	The car stops after 3 laps. 
-
-**Round constraints:**
-
-•	Time.
-
-•	The car Turning in the correct angle.
-
-•	The direction of the car's movement is random.
-
-•	The position from which the car starts moving is random.
-
-•	The distance between the internal and external wall is random.
-
-### 3.2 PID Controller
-
-**Overview:**
-
-The **PID (Proportional-Integral-Derivative) controller** is a widely used control loop feedback mechanism in industrial and automation systems. It is designed to continuously adjust a process to maintain the desired output, known as the setpoint, by minimizing the error between the setpoint and the actual process variable.
-
-The PID controller operates by combining three distinct control actions:
-
-1. **Proportional (P):** Reacts to the current error by producing an output that is proportional to the error. It provides immediate corrective action but can lead to overshoot if used alone.
-2. **Integral (I):** Addresses accumulated past errors by summing them over time, helping to eliminate steady-state errors.
-3. **Derivative (D):** Predicts future errors by considering the rate of change of the error, helping to reduce overshoot and oscillations.
-
-**Key Equations:**
-
-**Proportional Term:**  
-
-<div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq3.PNG" width="500"/>
-  <p><em>Figure 4: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
-</div>
-
-
-
-**Integral Term:**  
-
-<div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq4.PNG" width="500"/>
-  <p><em>Figure 2: The Integral Term equation, which sums past errors over time, multiplied by the integral gain \( K_i \).</em></p>
-</div>
-
-
- **Derivative Term:**
-
-<div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq5.PNG" width="500"/>
-  <p><em>Figure 5: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
-</div>
-
-
- **Combined PID Control:**
-
-<div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq6.PNG" width="500"/>
-  <p><em>Figure 6: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
-</div>
-
-
-**Implementation in Our Project:**
-
-In our autonomous vehicle project, the PID controller is utilized to maintain the vehicle's yaw angle, ensuring that it follows the desired path accurately.
-
-**How It Works:**
-
-1. **Initialization:**
-   - The vehicle's IMU (Inertial Measurement Unit) is initialized to provide real-time gyroscope data. This data is crucial for determining the yaw angle, which represents the vehicle's direction.
-
-2. **Error Calculation:**
-   - The yaw angle error is calculated by comparing the current yaw angle with the target yaw angle. This error is then used to compute the necessary adjustments.
-     ```cpp
-     error = yaw_angle - targetYawAngle;
-     ```
-
-3. **PID Calculations:**
-   - **Proportional:** The error is multiplied by the proportional gain \( K_p \) to determine the immediate correction.
-   - **Integral:** The sum of past errors is calculated and multiplied by the integral gain \( K_i \), contributing to the correction by addressing accumulated deviations.
-   - **Derivative:** The rate of change of the error is determined and multiplied by the derivative gain \( K_d \), providing a predictive adjustment to smooth out the response.
-     ```cpp
-     integral += error * (currentTime - previousTime);
-     derivative = (error - previousError) / (currentTime - previousTime);
-     ```
-
-4. **Control Signal Generation:**
-   - The control signal, which adjusts the servo motor's angle, is computed as the sum of the proportional, integral, and derivative components:
-     ```cpp
-     controlSignal = Kp * error + Ki * integral + Kd * derivative;
-     float t = controlSignal + 90;
-     t = constrain(t, 40, 140);
-     myServo.write(int(t));
-     ```
-
-5. **Practical Application:**
-   - As the vehicle moves, the PID controller continuously adjusts the steering to keep the vehicle on course. If the vehicle deviates, the controller calculates the necessary steering corrections to bring it back on track smoothly.
 
 **Conclusion:**
 
@@ -646,7 +655,6 @@ By integrating advanced sensor data and control algorithms, our vehicle is capab
 ## 4. Obstacle Avoidance Round Challenge
 
 **Obstacle Challenge Overview**
-**Challenge Overview**
 
 In this challenge, the autonomous vehicle must complete three laps on a track where green and red traffic signs are randomly placed. These signs instruct the vehicle on which side of the lane it should follow:
 
@@ -674,7 +682,7 @@ The vehicle is required not to move any of the traffic signs during the course. 
   - **Red Sign**: Reverse direction.
 
 - **Turn Execution**: 
-  - Turn at blue or orange lines.
+  - Turn when reaching the U-TURN.
 
 - **Lane Keeping**: 
   - Stay centered between the walls.
@@ -811,13 +819,13 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 ## 6.Power and Sense management 
 ### 6.1 power source
-### Power Source: Why We Chose a 12V LiPo Battery
+### Power Source: Why We Chose a 12V Lithium-ion Battery
 
 **Overview:**
 
-Lithium Polymer (LiPo) batteries are a top choice in robotics due to their high energy density, lightweight design, and ability to deliver high currents. These features make them ideal for applications requiring both power and mobility, such as our autonomous robot.
+Lithium ion batteries are a top choice in robotics due to their high energy density, lightweight design, and ability to deliver high currents. These features make them ideal for applications requiring both power and mobility, such as our autonomous robot.
 
-**Advantages of LiPo Batteries:**
+**Advantages of Lithium ion Batteries:**
 
 1- **High Energy Density:**
 
@@ -831,21 +839,17 @@ Lithium Polymer (LiPo) batteries are a top choice in robotics due to their high 
 
 - **Voltage Compatibility:**
   - The 12V output is ideal for many robotics components, such as motors and motor drivers, which are designed to operate efficiently at this voltage. This minimizes the need for complex voltage conversion, simplifying the power distribution system.
-
+g
 - **Power Sufficiency:**
   - A 12V battery provides ample power for the entire robot, ensuring that high-demand components like motors receive enough voltage while still allowing for efficient voltage regulation down to 5V or 3.3V for other electronics.
 
-**Key Characteristics of the 12V LiPo Battery:**
+**Key Characteristics of the 12V Lithium Battery:**
 
 - **Voltage:** 12V nominal, ideal for direct use with motors and for stepping down to lower voltages.
-- **Capacity:** Typically ranges from 1000mAh to 5000mAh, affecting how long the robot can operate before needing a recharge.
+ - **Capacity:** Typically 6600mAh, affecting how long the robot can operate before needing a recharge.
 - **Discharge Rate:** High C-ratings (e.g., 20C) ensure the battery can supply the necessary current for motors and other components during peak usage.
 - **Weight:** Lightweight design, typically around 150g for a 2200mAh battery, crucial for maintaining the robot’s agility.
 
-<div align="center">
-  <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/61C4uWN661L.jpg" width="400">
-  <p><i>Figure 15: The 12V LiPo Battery selected for our robot, providing the necessary voltage and current for all components while maintaining a lightweight and compact design.</i></p>
-</div>
 
 **Choosing the Perfect Power Supply for Your Robot:**
 
@@ -866,17 +870,17 @@ When selecting a power supply or battery for your robot, consider the following 
 - **Safety Features:**
   - Choose batteries with built-in protection against overcharging, overheating, and short-circuits to ensure the safety and longevity of your robot.
 
-The 12V LiPo battery was selected for our robot because it offers the best balance of power, efficiency, and weight. It provides the necessary voltage to power all components, from high-demand motors to sensitive electronics, ensuring the robot operates reliably and efficiently. By understanding the energy requirements and choosing a battery that meets these needs, we ensure that our robot remains powerful, agile, and safe.
+The 12V Lithium ion battery was selected for our robot because it offers the best balance of power, efficiency, and weight. It provides the necessary voltage to power all components, from high-demand motors to sensitive electronics, ensuring the robot operates reliably and efficiently. By understanding the energy requirements and choosing a battery that meets these needs, we ensure that our robot remains powerful, agile, and safe.
 
 **Power Distribution from the 12V LiPo Battery to Each Component**
 
 
 
-In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V LiPo battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
+In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V Lithium ion battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
 
-**1. Power Source: 12V LiPo Battery**
+**1. Power Source: 12V Lithium ion Battery**
 
-The 12V LiPo battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
+The 12V Lithium ion battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
 
 **2. Voltage Regulation and Distribution**
 
@@ -891,34 +895,31 @@ Given the diverse voltage requirements of the components in our robot, we use vo
 - **B. Step-Down Voltage for Low-Voltage Components**
 
   - **5V Regulated Supply for Microcontroller and Sensors:**
-    - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560, TCS3200 Color Sensor, HC-SR04 Ultrasonic Sensors, and the MPU-9250 IMU.
+    - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560,  HC-SR04 Ultrasonic Sensors, and the MPU-6050 IMU.
     - **Components Powered:**
       - **Arduino Mega 2560:** The Arduino Mega is the main microcontroller that controls all operations of the robot. It operates at 5V, hence the regulated 5V supply is essential.
       - **HC-SR04 Ultrasonic Sensors:** These sensors measure distance using ultrasonic waves and also operate at 5V.
-      - **MPU-9250:** This sensor module, which includes an accelerometer, gyroscope, and magnetometer, operates at 3.3V, so an additional step-down regulator might be used if needed.
+      - **MPU-6050:** This sensor module, which includes an accelerometer, gyroscope, and magnetometer, operates at 3.3V, so an additional step-down regulator might be used if needed.
     - **Reason:** These components require lower voltage for operation, and supplying them with 12V could damage them. The regulator ensures a stable 5V output.
-
-  - **3.3V Regulated Supply for Specialized Sensors:**
-    - In some cases, we may require a 3.3V supply, especially for sensors like the MPU-9250. This is achieved through an additional step-down regulator from the 5V output to 3.3V.
-    - **Reason:** Some sensors and modules operate at 3.3V to conserve power and match logic levels with other low-voltage components.
 
  **3. Power Flow Diagram**
 
 To visualize the power distribution, here’s a simplified flowchart showing how the 12V LiPo battery's power is divided:
 
 ```plaintext
-[12V LiPo Battery]
+[12V Lithium ion Battery]
        |
        |---> [L298N Motor Driver] ---> Motors (12V)
        |
        |---> [12V to 5V Voltage Regulator] 
                    |---> [Arduino Mega 2560] (5V)
                    |---> [HC-SR04 Ultrasonic Sensors] (5V)
-                   |---> [MPU-9250] (3.3V via additional step-down)
+                   |---> [MPU-6050] (5V)
                    |---> [Pixy2 Camera] (5V)
 ```
 
-**For a more detailed LiPo safety manual there is one on [Tenergy Power](https://power.tenergy.com/lipo-safety-warnings/)**
+**For a more detailed Lithium ion safety manual, you can refer to the following resources:**
+- [MIT Lithium Battery Safety Guidance](https://ehs.mit.edu/wp-content/uploads/2019/09/Lithium_Battery_Safety_Guidance.pdf)
 
 
 ### 6.2 Bill of materials (BOM)
@@ -929,9 +930,9 @@ To visualize the power distribution, here’s a simplified flowchart showing how
 | **L298N Motor Driver**         | 1            | Controls the direction and speed of the DC motors using PWM signals.                                    |
 | **MG995 Servo Motor**          | 1            | Provides precise angular position control for steering mechanisms.                                      |
 | **HC-SR04 Ultrasonic Sensors** | 3            | Measures distance to obstacles; placed at the front, left, and right sides of the robot for obstacle detection. |
-| **12V LiPo Rechargeable Battery** | 1         | Provides the primary power source for all components.                                                   |
+| **12V Lithium Rechargeable Battery** | 1         | Provides the primary power source for all components.                                                   |
 | **Pixy2 Camera**               | 1            | Detects and tracks pillars (red and green) and helps in navigation by identifying road signs.           |
-| **MPU-9250 IMU**               | 1            | Measures orientation and stabilizes the car’s steering for smooth and efficient turns.                  |
+| **MPU-6050 IMU**               | 1            | Measures orientation and stabilizes the car’s steering for smooth and efficient turns.                  |
 | **HW083 Voltage Regulator**    | 1            | Steps down the 12V input to 5V and 3.3V to power various sensors and the microcontroller.               |
 | **Jumper Cables**              | -            | Used to connect various components together on the breadboard.                                          |
 | **Wheels**                     | 4            | Allows the car to move; driven by the DC motors.                                                        |
@@ -973,7 +974,7 @@ We sourced our electronic components from the following suppliers, all based in 
   - **Result:** Despite these efforts, the sensor continued to underperform in distinguishing orange from similar hues. This led us to explore alternative sensors.
   - **Reference:** [TCS3200 Datasheet](https://www.mouser.com/catalog/specsheets/tcs3200-e11.pdf)
 
-#### MPU-9250 IMU
+#### MPU-6050 IMU
 
 - **Challenge: Gyroscope Drift and Accuracy**
   - **Problem:** The MPU-9250, which combines a gyroscope, accelerometer, and magnetometer, exhibited significant drift over time, leading to inaccuracies in the robot's orientation and steering control. This drift made it difficult to maintain stable and precise movements, especially during prolonged operations.
@@ -990,7 +991,7 @@ We sourced our electronic components from the following suppliers, all based in 
     previousError = error;
     ```
   - **Result:** The adjustments led to a significant improvement in the robot's navigation stability, although some minor drift remained. This experience underscored the importance of sensor fusion techniques in robotics.
-  - **Reference:** [MPU-9250 Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf)
+  - **Reference:** [MPU-6050 Datasheet and specification ](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf)
 
 #### First-Time Experience with Arduino and Sensors
 
@@ -1036,7 +1037,7 @@ Below are the datasheets for each of the key components used in the project:
 | **MG995 Servo Motor**         | [View Datasheet](https://www.alldatasheet.com/html-pdf/1132435/ETC2/MG995/109/1/MG995.html) |
 | **HC-SR04 Ultrasonic Sensor** | [View Datasheet](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)   |
 | **pixy2 camera**      | [View Datasheet](https://media.digikey.com/pdf/Data%20Sheets/Seeed%20Technology/102991074_Web.pdf) |
-| **MPU-9250 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/PS-MPU-9250A-01-v1.1.pdf) |
+| **MPU-6050 IMU**              | [View Datasheet](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf) |
 
 ### 9.2. References
 Below are the references used throughout the project documentation:
@@ -1062,5 +1063,8 @@ Over the past three months, we've worked closely together as a team, under the d
 
 This experience has been a remarkable one for each of our three team members. We ventured into new areas of technology, learning not just the technical aspects but also the importance of time management, teamwork, and the collective spirit needed to succeed.
 
+We would also like to extend our heartfelt thanks to the organizers of this competition. Their efforts in creating such a challenging and inspiring event have provided us with an opportunity to grow, learn, and apply our skills in a real-world context.
+
 This competition has been an unforgettable journey, teaching us lessons that extend far beyond the challenges we faced. We look forward to carrying these lessons forward in our future endeavors.
+
 
