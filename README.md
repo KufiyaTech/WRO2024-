@@ -815,69 +815,61 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 
 ## 6.Power and Sense management 
-### 6.1 power source
-### Power Source: Why We Chose a 12V Lithium-ion Battery
+## 6. Power and Sense Management
+
+### 6.1 Power Source
+
+#### Power Source: Why We Chose a 12V Lithium-ion Battery
 
 **Overview:**
 
-Lithium ion batteries are a top choice in robotics due to their high energy density, lightweight design, and ability to deliver high currents. These features make them ideal for applications requiring both power and mobility, such as our autonomous robot.
+Lithium-ion batteries are a top choice in robotics due to their high energy density, lightweight design, and ability to deliver high currents. These features make them ideal for applications requiring both power and mobility, such as our autonomous robot.
 
-**Advantages of Lithium ion Batteries:**
+**Advantages of Lithium-ion Batteries:**
 
-1- **High Energy Density:**
-
-2- **High Discharge Rate:**
-
-3- **Lightweight and Compact:**
-
-4- **Stable Voltage Output:**
+1. **High Energy Density:** Lithium-ion batteries provide a high amount of energy in a small, lightweight package, which is critical for keeping the robot agile while providing enough power for all components.
+2. **High Discharge Rate:** They can supply the high current needed to drive motors and other power-hungry components effectively.
+3. **Lightweight and Compact:** Their design allows for easy integration into the robot without adding unnecessary bulk.
+4. **Stable Voltage Output:** Ensures consistent performance of the robot's components, which is crucial for maintaining reliable operation.
 
 **Why a 12V Battery?**
 
 - **Voltage Compatibility:**
   - The 12V output is ideal for many robotics components, such as motors and motor drivers, which are designed to operate efficiently at this voltage. This minimizes the need for complex voltage conversion, simplifying the power distribution system.
-g
+  
 - **Power Sufficiency:**
   - A 12V battery provides ample power for the entire robot, ensuring that high-demand components like motors receive enough voltage while still allowing for efficient voltage regulation down to 5V or 3.3V for other electronics.
 
-**Key Characteristics of the 12V Lithium Battery:**
+**Key Characteristics of the 12V Lithium-ion Battery:**
 
 - **Voltage:** 12V nominal, ideal for direct use with motors and for stepping down to lower voltages.
- - **Capacity:** Typically 6600mAh, affecting how long the robot can operate before needing a recharge.
+- **Capacity:** Typically 6600mAh, affecting how long the robot can operate before needing a recharge.
 - **Discharge Rate:** High C-ratings (e.g., 20C) ensure the battery can supply the necessary current for motors and other components during peak usage.
 - **Weight:** Lightweight design, typically around 150g for a 2200mAh battery, crucial for maintaining the robot’s agility.
-
 
 **Choosing the Perfect Power Supply for Your Robot:**
 
 When selecting a power supply or battery for your robot, consider the following factors:
 
-- **Energy Requirements:**
-  - Assess the total power needs of your robot, including motors, sensors, and control units. Choose a battery that can provide sufficient voltage and current for all components.
+- **Energy Requirements:** Assess the total power needs of your robot, including motors, sensors, and control units. Choose a battery that can provide sufficient voltage and current for all components.
   
-- **Battery Type:**
-  - LiPo batteries are often the best choice for robotics due to their high energy density and discharge rates. However, also consider other options like Li-ion or NiMH based on your specific requirements.
+- **Battery Type:** Lithium-ion batteries are often the best choice for robotics due to their high energy density and discharge rates. However, also consider other options like NiMH based on your specific requirements.
 
-- **Voltage and Capacity:**
-  - Ensure the battery’s voltage matches the requirements of your highest voltage components, and its capacity (mAh) is sufficient to provide long operating times without frequent recharges.
+- **Voltage and Capacity:** Ensure the battery’s voltage matches the requirements of your highest voltage components, and its capacity (mAh) is sufficient to provide long operating times without frequent recharges.
 
-- **Weight and Size:**
-  - The battery should be lightweight and compact to fit within your robot’s design without adding excessive weight that could affect performance.
+- **Weight and Size:** The battery should be lightweight and compact to fit within your robot’s design without adding excessive weight that could affect performance.
 
-- **Safety Features:**
-  - Choose batteries with built-in protection against overcharging, overheating, and short-circuits to ensure the safety and longevity of your robot.
+- **Safety Features:** Choose batteries with built-in protection against overcharging, overheating, and short circuits to ensure the safety and longevity of your robot.
 
-The 12V Lithium ion battery was selected for our robot because it offers the best balance of power, efficiency, and weight. It provides the necessary voltage to power all components, from high-demand motors to sensitive electronics, ensuring the robot operates reliably and efficiently. By understanding the energy requirements and choosing a battery that meets these needs, we ensure that our robot remains powerful, agile, and safe.
+The 12V Lithium-ion battery was selected for our robot because it offers the best balance of power, efficiency, and weight. It provides the necessary voltage to power all components, from high-demand motors to sensitive electronics, ensuring the robot operates reliably and efficiently. By understanding the energy requirements and choosing a battery that meets these needs, we ensure that our robot remains powerful, agile, and safe.
 
-**Power Distribution from the 12V LiPo Battery to Each Component**
+### Power Distribution from the 12V Lithium-ion Battery to Each Component
 
+In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V Lithium-ion battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
 
+**1. Power Source: 12V Lithium-ion Battery**
 
-In our autonomous robot, the power distribution system is crucial to ensure that each component receives the correct voltage for optimal operation. The 12V Lithium ion battery serves as the primary power source, and through a carefully designed distribution system, we step down and regulate the voltage to match the requirements of different sensors, controllers, and motors. Below, we provide a detailed explanation of how the 12V power is distributed to each component, accompanied by diagrams to visualize the power flow.
-
-**1. Power Source: 12V Lithium ion Battery**
-
-The 12V Lithium ion battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
+The 12V Lithium-ion battery provides a stable and sufficient voltage supply for the entire system. It’s selected for its high energy density, stable output, and ability to handle high discharge rates, which are essential for driving motors and powering sensors and controllers.
 
 **2. Voltage Regulation and Distribution**
 
@@ -892,19 +884,19 @@ Given the diverse voltage requirements of the components in our robot, we use vo
 - **B. Step-Down Voltage for Low-Voltage Components**
 
   - **5V Regulated Supply for Microcontroller and Sensors:**
-    - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560,  HC-SR04 Ultrasonic Sensors, and the MPU-6050 IMU.
+    - **Voltage Regulator:** A 12V to 5V voltage regulator is used to step down the voltage for components that require a 5V input, such as the Arduino Mega 2560, HC-SR04 Ultrasonic Sensors, and the MPU-6050 IMU.
     - **Components Powered:**
       - **Arduino Mega 2560:** The Arduino Mega is the main microcontroller that controls all operations of the robot. It operates at 5V, hence the regulated 5V supply is essential.
       - **HC-SR04 Ultrasonic Sensors:** These sensors measure distance using ultrasonic waves and also operate at 5V.
       - **MPU-6050:** This sensor module, which includes an accelerometer, gyroscope, and magnetometer, operates at 3.3V, so an additional step-down regulator might be used if needed.
     - **Reason:** These components require lower voltage for operation, and supplying them with 12V could damage them. The regulator ensures a stable 5V output.
 
- **3. Power Flow Diagram**
+**3. Power Flow Diagram**
 
-To visualize the power distribution, here’s a simplified flowchart showing how the 12V LiPo battery's power is divided:
+To visualize the power distribution, here’s a simplified flowchart showing how the 12V Lithium-ion battery's power is divided:
 
 ```plaintext
-[12V Lithium ion Battery]
+[12V Lithium-ion Battery]
        |
        |---> [L298N Motor Driver] ---> Motors (12V)
        |
@@ -914,7 +906,6 @@ To visualize the power distribution, here’s a simplified flowchart showing how
                    |---> [MPU-6050] (5V)
                    |---> [Pixy2 Camera] (5V)
 ```
-
 **For a more detailed Lithium ion safety manual, you can refer to the following resources:**
 - [MIT Lithium Battery Safety Guidance](https://ehs.mit.edu/wp-content/uploads/2019/09/Lithium_Battery_Safety_Guidance.pdf)
 
