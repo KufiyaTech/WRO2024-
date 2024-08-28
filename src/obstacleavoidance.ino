@@ -31,9 +31,9 @@ unsigned long lastTime = 0;
 int targetYawAngle = 0;
 
 // PID parameters
-float Kp = 1;
-float Ki = 0;
-float Kd = 0;
+float Kp = 1.5;
+float Ki = 0.01;
+float Kd = 0.5;
 // PID variables
 float error;
 float previousError = 0;
