@@ -310,7 +310,7 @@ Understanding the axes is essential for interpreting the data provided by the IM
 <p align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/images%20(5).jpg" width="500"/>
 </p>
-<p align="center"><em>*Figure 1: The X, Y, and Z axes relative to the vehicle.
+<p align="center"><em>*Figure 2: The X, Y, and Z axes relative to the vehicle.
 
 
 **Calculating the Yaw Angle:**
@@ -361,7 +361,7 @@ Where:
 - 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/images%20(6).jpg" width="500"/>
-  <p><em>Figure 2: PID Control System for Steering.</em></p>
+  <p><em>Figure 3: PID Control System for Steering.</em></p>
 </div>
 
 ### Code Implementation:
@@ -485,7 +485,7 @@ The PID controller operates by combining three distinct control actions:
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq3.PNG" width="500"/>
-  <p><em>Figure 1: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
+  <p><em>Figure 4: The Proportional Term equation, where \( e(t) \) is the current error and \( K_p \) is the proportional gain.</em></p>
 </div>
 
 
@@ -502,7 +502,7 @@ The PID controller operates by combining three distinct control actions:
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq5.PNG" width="500"/>
-  <p><em>Figure 3: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
+  <p><em>Figure 5: The Derivative Term equation, which considers the rate of change of the error, multiplied by the derivative gain \( K_d \).</em></p>
 </div>
 
 
@@ -510,7 +510,7 @@ The PID controller operates by combining three distinct control actions:
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/eq6.PNG" width="500"/>
-  <p><em>Figure 4: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
+  <p><em>Figure 6: The Combined PID Control equation that sums all three components to generate the control output.</em></p>
 </div>
 
 
@@ -708,11 +708,11 @@ We configured the Pixy2 camera using the PixyMon application to detect green and
     <tr>
       <td align="center" style="padding: 10px;">
         <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/8174073a-ee04-48a0-a803-4f82b65d560e.jpg" alt="Pixy2 Detecting Green Object" width="300"/><br>
-        <figcaption><strong>Figure 1:</strong> Pixy2 camera detecting a green object.</figcaption>
+        <figcaption><strong>Figure 7:</strong> Pixy2 camera detecting a green object.</figcaption>
       </td>
       <td align="center" style="padding: 10px;">
         <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/dd6ad778-45e9-477c-bb5a-bb63574152d9.jpg" alt="Pixy2 Detecting Red Object" width="300"/><br>
-        <figcaption><strong>Figure 2:</strong> Pixy2 camera detecting a red object.</figcaption>
+        <figcaption><strong>Figure 8:</strong> Pixy2 camera detecting a red object.</figcaption>
       </td>
     </tr>
   </table>
@@ -745,7 +745,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
  <p align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.10.31%20AM.jpeg" alt="First Steering System Design" width="300"/>
 </p>
-<p align="center"><em>Figure 1: First Steering System Design</em></p>
+<p align="center"><em>Figure 9: First Steering System Design</em></p>
 
 - *Second Design:*
   - This design proved to be a better choice initially, but it was based on ready-to-print files sourced from the internet. This presented a dilemma: adhere to the predefined dimensions that we couldn't alter, or undertake the challenge of designing it entirely from scratch.
@@ -770,7 +770,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
   - Our initial design phase was the most time-consuming. Being our first attempt, we struggled with defining the shape of our robot and determining how it would accommodate all intended components, including five ultrasonic sensors. This constrained our design options significantly. Our primary objective was to create a chassis capable of housing all components, prioritizing functionality over minimizing size. We positioned the camera at the rear without adhering to standard engineering principles. Initially, we planned to use a 3D printer for manufacturing.
   -<p align="center"><img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.27.01%20AM.jpeg" alt="First Chassis Design" width="300"/></p>
 
-  - Figure 3: First Chassis Design
+  - **Figure 11**: First Chassis Design
 
 - *Second Design:*
   - This was the first design we brought to life by printing it using a 3D printer. This design incorporated our chosen mechanism, but upon completion, we discovered it was too compact to meet our established standards.
@@ -778,7 +778,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.30.45%20AM%20(1).jpeg" alt="Second Chassis Design" width="300"/>
 </p>
 
-- **Figure 4:** Second Chassis Design
+- **Figure 12:** Second Chassis Design
 
 *Third Design:*
   - Before proceeding with the computer-aided design, we sketched our third design on paper. We then crafted a prototype using compressed cork to evaluate its dimensions. Our aim was to slightly increase its size while accommodating our chosen mechanisms. However, due to limitations with our printer, we were compelled to design two separate bases (chassis) and join them together. During testing, we discovered a potential vulnerability: the structure could potentially break apart under specific weight conditions.
@@ -788,7 +788,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/WhatsApp%20Image%202024-08-28%20at%201.39.15%20AM.jpeg" alt="Third Chassis Design - Side View" width="300"/>
 </p>
 
-<p align="center"><strong>Figure 5:</strong> Third Chassis Design - Front and Side Views</p>
+<p align="center"><strong>Figure 13:</strong> Third Chassis Design - Front and Side Views</p>
 
 - *Fourth Design:*
   - We decided to shift from using a 3D printer to a CNC machine for bringing our designs to reality. This allowed us to create a single, connected chassis capable of supporting more weight. Our design continued to evolve due to changes in our mechanism and component choices. A significant change was opting for smaller LEGO wheels to improve steering, which took some time to perfect. Another challenge we faced was managing space constraints relative to the size of our mechanisms. However, with the guidance and support of our coach, we were able to find better solutions and overcome these obstacles. After deciding to use a CNC machine, we encountered several challenges in selecting the ideal material to meet our needs. Initially, we chose acrylic, but it proved too brittle and broke easily. We then selected wood, which met our goals and requirements perfectly.
@@ -806,7 +806,7 @@ Building an RC car for the WRO Future Engineers competition from scratch has bee
 
 - We used the Ackermann steering geometry, a configuration designed to ensure that the wheels of a vehicle trace out circles with different radii during a turn, preventing tire slippage. This geometry helps align the front wheels towards the turning center, providing improved handling and stability, especially at low speeds. It contrasts with other mechanisms like the Davis steering gear, offering simpler construction and fewer components susceptible to wear. Ackermann steering is commonly used in standard vehicles for its advantages in maneuverability and reduced tire wear.
  - <p align="center"><img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/Figure-1.jpg" alt="Ackermann Steering Mechanism" width="300"/></p>
-  - Figure 7: Ackermann Steering Mechanism
+  - Figure 14: Ackermann Steering Mechanism
 
 
 ## 6.Power and Sense management 
@@ -844,7 +844,7 @@ Lithium Polymer (LiPo) batteries are a top choice in robotics due to their high 
 
 <div align="center">
   <img src="https://github.com/KufiyaTech/WRO2024-/blob/main/new-folder/61C4uWN661L.jpg" width="400">
-  <p><i>Figure 1: The 12V LiPo Battery selected for our robot, providing the necessary voltage and current for all components while maintaining a lightweight and compact design.</i></p>
+  <p><i>Figure 15: The 12V LiPo Battery selected for our robot, providing the necessary voltage and current for all components while maintaining a lightweight and compact design.</i></p>
 </div>
 
 **Choosing the Perfect Power Supply for Your Robot:**
